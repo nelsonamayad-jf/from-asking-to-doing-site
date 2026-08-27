@@ -1,52 +1,36 @@
-# Dedicated site repo setup
+# GitHub Pages Setup
 
-This workshop uses a two-repository publishing model:
+This repository is both the website source repo and the GitHub Pages deploy
+repo for the public workshop site.
 
-- `Jacobs-Foundation/From-asking-to-doing` is the source repo
-- `Jacobs-Foundation/from-asking-to-doing-site` is the public website repo
-
-The source repo renders the site from `website/`. GitHub Actions then copies only `website/_website/`
-into the site repo.
+The validated runnable sessions live separately in
+`Jacobs-Foundation/From-asking-to-doing`.
 
 ## Why this model
 
-- The workshop repo keeps the replicable session folders.
-- The site repo carries only rendered HTML, CSS, JS, images, and curated downloads.
-- Public website hosting no longer forces the source repo itself to become the website repo.
+- The session repo stays easy to browse and replicate in Claude or Codex.
+- The website repo contains only public website source and downloadable bundles.
+- GitHub Pages deployment no longer depends on cross-repo sync or personal tokens.
 
 ## One-time GitHub setup
 
-1. Create the repository `Jacobs-Foundation/from-asking-to-doing-site`.
-2. Add a minimal `README.md` so the repo has a `main` branch from the start.
-3. In that repo, go to `Settings -> Pages`.
-4. Under `Build and deployment`, choose `Deploy from a branch`.
-5. Set branch to `main` and folder to `/(root)`.
-6. In the source repo `Jacobs-Foundation/From-asking-to-doing`, add these Actions settings:
-   - Variable: `SITE_REPO_ENABLED` = `true`
-   - Variable: `SITE_REPO` = `Jacobs-Foundation/from-asking-to-doing-site`
-   - Secret: `SITE_REPO_TOKEN` = token with write access to the site repo
-7. Push to `main` in the source repo or run the `Publish website` workflow manually.
+1. Create or open `Jacobs-Foundation/from-asking-to-doing-site`.
+2. Push this repository so `main` exists.
+3. In `Settings -> Pages`, set `Source` to `GitHub Actions`.
+4. Ensure GitHub Actions is enabled for the repository.
+5. Push to `main` or run the `Deploy site` workflow manually.
 
-## Token guidance
+## What the workflow does
 
-Use a token that can push commits into `Jacobs-Foundation/from-asking-to-doing-site`.
+`.github/workflows/deploy.yml`:
 
-Practical minimum:
+- checks out this repo
+- installs Quarto 1.10.8
+- renders the site into `_website/`
+- uploads the rendered artifact
+- deploys it to GitHub Pages
 
-- Fine-grained personal access token
-- Repository access limited to `from-asking-to-doing-site`
-- Repository permission: `Contents` set to `Read and write`
-
-## What the workflow syncs
-
-The publish workflow force-syncs the site repo to match the rendered `website/_website/`
-folder from the source repo.
-
-That means:
-
-- keep the site repo dedicated to published output
-- do not hand-edit HTML in the site repo
-- make content changes in the source repo, then republish
+No PAT or cross-repo secret is required.
 
 ## Current URL assumption
 
@@ -54,7 +38,4 @@ The Quarto project is configured for:
 
 `https://jacobs-foundation.github.io/from-asking-to-doing-site/`
 
-If you choose a different site repo name, update:
-
-- `website/_quarto.yml` `website.site-url`
-- `SITE_REPO` in the source repo variables
+If the repository name changes, update `_quarto.yml` `website.site-url`.

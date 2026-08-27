@@ -1,28 +1,33 @@
-# Website
+# From Asking to Doing Website
 
-This folder is the Quarto project for the published workshop site.
+This repository contains the Quarto source for the public workshop website.
 
-It is not the runnable workshop package. The runnable sessions live at the repo
-root in:
-
-- `../01_slidemaker/`
-- `../02_summarizer/`
-- `../03_multitudes/`
+It is separate from the validated session source repo
+`Jacobs-Foundation/From-asking-to-doing`.
 
 ## What Lives Here
 
-- public pages such as `index.qmd`, `about.qmd`, and `intro.qmd`
-- the published session decks and wrappers under `01_slidemaker/`, `02_summarizer/`, and `03_multitudes/`
+- public pages such as `index.qmd`, `about.qmd`, `intro.qmd`, and `tips.qmd`
+- published session decks and wrapper pages under `01_slidemaker/`, `02_summarizer/`, and `03_multitudes/`
 - styles, images, and Quarto extensions
-- curated downloadable session zip files under `downloads/`
-- publish setup notes under `docs/`
+- curated downloadable session bundles under `downloads/`
+- GitHub Pages setup notes under `docs/`
 
 ## Build Locally
 
 ```bash
-cd website
 quarto preview
 quarto render
 ```
 
-Render output goes to `website/_website/` and should never be committed.
+Render output goes to `_website/` and should never be committed.
+
+## Deployment
+
+This repo deploys itself to GitHub Pages from `.github/workflows/deploy.yml`.
+
+One-time GitHub setup:
+
+1. Push this repository to GitHub.
+2. In `Settings -> Pages`, set `Source` to `GitHub Actions`.
+3. Push to `main` to trigger the first deployment.

@@ -1,6 +1,6 @@
 # CLAUDE.md — Website
 
-This folder contains the Quarto source for the published workshop website.
+This repository contains the Quarto source for the published workshop website.
 
 Focus here on website concerns only:
 
@@ -10,5 +10,5 @@ Focus here on website concerns only:
 - curated downloadable zip files
 - GitHub Pages publishing setup
 
-Do not treat this folder as the runnable workshop package. The runnable sessions
-live in the repo root session folders.
+Do not treat this repo as the runnable workshop package. The validated session
+source lives in the separate repository `Jacobs-Foundation/From-asking-to-doing`.
