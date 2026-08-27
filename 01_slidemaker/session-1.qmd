@@ -1,0 +1,15 @@
+---
+title: "Session 1 · Slidemaking"
+subtitle: "Claude Code Basics — Your reusable slidemaker"
+css: ../embed.css
+---
+
+::: {.deck-embed}
+<iframe src="session-1-slidemaker.html" title="Session 1 · Slidemaking" allow="fullscreen" allowfullscreen></iframe>
+:::
+
+::: {.deck-embed-actions}
+[Open in fullscreen ↗](session-1-slidemaker.html){target="_blank" rel="noopener"}
+
+<a class="btn btn-primary deck-download" href="../downloads/session-1-introduction.zip" download="session-1-introduction.zip"><i class="bi bi-download"></i> Download replication materials</a>
+:::

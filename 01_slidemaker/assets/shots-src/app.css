@@ -1,0 +1,207 @@
+/* app.css — shared styling for Claude Code *app* (GUI) screenshot mockups.
+   Rendered to PNG via headless Chrome, then embedded in the session deck.
+   Light "Claude" theme: warm cream surfaces, coral accent. */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 1000px;
+  height: 640px;
+  background: #e9e6dd;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  color: #23211d;
+}
+
+.app {
+  position: absolute;
+  inset: 20px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 20px 55px rgba(0,0,0,0.30);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* title bar — Windows-style: app icon + title on the left, min/max/close on the right */
+.titlebar {
+  height: 40px;
+  background: #f0eee7;
+  border-bottom: 1px solid #e2ded3;
+  display: flex;
+  align-items: stretch;
+  padding: 0 0 0 12px;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+.titlebar .appicon {
+  align-self: center;
+  width: 16px; height: 16px; border-radius: 3px; background: #d97757; color: #fff;
+  display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700;
+}
+.titlebar .ttl { align-self: center; margin-left: 2px; font-size: 13px; font-weight: 600; color: #6b6860; }
+.titlebar .proj {
+  align-self: center;
+  margin-left: auto; font-size: 12px; color: #8a8780;
+  background: #e5e2d8; border-radius: 6px; padding: 3px 10px; margin-right: 10px;
+}
+.wincontrols { display: flex; align-items: stretch; flex: 0 0 auto; }
+.winbtn {
+  width: 44px; display: flex; align-items: center; justify-content: center;
+  font-family: 'Segoe UI', Arial, sans-serif; font-size: 10px; color: #57544b;
+}
+.winbtn.close { font-size: 12px; }
+
+.shell { flex: 1 1 auto; display: flex; min-height: 0; }
+
+/* sidebar */
+.sidebar {
+  width: 218px; flex: 0 0 auto;
+  background: #f6f4ee;
+  border-right: 1px solid #e7e3d8;
+  padding: 14px 12px;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.sidebar .brand {
+  display: flex; align-items: center; gap: 8px;
+  font-weight: 700; font-size: 14px; color: #2b2924; margin-bottom: 12px;
+}
+.logo {
+  width: 22px; height: 22px; border-radius: 6px; background: #d97757;
+  color: #fff; display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 700;
+}
+.newchat {
+  display: flex; align-items: center; gap: 8px;
+  background: #ffffff; border: 1px solid #e2ddd0; border-radius: 9px;
+  padding: 8px 11px; font-size: 13px; color: #3a382f; font-weight: 500; margin-bottom: 14px;
+}
+.newchat .plus { color: #d97757; font-weight: 700; }
+.side-label {
+  font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.08em;
+  color: #a39f93; font-weight: 700; padding: 4px 6px; margin-top: 4px;
+}
+.side-item {
+  font-size: 12.5px; color: #54514a; padding: 7px 9px; border-radius: 8px;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.side-item.active { background: #ece8dc; color: #23211d; font-weight: 600; }
+
+/* main chat column */
+.chat { flex: 1 1 auto; display: flex; flex-direction: column; min-width: 0; background: #ffffff; }
+.thread { flex: 1 1 auto; padding: 22px 30px 8px; overflow: hidden; }
+
+/* messages */
+.msg { display: flex; gap: 12px; margin-bottom: 18px; }
+.av {
+  width: 28px; height: 28px; border-radius: 50%; flex: 0 0 auto;
+  display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700;
+}
+.av.claude { background: #d97757; color: #fff; }
+.av.user   { background: #d9d5c8; color: #57544b; font-size: 12px; }
+.who { font-size: 12px; font-weight: 700; color: #8a8780; margin-bottom: 3px; }
+.txt { font-size: 15px; line-height: 1.55; color: #23211d; }
+.txt .hl { color: #c2410c; font-weight: 600; }
+.txt code, .mono { font-family: 'JetBrains Mono', monospace; font-size: 13.5px; }
+.txt .pill {
+  font-family: 'JetBrains Mono', monospace; font-size: 13px;
+  background: #f3efe4; border: 1px solid #e7e1d2; border-radius: 5px; padding: 1px 6px; color: #b4541f;
+}
+.body-col { min-width: 0; flex: 1 1 auto; }
+
+/* tool-use cards */
+.tool {
+  border: 1px solid #e7e3d8; border-radius: 10px; background: #faf8f3;
+  margin: 8px 0; overflow: hidden;
+}
+.tool .head {
+  display: flex; align-items: center; gap: 9px; padding: 8px 12px;
+  font-size: 13px; color: #43413a;
+}
+.tool .ic { color: #d97757; font-size: 13px; }
+.tool .nm { font-weight: 600; }
+.tool .arg { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #7a776e; }
+.tool .chev { margin-left: auto; color: #b3afa2; font-size: 12px; }
+.tool .res {
+  border-top: 1px solid #ece8dc; padding: 8px 12px; font-size: 12.5px; color: #6f6c63;
+  font-family: 'JetBrains Mono', monospace; line-height: 1.55; background: #fff;
+}
+.tool .res .ok { color: #2f8a4e; }
+.tool .res .warn { color: #c2410c; }
+
+/* agent / task card */
+.agent {
+  border: 1px solid #e2c4b4; border-radius: 11px; background: #fdf4ef; margin: 8px 0; overflow: hidden;
+}
+.agent .ah {
+  display: flex; align-items: center; gap: 9px; padding: 9px 13px;
+  font-size: 13px; font-weight: 600; color: #b4541f; background: #fbeadf;
+}
+.agent .ah .dotpulse { width: 9px; height: 9px; border-radius: 50%; background: #2f8a4e; }
+.agent .steps { padding: 8px 13px; font-size: 12.5px; color: #6f6c63; font-family: 'JetBrains Mono', monospace; line-height: 1.7; }
+.agent .steps .s { display: flex; gap: 8px; }
+.agent .steps .s .k { color: #b3afa2; }
+.agent .foot { padding: 7px 13px; border-top: 1px solid #f0dccd; font-size: 12px; color: #57544b; }
+.agent .foot .ok { color: #2f8a4e; font-weight: 600; }
+
+/* slash-command palette */
+.palette {
+  border: 1px solid #e2ddd0; border-radius: 11px; background: #fff;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12); overflow: hidden; margin-bottom: 10px;
+}
+.palette .ph { font-size: 11px; color: #a39f93; padding: 8px 13px 4px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+.palette .row { display: flex; gap: 12px; padding: 9px 13px; align-items: baseline; }
+.palette .row.sel { background: #fbeadf; }
+.palette .cmd { font-family: 'JetBrains Mono', monospace; font-size: 13.5px; color: #b4541f; font-weight: 600; min-width: 200px; }
+.palette .desc { font-size: 12.5px; color: #7a776e; }
+
+/* permission card */
+.perm {
+  border: 1.5px solid #d97757; border-radius: 12px; background: #fff7f2; margin: 8px 0; overflow: hidden;
+}
+.perm .ph { display:flex; align-items:center; gap:9px; padding: 11px 14px 6px; font-weight: 700; font-size: 13.5px; color: #b4541f; }
+.perm .cmd { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #23211d; background: #f4efe6; border:1px solid #ece4d6; border-radius: 7px; padding: 8px 12px; margin: 0 14px 10px; }
+.perm .btns { display: flex; gap: 9px; padding: 0 14px 13px; }
+.perm .btn { font-size: 12.5px; font-weight: 600; border-radius: 8px; padding: 7px 14px; border: 1px solid #e2ddd0; color: #43413a; background: #fff; }
+.perm .btn.primary { background: #d97757; color: #fff; border-color: #d97757; }
+.perm .note { padding: 0 14px 12px; font-size: 11.5px; color: #9a968b; }
+
+/* hook event chip */
+.hookchip {
+  display: flex; align-items: center; gap: 9px; margin: 8px 0;
+  background: #fff8e8; border: 1px solid #f0e0b0; border-radius: 9px; padding: 9px 13px;
+  font-size: 12.5px; color: #8a6d12;
+}
+.hookchip .ic { font-size: 13px; }
+.hookchip .auto { margin-left: auto; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; background: #f3e2ad; color: #7a5e0f; border-radius: 999px; padding: 2px 9px; }
+
+/* settings mini-panel (for hook config) */
+.settings { border: 1px solid #e7e3d8; border-radius: 10px; overflow: hidden; margin: 8px 0; }
+.settings .sh { background: #f3efe4; padding: 7px 13px; font-size: 12px; font-weight: 600; color: #57544b; border-bottom: 1px solid #e7e3d8; }
+.settings .sb { padding: 10px 13px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #43413a; line-height: 1.6; }
+.settings .k { color: #2563a6; } .settings .v { color: #2f8a4e; } .settings .cmt { color: #a39f93; }
+
+/* context card (CLAUDE.md) */
+.context { border: 1px solid #e7e3d8; border-radius: 10px; background: #f8f6f0; margin: 0 0 16px; overflow: hidden; }
+.context .ch { display:flex; align-items:center; gap:8px; padding: 8px 13px; font-size: 12.5px; color: #57544b; border-bottom: 1px solid #ece8dc; }
+.context .ch .ic { color: #d97757; }
+.context .ch .badge { margin-left:auto; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:#2f8a4e; }
+.context .cb { padding: 9px 13px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #54514a; line-height: 1.65; }
+.context .cb .h { color: #b4541f; font-weight: 600; }
+.context .cb .v { color: #2563a6; }
+
+/* composer */
+.composer { padding: 12px 26px 18px; flex: 0 0 auto; }
+.inputbox {
+  border: 1px solid #ddd8ca; border-radius: 13px; background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04); padding: 12px 14px;
+}
+.inputbox .field { font-size: 14px; color: #23211d; min-height: 20px; }
+.inputbox .field.placeholder { color: #a39f93; }
+.inputbox .field .mono { font-family: 'JetBrains Mono', monospace; font-size: 13.5px; }
+.inputbox .field .cur { display:inline-block; width:2px; height:16px; background:#d97757; vertical-align:-3px; margin-left:1px; }
+.inputbox .controls { display: flex; align-items: center; gap: 10px; margin-top: 11px; }
+.inputbox .chip { font-size: 11.5px; color: #7a776e; background: #f3efe4; border-radius: 7px; padding: 4px 9px; }
+.inputbox .send { margin-left: auto; width: 30px; height: 30px; border-radius: 8px; background: #d97757; color: #fff; display:flex; align-items:center; justify-content:center; font-size: 15px; }

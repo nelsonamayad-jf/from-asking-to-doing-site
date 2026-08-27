@@ -1,0 +1,11 @@
+---
+title: "Agent collection"
+subtitle: "A catalog of reusable Claude Code agents"
+---
+
+::: {.callout-note}
+## Coming soon
+
+Colleagues who never get tired and never take offense at feedback. This page
+will collect the specialized agents as the sessions produce them.
+:::

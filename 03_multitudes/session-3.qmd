@@ -1,0 +1,15 @@
+---
+title: "Session 3 · Extended Team"
+subtitle: "Organizational Strategy Review"
+css: ../embed.css
+---
+
+::: {.deck-embed}
+<iframe src="session-3-team.html" title="Session 3 · Extended Team" allow="fullscreen" allowfullscreen></iframe>
+:::
+
+::: {.deck-embed-actions}
+[Open in fullscreen ↗](session-3-team.html){target="_blank" rel="noopener"}
+
+{{< downloadthis ../downloads/session-3-workflow.zip dname="session-3-workflow" label="Download replication materials" icon="download" type="primary" >}}
+:::

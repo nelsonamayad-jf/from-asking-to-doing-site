@@ -1,0 +1,5 @@
+/.quarto/
+/_website/
+**/*_files/
+**/*.quarto_ipynb
+/motivation.typ

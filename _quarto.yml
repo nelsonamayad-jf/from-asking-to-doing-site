@@ -1,0 +1,133 @@
+project:
+  type: website
+  output-dir: _website
+  # Only render the intended pages; skip skills/, sample-inputs/, CLAUDE.md, etc.
+  # session-4-tandem.qmd / session-4.qmd are marked draft: true (see front matter)
+  # and deliberately left off this list — Quarto's draft-mode only excludes pages
+  # from listing: components, which this project doesn't use, so omitting them here
+  # is what actually keeps session 4 unpublished while it's still in development.
+  #
+  # Each revealjs deck (motivation.qmd, session-N-*.qmd) renders standalone with no
+  # site navbar/footer — that's just how the revealjs format works. So each one is
+  # paired with a plain-html wrapper page (intro.qmd, session-N.qmd) that embeds the
+  # deck in an iframe, keeping the site chrome reachable. The navbar links to the
+  # wrapper; the raw deck still has to render too since the iframe points at it.
+  render:
+    - index.qmd
+    - about.qmd
+    - intro.qmd
+    - motivation.qmd
+    - session-0.qmd
+    - session-0-setup.qmd
+    - 01_slidemaker/session-1.qmd
+    - 01_slidemaker/session-1-slidemaker.qmd
+    - 02_summarizer/session-2.qmd
+    - 02_summarizer/session-2-summarize.qmd
+    - 03_multitudes/session-3.qmd
+    - 03_multitudes/session-3-team.qmd
+    - skill-collection.qmd
+    - agent-collection.qmd
+    - tips.qmd
+    - thesaurus.qmd
+
+website:
+  # Used for browser-tab titles, the search index, and og:site_name.
+  # The navbar shows only the logo (navbar: title: false below).
+  title: "From Asking to Doing"
+  description: "A hands-on Claude Code training for Jacobs Foundation staff."
+  site-url: "https://jacobs-foundation.github.io/from-asking-to-doing-site/"
+  favicon: "images/jf_logo.png"
+  # Default thumbnail + metadata for link previews (Slack, Teams, LinkedIn, X)
+  image: "images/jf_logo.png"
+  image-alt: "Jacobs Foundation logo"
+  open-graph: true
+  twitter-card: true
+  draft-mode: gone
+  google-analytics: "G-1V6W9TBJ58"
+  back-to-top-navigation: true
+  # Plain-markdown copy of the site for LLMs (llms.txt + per-page .md)
+  llms-txt: true
+  search:
+    location: navbar
+    type: overlay
+    limit: 20
+
+  announcement:
+    icon: megaphone-fill
+    dismissable: true
+    content: "**New sessions are live!**"
+    type: warning
+    position: below-navbar
+
+  navbar:
+    title: false            # logo only — site title lives in website: title above
+    background: primary
+    foreground: "light"
+    logo-alt: "Jacobs Foundation"
+    left:
+      - text: ""
+        icon: house
+        href: index.qmd
+      - text: "Motivation"
+        icon: compass
+        href: intro.qmd
+      - text: "Session 0: Setup"
+        icon: 0-circle
+        href: session-0.qmd
+      - text: "Session 1: Introduction"
+        icon: 1-circle
+        href: 01_slidemaker/session-1.qmd
+      - text: "Session 2: Skills and Agents"
+        icon: 2-circle
+        href: 02_summarizer/session-2.qmd
+      - text: "Session 3: Workflow"
+        icon: 3-circle
+        href: 03_multitudes/session-3.qmd
+
+    right:
+      - text: "Collections"
+        icon: collection
+        menu:
+          - text: "Skills"
+            icon: tools
+            href: skill-collection.qmd
+          - text: "Agents"
+            icon: robot
+            href: agent-collection.qmd
+      - text: "Tips"
+        icon: lightbulb
+        href: tips.qmd
+      - text: "Thesaurus"
+        icon: book
+        href: thesaurus.qmd
+      - text: "About"
+        icon: info-circle
+        href: about.qmd
+
+  page-footer:
+    background: "light"
+    border: true
+    left: "Developed by Nelson Amaya (Jacobs Foundation)"
+    center: "Claude Code Training · Jacobs Foundation · 2026"
+    right: "[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)"
+
+# HTML default (index.qmd, about.qmd). Presentation files override this with revealjs in their own YAML.
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    css: site.css
+    respect-user-color-scheme: true
+    toc: false
+    page-layout: full
+    smooth-scroll: true
+    link-external-newwindow: true
+
+resources:
+  - downloads/
+
+brand: _brand.yml
+
+execute:
+  enabled: false

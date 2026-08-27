@@ -1,0 +1,318 @@
+---
+title: "Thesaurus"
+subtitle: "Key Claude Code terms, defined — with links to the official docs"
+page-layout: article
+toc: true
+toc-title: "Categories"
+toc-depth: 3
+css: thesaurus.css
+---
+
+<span id="top"></span>
+
+Every trade has its jargon; this one just produces it faster. Here's a
+quick-reference glossary for the terms you'll run into when working with
+Claude Code, grouped by what they're for. Each definition links to
+Anthropic's official documentation (verified against the live docs, not
+written from memory) so you can go deeper whenever you want the full
+picture.
+
+::: {.quick-jump}
+[Foundations](#foundations){.qj-foundations}
+[Choosing a Model](#choosing-a-model){.qj-model}
+[Working Within Limits](#working-within-limits){.qj-limits}
+[Doing & Delegating](#doing-delegating){.qj-delegating}
+[Safety & Control](#safety-control){.qj-safety}
+[Connecting Outward](#connecting-outward){.qj-outward}
+:::
+
+::: {.thesaurus-category .cat-foundations}
+
+## Foundations {#foundations}
+
+The building blocks you interact with directly, in every session.
+
+::: {.term-entry}
+### Claude Code
+
+An agentic assistant that reads your files, edits them, runs commands, and
+follows your instructions — available from a terminal, an IDE, a desktop
+app, or a browser. It's what turns "describe what you want" into an actual
+result, rather than just a chat reply.
+
+**Want to know more?** [Official docs: Claude Code overview →](https://code.claude.com/docs/en/overview)
+:::
+
+::: {.term-entry}
+### Memory
+
+The system that lets Claude carry knowledge across sessions instead of
+starting from zero every time. It has two parts: **CLAUDE.md** files you
+write yourself — standing instructions at project, user, or organization
+level — and **auto memory**, notes Claude writes to itself about
+preferences and conventions it picks up as you work together. Both load
+automatically as context at the start of a session; neither overrides the
+other, but your explicit CLAUDE.md instructions take precedence when they
+conflict.
+
+**Want to know more?** [Official docs: Memory →](https://code.claude.com/docs/en/memory)
+:::
+
+::: {.term-entry}
+### CLAUDE.md
+
+The most common piece of memory in practice: a markdown file in your project
+that Claude reads automatically at the start of every session — your
+standing instructions: brand, defaults, conventions, whatever you'd
+otherwise have to re-explain in every chat.
+
+**Want to know more?** [Official docs: Memory (CLAUDE.md) →](https://code.claude.com/docs/en/memory)
+:::
+
+::: {.term-entry}
+### Skill
+
+A saved, reusable set of instructions — written once in plain English — that
+Claude can run again and again. You invoke one by typing `/` followed by its
+name (a **slash command**). Skills follow Anthropic's open Agent Skills
+standard — `/proposal-to-slides` is one example of a Skill in action.
+
+**Want to know more?** [Official docs: Skills →](https://code.claude.com/docs/en/skills)
+:::
+
+::: {.term-entry}
+### Slash command
+
+How you run a Skill. Type `/` followed by the command's name — e.g.
+`/proposal-to-slides` — and Claude executes the saved recipe. Claude Code
+also ships built-in slash commands like `/model` (switch models), `/effort`
+(switch reasoning effort), and `/memory` (manage CLAUDE.md).
+
+**Want to know more?** [Official docs: Slash commands →](https://code.claude.com/docs/en/commands)
+:::
+
+[↑ Back to top](#top){.back-to-top}
+
+:::
+
+::: {.thesaurus-category .cat-model}
+
+## Choosing a Model {#choosing-a-model}
+
+Which "brain" does the work, and how hard it reasons before answering.
+
+::: {.term-entry}
+### Model
+
+The actual AI doing the reasoning behind any Claude Code response. Claude
+Code lets you pick which one runs a given task from a small picker in the
+interface, trading off speed, cost, and depth of reasoning depending on what
+you choose.
+
+**Want to know more?** [Official docs: Models overview →](https://platform.claude.com/docs/en/about-claude/models/overview)
+:::
+
+::: {.term-entry}
+### Claude Fable
+
+Anthropic's most capable model overall — a tier above Opus, reserved for the
+hardest reasoning and the longest, most autonomous agentic runs. Priced and
+positioned above the everyday tiers, so reach for it only when a task
+genuinely needs the extra depth, not as a default upgrade from Opus.
+
+**Want to know more?** [Official docs: Models overview →](https://platform.claude.com/docs/en/about-claude/models/overview)
+:::
+
+::: {.term-entry}
+### Claude Opus
+
+Anthropic's most capable model in everyday use — for the hardest,
+highest-stakes, or most open-ended work: a full rewrite, a tricky analysis,
+anything you'd double-check carefully either way. Slower and more expensive
+than Sonnet or Haiku.
+
+**Want to know more?** [Official docs: Models overview →](https://platform.claude.com/docs/en/about-claude/models/overview)
+:::
+
+::: {.term-entry}
+### Claude Sonnet
+
+The best balance of speed and intelligence — near-Opus quality on most
+writing, analysis, and Claude Code work. The sensible everyday default when
+you're not sure which model to pick.
+
+**Want to know more?** [Official docs: Models overview →](https://platform.claude.com/docs/en/about-claude/models/overview)
+:::
+
+::: {.term-entry}
+### Claude Haiku
+
+The fastest model, built for quick, well-defined tasks — proofreading, short
+rewrites, simple formatting. Not built for deep reasoning, but the cheapest
+and quickest option when a task doesn't need it.
+
+**Want to know more?** [Official docs: Models overview →](https://platform.claude.com/docs/en/about-claude/models/overview)
+:::
+
+[↑ Back to top](#top){.back-to-top}
+
+:::
+
+::: {.thesaurus-category .cat-limits}
+
+## Working Within Limits {#working-within-limits}
+
+The unit everything is measured in, and two dials that shape *how* a model
+works on your task — worth knowing once a task gets hard or a conversation
+runs long.
+
+::: {.term-entry}
+### Token
+
+The basic unit Claude measures text in, for both what you send and what it
+generates. Everything in a request counts toward token totals — the system
+prompt, your messages, tool definitions, images and documents, and Claude's
+own response, including any extended thinking. Token counts can also vary
+by tokenizer version, so identical text doesn't always produce identical
+counts across models; you can check the exact number for a request in
+advance, or read it afterward from the response's usage data.
+
+**Want to know more?** [Official docs: Token counting →](https://platform.claude.com/docs/en/build-with-claude/token-counting)
+:::
+
+::: {.term-entry}
+### Context window
+
+The total amount of text — your instructions, the conversation so far, file
+contents — that Claude can hold onto and reference at once, measured in
+tokens. As a conversation grows, older content can start crowding out what
+matters, sometimes called *context rot*. Claude Code automatically compacts
+long conversations to reclaim space, but you also have direct control: start
+a fresh session for a new task instead of continuing an old one, run
+`/clear` to reset deliberately, or delegate heavy exploration to a subagent
+so it never touches your main conversation at all.
+
+**Want to know more?** [Official docs: Context windows →](https://platform.claude.com/docs/en/build-with-claude/context-windows)
+:::
+
+::: {.term-entry}
+### Effort level
+
+Sometimes called *model effort* — the setting behind the "High" button on
+the Claude Code screen, controlling how much the model reasons before
+responding: `low`, `medium`, `high`, `xhigh`, or `max`. Lower effort is
+faster and cheaper for simple, well-defined tasks; higher effort gives the
+model more room to reason through something genuinely hard. Change it
+anytime with `/effort` or the model picker — no need to commit to one
+setting for a whole session.
+
+**Want to know more?** [Official docs: Model configuration →](https://code.claude.com/docs/en/model-config)
+:::
+
+[↑ Back to top](#top){.back-to-top}
+
+:::
+
+::: {.thesaurus-category .cat-delegating}
+
+## Doing & Delegating {#doing-delegating}
+
+How work actually gets executed once you've asked for something.
+
+::: {.term-entry}
+### Agent (subagent)
+
+A specialized, independent Claude given its own task, its own tools, and its
+own clean context window — separate from your main conversation. Because it
+starts fresh, an agent isn't biased by what's already been discussed, which
+is exactly why separating research from review across two agents produces
+more reliable, less biased analysis. It also protects your main
+conversation's context window from filling up with exploration you don't
+need to keep around.
+
+**Want to know more?** [Official docs: Subagents →](https://code.claude.com/docs/en/sub-agents)
+:::
+
+::: {.term-entry}
+### Tool use (tool calling)
+
+The mechanism that lets Claude actually *do* things — call a function, run a
+search, execute code — instead of only producing text. Claude decides when a
+tool is needed and what to pass it; your application (or Claude Code itself)
+runs it and returns the result.
+
+**Want to know more?** [Official docs: Tool use →](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview)
+:::
+
+[↑ Back to top](#top){.back-to-top}
+
+:::
+
+::: {.thesaurus-category .cat-safety}
+
+## Safety & Control {#safety-control}
+
+The guardrails that keep Claude's actions visible and reversible.
+
+::: {.term-entry}
+### Sandbox
+
+The safety boundary Claude operates inside. Risky actions — deleting files,
+reaching the internet — are isolated at the operating-system level, so even
+if something slips past a decision Claude makes, it can't reach beyond this
+boundary. This is what lets you watch and say no, rather than discovering a
+problem after the fact.
+
+**Want to know more?** [Official docs: Sandboxing →](https://code.claude.com/docs/en/sandboxing)
+:::
+
+::: {.term-entry}
+### Permissions
+
+The rule-based approval system that decides what Claude is actually allowed
+to do — distinct from the Sandbox above. Read-only actions (reading a file,
+searching the codebase) need no approval; anything that changes something
+(running a command, editing a file) is checked against **allow**, **ask**,
+or **deny** rules before it happens. Permissions and the Sandbox work
+together as layered defenses: permissions stop Claude from *attempting* a
+restricted action, and the Sandbox's OS-level isolation is the backstop if
+something slips through anyway.
+
+**Want to know more?** [Official docs: Permissions →](https://code.claude.com/docs/en/permissions)
+:::
+
+::: {.term-entry}
+### Hook
+
+A command that runs automatically at a specific point in a Claude Code
+session — for example, right before Claude uses a tool, or right when a
+session starts. Hooks let you enforce policies or trigger integrations
+without relying on Claude to remember to do it every time.
+
+**Want to know more?** [Official docs: Hooks →](https://code.claude.com/docs/en/hooks)
+:::
+
+[↑ Back to top](#top){.back-to-top}
+
+:::
+
+::: {.thesaurus-category .cat-outward}
+
+## Connecting Outward {#connecting-outward}
+
+Reaching systems and data beyond the conversation itself.
+
+::: {.term-entry}
+### MCP (Model Context Protocol)
+
+An open standard for connecting Claude to external tools and data —
+databases, issue trackers, internal systems — through "MCP servers," instead
+of copy-pasting data in by hand. If a Skill is a recipe and an Agent is a
+worker, MCP is the plug that lets either one reach outside systems safely.
+
+**Want to know more?** [Official docs: MCP →](https://code.claude.com/docs/en/mcp)
+:::
+
+[↑ Back to top](#top){.back-to-top}
+
+:::

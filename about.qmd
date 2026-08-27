@@ -1,0 +1,43 @@
+---
+title: "From Asking to Doing"
+date: "2026-07-01"
+date-modified: last-modified
+date-format: long
+author:
+  - name: Nelson Amaya
+    affiliation: Jacobs Foundation
+    role: Global Knowledge Manager
+    email: nelson.amaya@jacobsfoundation.org
+  - name: Claude Sonnet
+    affiliation: Anthropic, PBC
+    role: Coding Assistant
+about:
+  template: trestles
+  image: images/claude-code.gif
+  image-shape: round
+  links:
+    - icon: envelope
+      text: "Email"
+      href: mailto:nelson.amaya@jacobsfoundation.org
+css:
+  - page-meta.css
+---
+
+## 💡 Why this exists
+
+> "*If you don't practice, you won't learn anything.*"
+> — the epigraph of [R4DEV's practice page](https://r4dev.netlify.app/sessions_tools/09-practice/09-practice.html). Still true.
+
+Most of us use AI the same way every time: ask, copy, paste, repeat tomorrow. The asking got easy. The doing didn't.
+
+Claude Code closes that gap. It turns everyday requests — "summarize these files," "build me a slide deck," "review this strategy" — into workflows you save once and run forever. *From asking to doing* is a hands-on introduction for Jacobs Foundation staff on working with it productively and reliably.
+
+I built [R4DEV](https://r4dev.netlify.app/) to teach R to my constantly rotating team with the same philosophy; word got around and over 80 people joined. The lesson from that experience carried over here: nobody learns a tool from a manual. You learn by watching someone solve a real problem, then trying it on one of yours.
+
+## 🦾 How it's structured
+
+- **[Motivation](intro.qmd)**: Why use Claude Code, no coding background needed.
+- **[Session 0 · Setup](session-0.qmd)**: Install a terminal, Git, and Claude Code before Session 1.
+- **[Session 1 · Slidemaking](01_slidemaker/session-1.qmd)**: Introduction to Claude Code and skills.
+- **[Session 2 · Mixing it up](02_summarizer/session-2.qmd)**: Introduction to workflows.
+- **[Session 3 · Extended Team](03_multitudes/session-3.qmd)**: Multi-agent review workflow.

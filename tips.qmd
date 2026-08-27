@@ -1,0 +1,11 @@
+---
+title: "Tips"
+subtitle: "Practical advice for working with Claude Code"
+---
+
+::: {.callout-note}
+## Coming soon
+
+A running collection of the tricks I wish someone had told me on day one.
+Check back after the sessions.
+:::

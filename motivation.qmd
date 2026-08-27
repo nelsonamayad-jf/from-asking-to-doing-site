@@ -1,0 +1,434 @@
+---
+pagetitle: "FROM ASKING TO DOING"
+format:
+  revealjs:
+    theme: simple
+    slide-number: c/t
+    transition: fade
+    background-transition: fade
+    width: 1280
+    height: 720
+    margin: 0.08
+    footer: "Claude Code Training · Jacobs Foundation"
+    css: motivation.css
+---
+
+## {background-color="var(--slide-dark-bg)"}
+
+::: {.center-all}
+
+::: {.eyebrow}
+From Asking to Doing
+:::
+
+::: {.big-quote}
+"I just want to grasp basic concepts and not feel intimidated by code,
+but learn how to speak the language a little so that I can actually
+use these tools to build something."
+:::
+
+::: {.quote-source}
+— A voice in the room
+:::
+
+:::
+
+## That feeling is the right starting point. {background-color="#ffffff"}
+
+::: {.incremental}
+- Nobody becomes a programmer in a workshop.
+- But **everyone** can learn to direct a capable assistant.
+- The gap between *having an idea* and *building something* just got tiny.
+:::
+
+## Quick show of hands {background-color="#ffffff"}
+
+::: {style="font-size:0.7em; color:#5a5e66; margin-bottom:0.6em"}
+Hands up if you know what each of these is — no wrong answers, this just tells me the room.
+:::
+
+::: {.incremental style="font-size:0.85em"}
+- A **Skill**?
+- An **Agent**?
+- A **Hook**?
+- A **slash command**?
+- A **Sandbox**?
+:::
+
+::: {.notes}
+Diagnostic slide — don't explain the terms here. Just count hands per item and adjust how deep you go in the rest of the deck. If most of the room is unfamiliar with all five, lean harder on the demos and skip jargon. If they know 3+, you can move faster through the modes slide.
+:::
+
+## What changed? {background-color="#ffffff"}
+
+::: {layout-ncol=2}
+
+::: {}
+**Before LLM tools**
+
+- You needed to know the syntax
+- You needed to know the right library
+- You needed to debug line by line
+- *Specialists only*
+:::
+
+::: {}
+**Today**
+
+- You describe what you want
+- [The tool figures out the syntax]{.hl}
+- You review and iterate
+- [Available to everyone]{.hl}
+:::
+
+:::
+
+## 2.5 years of change {background-color="#ffffff"}
+
+::::::: {.timeline}
+
+::::: {.tl-item .highlight}
+:::: {.tl-dot}
+::::
+::: {.tl-date}
+Nov 2022
+:::
+::: {.tl-label}
+ChatGPT launches
+:::
+::: {.tl-tag}
+GPT-3.5
+:::
+:::::
+
+::::: {.tl-item}
+:::: {.tl-dot}
+::::
+::: {.tl-date}
+Mar 2023
+:::
+::: {.tl-label}
+Research-grade models
+:::
+::: {.tl-tag}
+GPT-4 · Claude 1
+:::
+:::::
+
+::::: {.tl-item}
+:::: {.tl-dot}
+::::
+::: {.tl-date}
+Dec 2023
+:::
+::: {.tl-label}
+The race widens
+:::
+::: {.tl-tag}
+Gemini 1.0
+:::
+:::::
+
+::::: {.tl-item .highlight}
+:::: {.tl-dot}
+::::
+::: {.tl-date}
+Mar 2024
+:::
+::: {.tl-label}
+State-of-the-art reasoning
+:::
+::: {.tl-tag}
+Claude 3
+:::
+:::::
+
+::::: {.tl-item .highlight}
+:::: {.tl-dot}
+::::
+::: {.tl-date}
+Jun 2024
+:::
+::: {.tl-label}
+Coding breakthrough
+:::
+::: {.tl-tag}
+Claude 3.5 Sonnet
+:::
+:::::
+
+::::: {.tl-item .highlight}
+:::: {.tl-dot}
+::::
+::: {.tl-date}
+Feb 2025
+:::
+::: {.tl-label}
+AI works in your terminal
+:::
+::: {.tl-tag}
+Claude Code
+:::
+:::::
+
+::::: {.tl-item .highlight}
+:::: {.tl-dot}
+::::
+::: {.tl-date}
+May 2025
+:::
+::: {.tl-label}
+Next-generation frontier models
+:::
+::: {.tl-tag}
+Claude 4 · Opus & Sonnet
+:::
+:::::
+
+::::: {.tl-item .highlight}
+:::: {.tl-dot}
+::::
+::: {.tl-date}
+Jan 2026
+:::
+::: {.tl-label}
+Open-source agents go viral
+:::
+::: {.tl-tag}
+OpenClaw
+:::
+:::::
+
+::::: {.tl-item .highlight}
+:::: {.tl-dot}
+::::
+::: {.tl-date}
+Feb 2026
+:::
+::: {.tl-label}
+Open weights catch up
+:::
+::: {.tl-tag}
+Qwen 3.5
+:::
+:::::
+
+::::: {.tl-item .highlight}
+:::: {.tl-dot}
+::::
+::: {.tl-date}
+Apr 2026
+:::
+::: {.tl-label}
+On-device frontier models
+:::
+::: {.tl-tag}
+Gemma 4
+:::
+:::::
+
+::::: {.tl-item .highlight-end}
+:::: {.tl-dot}
+::::
+::: {.tl-date}
+May 2026
+:::
+::: {.tl-label}
+Claude Code Cowork
+:::
+::: {.tl-tag}
+You are here
+:::
+:::::
+
+:::::::::
+
+## How do we catch up? {background-color="#ffffff"}
+
+::: {.session-grid}
+
+::: {.session-card}
+::: {.card-label}
+Session 1: Introduction
+:::
+::: {.card-title}
+Slidemaking
+:::
+::: {.card-desc}
+Claude transforms your thinking into a communication tool in seconds.
+:::
+:::
+
+::: {.session-card}
+::: {.card-label}
+Session 2: Skills and Agents
+:::
+::: {.card-title}
+Mixing it up
+:::
+::: {.card-desc}
+A pile of mixed documents, one deadline. Claude synthesizes them into a single report using **`skills`**.
+:::
+:::
+
+::: {.session-card}
+::: {.card-label}
+Session 3: Workflow
+:::
+::: {.card-title}
+Extended Team
+:::
+::: {.card-desc}
+Enhance your team with a **`researcher`** and a **`reviewer`** that help you produce better material.
+:::
+:::
+
+:::
+
+## Session 1 · Slidemaking {background-color="var(--slide-dark-bg)"}
+
+::: {.center-all style="color:#FDFEFE"}
+
+::: {.eyebrow}
+What you'll do
+:::
+
+### Turn a proposal document into a slide deck
+
+::: {style="font-size:0.65em; color:rgba(255,255,255,0.92); margin-top:0.8em; max-width:70%; margin-left:auto; margin-right:auto"}
+You provide a `.md` or `.docx` proposal.
+Claude reads your brand file, builds slides, writes speaker notes — and iterates on your feedback.
+:::
+
+::: {style="margin-top:1.2em; font-size:0.55em; font-weight:600; color:#ffffff"}
+Key concept: Claude reads files and transforms them.
+:::
+
+:::
+
+## Session 2 · Mixing it up {background-color="var(--slide-dark-bg)"}
+
+::: {.center-all style="color:#FDFEFE"}
+
+::: {.eyebrow}
+What you'll do
+:::
+
+### Synthesise mixed inputs into one report
+
+::: {style="font-size:0.65em; color:rgba(255,255,255,0.92); margin-top:0.8em; max-width:70%; margin-left:auto; margin-right:auto"}
+Meeting notes, spreadsheets, field reports, PDFs — dropped in a folder.
+Three slash commands collect, synthesise, and assemble a formatted Word report.
+:::
+
+::: {style="margin-top:1.2em; font-size:0.55em; font-weight:600; color:#ffffff"}
+Key concept: Skills are composable and chainable.
+:::
+
+:::
+
+## Session 3 · Extended Team {background-color="var(--slide-dark-bg)"}
+
+::: {.center-all style="color:#FDFEFE"}
+
+::: {.eyebrow}
+What you'll do
+:::
+
+### Two agents review your strategy — separately
+
+::: {style="font-size:0.65em; color:rgba(255,255,255,0.92); margin-top:0.8em; max-width:70%; margin-left:auto; margin-right:auto"}
+A **Researcher** gathers evidence without forming opinions.
+A **Reviewer** critiques the strategy without re-reading the source — reducing bias.
+Every finding is traceable to a source.
+:::
+
+::: {style="margin-top:1.2em; font-size:0.55em; font-weight:600; color:#ffffff"}
+Key concept: Separating roles produces more reliable analysis.
+:::
+
+:::
+
+## The skill that transfers {background-color="#ffffff"}
+
+:::: {.columns style="align-items:center"}
+
+::: {.column width="60%"}
+It is not **writing code**.
+
+It is not **knowing the tools**.
+
+It is **describing what you want, clearly** — then judging what comes back.
+:::
+
+::: {.column width="40%"}
+::: {.callout-number style="text-align:center"}
+3
+:::
+::: {style="font-size:0.5em; color:#2a7d72; font-weight:600; margin-top:0.3em; text-align:center"}
+sessions to practise
+exactly that skill
+:::
+:::
+
+::::
+
+
+## How each session runs {background-color="#ffffff"}
+
+::: {style="font-size:0.7em; color:#5a5e66; margin-bottom:0.8em"}
+Every session follows the same three steps — so you know when to listen, when to watch, and when to ask.
+:::
+
+::::: {.mode-grid}
+
+:::: {.mode-card .chatbot}
+::: {.mode-icon}
+1
+:::
+::: {.mode-title}
+A common problem
+:::
+::: {.mode-desc}
+We start with a real situation from the organisation — the kind of task someone on your team is doing this week.
+:::
+::: {.mode-badge}
+Present the problem
+:::
+::::
+
+:::: {.mode-card .skills}
+::: {.mode-icon}
+2
+:::
+::: {.mode-title}
+Solve it with Claude Code
+:::
+::: {.mode-desc}
+Live demo. We show how Claude Code tackles it — and iterate in front of you so you see how the conversation shapes the result.
+:::
+::: {.mode-badge}
+Show the solution
+:::
+::::
+
+:::: {.mode-card .agents}
+::: {.mode-icon}
+3
+:::
+::: {.mode-title}
+Your questions
+:::
+::: {.mode-desc}
+Time at the end of each session to ask anything — about what you just saw, or about your own work.
+:::
+::: {.mode-badge}
+Open floor
+:::
+::::
+
+:::::
+
+::: {.notes}
+Use this slide to set expectations before the first session. The point of the shared structure is to remove ambiguity about when to ask questions — hold them for step 3 unless something blocks understanding the demo. Mention that the "common problem" is deliberately mundane: the goal is not to impress with hard tasks, but to show how Claude Code changes everyday work.
+:::

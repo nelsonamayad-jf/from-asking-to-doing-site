@@ -1,0 +1,672 @@
+---
+pagetitle: "Session 3 · Extended Team"
+format:
+  revealjs:
+    theme: simple
+    slide-number: c/t
+    transition: fade
+    background-transition: fade
+    width: 1280
+    height: 720
+    margin: 0.08
+    footer: "Claude Code Training · Session 3 · Jacobs Foundation"
+    css: ../motivation.css
+---
+
+## {background-color="var(--slide-dark-bg)"}
+
+::: {.center-all}
+
+::: {.eyebrow}
+Session 3: Workflow
+:::
+
+### How to set up a review process {style="color:#FDFEFE"}
+
+::: {.subtle-light}
+One agent gathers evidence and forms no opinion. A second agent critiques — without ever seeing the original document. Every finding traces back to a source. This is how you trust AI on something that matters.
+:::
+
+:::
+
+## What we'll cover {background-color="#ffffff"}
+
+:::: {.split-grid}
+
+::: {.sg-col}
+::: {.sg-head}
+Part 1 · The idea
+:::
+::: {.sg-body}
+• Recap: what an **agent** is<br>
+• Two agents, two jobs — researcher & reviewer<br>
+• Why separating them removes bias<br>
+• Three rules: separate, trace, admit doubt<br>
+• Why the process runs in this order<br>
+• The shape of the review
+:::
+:::
+
+::: {.sg-col .accent}
+::: {.sg-head}
+Part 2 · The live run
+:::
+::: {.sg-body}
+• `/researcher` → the evidence briefing<br>
+• The checkpoint — you fix the *evidence*<br>
+• `/reviewer` → findings, ranked and rated<br>
+• Trace a LOW rating back to its source<br>
+• Change the evidence, re-run one step
+:::
+:::
+
+::::
+
+::: {.notes}
+Same 30-second map as Sessions 1 and 2. The one-line pitch: Session 2 used agents
+to go faster, this one uses them to be more trustworthy. Don't explain how yet —
+that's the next slide.
+:::
+
+# Part 1 — The idea: separate the roles {background-color="#ffffff"}
+
+## What's an agent, really? {background-color="#ffffff"}
+
+::: {.term-hero}
+::: {.th-name}
+Agent
+:::
+::: {.th-def}
+A **fresh Claude** with its **own clean context**, given one role and one input.
+It can't be swayed by a conversation it never saw.
+:::
+:::
+
+::: {.callout-box .warn}
+[Why "fresh" is the whole point]{.cb-label}
+If the same Claude gathers the evidence *and* judges it, it tends to defend its
+first impression. Splitting the work across two agents removes that bias by
+design.
+:::
+
+::: {.notes}
+Straight callback to Session 2 — same agents, new purpose. There we used them for
+speed: ten files read in parallel. Here we use exactly one property, the clean
+context, to buy independence instead. Say that out loud; it's the hinge of the
+whole session.
+:::
+
+## Researcher vs. Reviewer {background-color="#ffffff"}
+
+::::: {.mode-grid}
+
+:::: {.mode-card .skills}
+::: {.mode-icon}
+🔍
+:::
+::: {.mode-title}
+Researcher
+:::
+::: {.mode-desc}
+Reads the strategy, the prior strategy, and the org context. Maps claims,
+assumptions, commitments, gaps. **Forms no opinion.** Every line cites a source.
+:::
+::: {.mode-badge}
+Evidence only
+:::
+::::
+
+:::: {.mode-card .agents}
+::: {.mode-icon}
+⚖️
+:::
+::: {.mode-title}
+Reviewer
+:::
+::: {.mode-desc}
+Reads **only the briefing** — never the original. Applies a 5-lens critique,
+rates confidence HIGH / MEDIUM / LOW, ranks findings by severity.
+:::
+::: {.mode-badge}
+Judgment only
+:::
+::::
+
+:::::
+
+::: {.callout-box .warn}
+[Separation is not optional]{.cb-label}
+The researcher finishes *before* the reviewer starts. The reviewer works from
+the evidence briefing, not the strategy — so it can't rationalise the document
+into looking fine.
+:::
+
+::: {.notes}
+The counter-intuitive bit is that the reviewer never reads the strategy. People
+assume that makes the review weaker. It's the opposite: the reviewer can only
+work from what the researcher could actually evidence, so a claim nobody could
+source never reaches the judgment stage.
+:::
+
+## Three rules this session lives by {background-color="#ffffff"}
+
+::: {.steps}
+
+::: {.step}
+::: {.step-num}
+1
+:::
+::: {.step-body}
+**Separate the roles.** The researcher completes its work before the reviewer
+sees anything.
+:::
+:::
+
+::: {.step}
+::: {.step-num}
+2
+:::
+::: {.step-body}
+**Every claim needs a trail.** Each finding traces to a specific source file and
+passage. Untraceable claims are *removed*, not summarised.
+:::
+:::
+
+::: {.step}
+::: {.step-num}
+3
+:::
+::: {.step-body}
+**Uncertainty is explicit.** Weak, conflicting, or absent evidence is named as
+such. Gaps are never filled with inference.
+:::
+:::
+
+:::
+
+::: {.notes}
+These three lines are lifted verbatim from this demo's CLAUDE.md — worth showing
+the file if the room is curious. The point to land: the discipline lives in
+writing, not in anyone's memory, so it applies the same way every run.
+:::
+
+## Why does it run in this order? {background-color="#ffffff"}
+
+::: {style="font-size:0.6em; color:#5a5e66; margin-bottom:0.4em"}
+Three rules, one specific order. Each choice below is what makes rule 1 —
+"the researcher finishes before the reviewer starts" — actually
+enforceable, not just aspirational.
+:::
+
+::::: {.term-grid}
+
+::: {.term-card}
+::: {.term-name}
+Sequential, not parallel
+:::
+::: {.term-def}
+Run both at once and the reviewer has nothing to review yet — and sharing
+a context between them would smuggle the researcher's framing straight
+into the judgment it's supposed to be independent of.
+:::
+:::
+
+::: {.term-card}
+::: {.term-name}
+The reviewer never sees the source
+:::
+::: {.term-def}
+Only the briefing, never the original strategy. That's what stops a claim
+nobody could evidence from ever reaching the judgment stage — the reviewer
+can't rationalize what it never read.
+:::
+:::
+
+::: {.term-card}
+::: {.term-name}
+The checkpoint sits between the stages
+:::
+::: {.term-def}
+It's the last moment where fixing the evidence is still cheap — before
+it's locked into a critique. Move it later and you're editing conclusions
+instead of facts.
+:::
+:::
+
+::: {.term-card}
+::: {.term-name}
+The audit log is a byproduct, not an add-on
+:::
+::: {.term-def}
+Every step already writes down what it read and why. Assembling that into
+one trail costs nothing extra — and it's what turns "the AI said so" into
+something defensible.
+:::
+:::
+
+:::::
+
+::: {.notes}
+This is the "why" behind the pipeline diagram on the next slide — say it
+before showing the diagram, not after, so the shape already makes sense by
+the time they see the arrows. Each card maps to a real failure mode: skip
+sequencing and you get a reviewer defending its own first impression; skip
+the source-blocking and claims survive that nobody could ever back up;
+move the checkpoint and you're relitigating a verdict instead of fixing a
+fact; skip the audit log and there's no way to defend the review later.
+:::
+
+## The shape of the review {background-color="#ffffff"}
+
+::: {style="font-size:0.6em; color:#5a5e66; margin-bottom:0.3em"}
+Two agents, one gate, four files on disk. Every arrow is a handoff you can open
+and read.
+:::
+
+:::: {.pipeline-strip}
+::: {.pipeline-card .input}
+[Input]{.pc-step}
+
+[Your documents]{.pc-title}
+
+[strategy · prior · context]{.pc-meta}
+:::
+
+::: {.pipeline-link}
+[/researcher]{.pc-cmd}
+
+[→]{.pc-arrow}
+:::
+
+::: {.pipeline-card .handoff}
+[Saved handoff]{.pc-step}
+
+[research-briefing.md]{.pc-title}
+
+[evidence, no opinion]{.pc-meta}
+:::
+
+::: {.pipeline-link}
+[/reviewer]{.pc-cmd}
+
+[→]{.pc-arrow}
+:::
+
+::: {.pipeline-card .handoff}
+[Saved handoff]{.pc-step}
+
+[review-findings.md]{.pc-title}
+
+[ranked + rated]{.pc-meta}
+:::
+
+::: {.pipeline-link}
+[assemble]{.pc-cmd}
+
+[→]{.pc-arrow}
+:::
+
+::: {.pipeline-card .output}
+[Final output]{.pc-step}
+
+[report.docx]{.pc-title}
+
+[+ audit-log.md]{.pc-meta}
+:::
+::::
+
+::: {.callout-box .gate}
+[The gate sits on the first arrow]{.cb-label}
+Between the briefing and the reviewer, everything stops and waits for you. That
+placement is deliberate — it's the last moment where correcting the evidence is
+cheap.
+:::
+
+::: {.notes}
+Compare to the Session 2 pipeline picture on purpose: same shape, different
+reason. There the steps were split for re-runnability; here they're split so two
+independent minds work on the same problem. Don't linger — the live run makes it
+concrete.
+:::
+
+# Part 2 — Run the review {background-color="#ffffff"}
+
+## The setup {background-color="#ffffff"}
+
+::: {.filetree}
+03_multitudes/<br>
+├── <span class="dir">sample-input/</span><br>
+│   ├── strategy-2025.md          <span class="note"># the document under review</span><br>
+│   ├── prior-strategy-2022.md    <span class="note"># for continuity & commitment checks</span><br>
+│   └── org-context.md            <span class="note"># budget, staffing, constraints</span><br>
+└── <span class="dir">output/</span>                       <span class="note"># briefing, findings, report, audit log</span>
+:::
+
+::: {.callout-box .tip}
+[Add your own context]{.cb-label}
+Drop in an evaluation report, a stakeholder map, or budget data — the researcher
+classifies and uses it automatically. More evidence, same discipline.
+:::
+
+::: {.notes}
+The third file is the one that does the work. A strategy reviewed on its own can
+only be checked for internal logic; org-context.md is what lets the review say
+"you have eight coaches and you need fourteen." Point at it and say so.
+:::
+
+## Step 1 — /researcher {background-color="#ffffff"}
+
+::: {.chat}
+<span class="you">/researcher</span>
+<span class="cc">Read strategy-2025.md · prior-strategy-2022.md · org-context.md</span>
+<span class="cc">Mapped 9 strategic claims, 5 core assumptions</span>
+<span class="cc">Checked 5 commitments from 2022 → 1 dropped with no explanation</span>
+<span class="cc">Capacity: Priority 1 PARTIALLY · Priority 2 PARTIALLY (LOW) · Priority 3 NO</span>
+<span class="muted">Flagged 6 information gaps → saved output/research-briefing.md</span>
+:::
+
+::: {.callout-box .tip}
+[Open the briefing before you go on]{.cb-label}
+This is the teaching beat: read `research-briefing.md` together. Discuss what the
+researcher *found* before the reviewer is allowed to judge it.
+:::
+
+::: {.notes}
+Not one word of judgment in that output — it says Priority 3 is "NO" on capacity
+because the file says $800K expires in July with nothing secured. That's a fact,
+not a verdict. Open Section 3 of the briefing and show that each line ends in a
+source. Then say: the reviewer gets this and nothing else.
+:::
+
+## The human checkpoint {background-color="#ffffff"}
+
+::: {.chat}
+<span class="muted">━━━ CHECKPOINT — before the Reviewer proceeds ━━━</span>
+<span class="cc">The researcher mapped: 9 claims · 5 assumptions · 5 prior commitments · 6 gaps</span>
+<span class="cc">Full briefing: output/research-briefing.md</span>
+<span class="cc">Anything to add or correct? Type "continue" to proceed.</span>
+<span class="you">Add the 2024 evaluation report to the evidence, then continue.</span>
+:::
+
+::: {.callout-box .gate}
+[You can change the evidence — not the verdict]{.cb-label}
+The gate lets you correct or enrich the briefing. You never tell the reviewer
+what to conclude. That stays the agent's call, from the evidence.
+:::
+
+::: {.notes}
+Say the distinction in plain words, because it's the one people reach for first:
+"add the board minutes, they cover the funding gap" is fair game. "Go easier on
+Priority 3" is not — that's you writing the finding and laundering it through the
+agent. Adding evidence keeps the trail honest; steering the conclusion breaks it.
+:::
+
+## The five lenses {background-color="#ffffff"}
+
+::: {style="font-size:0.58em; color:#5a5e66; margin-bottom:0.2em"}
+The reviewer works through all five, in order, against the briefing only.
+:::
+
+::: {.steps style="font-size:0.86em"}
+
+::: {.step}
+::: {.step-num}
+1
+:::
+::: {.step-body}
+**Internal consistency** — do the priorities pull the same way? Does the money
+follow the stated ranking?
+:::
+:::
+
+::: {.step}
+::: {.step-num}
+2
+:::
+::: {.step-body}
+**Evidence quality** — is each major claim supported? Are the metrics measurable
+with the systems that exist?
+:::
+:::
+
+::: {.step}
+::: {.step-num}
+3
+:::
+::: {.step-body}
+**Feasibility** — given the capacity assessment, which priorities can actually be
+delivered as written?
+:::
+:::
+
+::: {.step}
+::: {.step-num}
+4
+:::
+::: {.step-body}
+**Continuity & accountability** — were prior commitments met, dropped, or quietly
+abandoned?
+:::
+:::
+
+::: {.step}
+::: {.step-num}
+5
+:::
+::: {.step-body}
+**Blind spots** — what would an outside reader expect to see here that simply
+isn't mentioned?
+:::
+:::
+
+:::
+
+::: {.notes}
+Lens 1 is the one that catches the classic failure — "Priority 3 is critical" next
+to a budget line of $0. Lens 5 is the hardest for a human reviewer to do honestly,
+because noticing an absence means knowing what should have been there. Mention
+that these five live in skills/reviewer.md and can be edited to fit your own
+review framework.
+:::
+
+## Step 2 — /reviewer {background-color="#ffffff"}
+
+::: {.chat}
+<span class="you">/reviewer</span>
+<span class="cc">Read output/research-briefing.md (not the original strategy)</span>
+<span class="cc">🔴 Critical: $800K expires July 2026, no replacement secured        [HIGH]</span>
+<span class="cc">🔴 Critical: Priority 3 has $0 budget and 20% of one person's time  [HIGH]</span>
+<span class="cc">🟡 Moderate: guide has no staff — $90K budgeted, $12K spent         [HIGH]</span>
+<span class="cc">🟢 Minor:   2022 leadership programme dropped, never explained      [MEDIUM]</span>
+<span class="muted">8 findings (3 · 3 · 2) + 4 strengths → saved output/review-findings.md</span>
+:::
+
+::: {.notes}
+Two things to point out. First, severity and confidence are different axes — the
+moderate finding there is rated HIGH confidence, because the budget numbers are
+exact. A small problem you're certain of is not a big problem you're guessing at.
+Second, it found four strengths. A reviewer that only ever finds fault is just as
+useless as one that never does.
+:::
+
+## Tracing a confidence rating {background-color="#ffffff"}
+
+:::: {.split-grid}
+
+::: {.sg-col .accent}
+::: {.sg-head}
+The finding
+:::
+::: {.sg-body}
+🟢 *The strategy calls the funder's shift to larger, fewer grants an
+"opportunity" — without examining whether CLI is positioned to win one.*<br>
+**Confidence: LOW**
+:::
+:::
+
+::: {.sg-col}
+::: {.sg-head}
+Why LOW — trace it
+:::
+::: {.sg-body}
+The underlying fact is solid: the strategy says the funder is consolidating. But
+whether that's an opportunity or a threat is a **judgment about framing**, and no
+source file settles it — gap #3 notes there's no record of CLI ever discussing it
+with the funder. Inference from an absence, so: LOW.
+:::
+:::
+
+::::
+
+::: {.callout-box .warn}
+[The teaching question]{.cb-label}
+"Why does it say LOW here?" Trace it back live. LOW isn't weakness — it's the
+system being honest that the evidence is thin.
+:::
+
+::: {.notes}
+Put this next to Finding 1 for contrast: that one is HIGH because two files give
+the same dollar amount and the same date. Same reviewer, same run, different
+confidence — because the evidence underneath is genuinely different. Ask the room
+which of the two they'd take to a board meeting. Both, but not in the same tone.
+:::
+
+## Step 3 — /strategy-review {background-color="#ffffff"}
+
+::: {style="font-size:0.58em; color:#5a5e66; margin-bottom:0.3em"}
+Orchestrates both agents in sequence, then assembles the formatted report —
+research briefing, findings, overall assessment, and the audit log as an appendix.
+:::
+
+::: {.chat}
+<span class="you">/strategy-review</span>
+<span class="muted">▸ Researcher agent … → research-briefing.md</span>
+<span class="muted">▸ CHECKPOINT (waits for you)</span>
+<span class="muted">▸ Reviewer agent … → review-findings.md</span>
+<span class="cc">✓ output/strategy-review-report.docx</span>
+<span class="cc">✓ output/audit-log.md — every action, source, and decision</span>
+:::
+
+::: {.notes}
+Worth naming: the one-command version still stops at the checkpoint. Automating
+the pipeline didn't automate away the human — that's the difference between a
+workflow and a black box.
+:::
+
+## Change the evidence, re-run {background-color="#ffffff"}
+
+:::: {.split-grid}
+
+::: {.sg-col}
+::: {.sg-head}
+The slow way
+:::
+::: {.sg-body}
+A colleague sends the 2024 evaluation report the morning after. Re-read every
+file, re-do the whole critique, rebuild the report from scratch.
+:::
+:::
+
+::: {.sg-col .accent}
+::: {.sg-head}
+The pipeline way
+:::
+::: {.sg-body}
+Drop it into `sample-input/`, re-run <span class="cmd">/researcher</span> only.
+The briefing changes — maybe a gap closes, maybe a claim finally has evidence.
+Then let the reviewer see the new briefing.
+:::
+:::
+
+::::
+
+::: {.callout-box .tip}
+[Watch a finding move]{.cb-label}
+This is the demo that makes separation click. New evidence changes the briefing;
+the changed briefing changes the finding. Nobody argued with the reviewer — the
+evidence underneath it moved.
+:::
+
+::: {.notes}
+The headline demo of the session. Do it live if there's time: add a file, re-run
+just the researcher, and show gap #3 closing. Then re-run the reviewer and watch
+that LOW finding either firm up or disappear. It's the clearest possible proof
+that the verdict is downstream of the evidence rather than of the prompt.
+:::
+
+## The audit log is the trust story {background-color="#ffffff"}
+
+::: {.chat}
+<span class="muted">[RESEARCHER] Read: strategy-2025.md (~2,400 words)</span>
+<span class="muted">[RESEARCHER] Identified 9 strategic claims</span>
+<span class="muted">[RESEARCHER] Flagged 6 information gaps</span>
+<span class="muted">── HUMAN CHECKPOINT ── User reviewed briefing and typed: continue</span>
+<span class="muted">[REVIEWER]   Applied Lens 3: Feasibility</span>
+<span class="muted">[REVIEWER]   Identified 8 findings (3 critical, 3 moderate, 2 minor)</span>
+:::
+
+::: {.callout-box .tip}
+[Why it matters at high stakes]{.cb-label}
+Anyone can re-trace what was read, what was concluded, and why. That's the
+difference between "the AI said so" and a defensible review.
+:::
+
+::: {.notes}
+Note the checkpoint line sits in the log too — the human decision is on the record
+alongside the machine ones. If someone challenges the review in six months, this
+file is the answer. Close the session here if you're short on time; it's the
+strongest ending.
+:::
+
+## What you just saw {background-color="var(--slide-dark-bg)"}
+
+::: {.center-all style="color:#FDFEFE"}
+
+::: {.eyebrow}
+Key concept
+:::
+
+### Separating roles produces more reliable, less biased analysis.
+
+::: {.subtle-light}
+A researcher that only gathers, a reviewer that only judges, every claim traced
+to a source, and uncertainty stated out loud. The audit log lets a human stand
+behind the result.
+:::
+
+:::
+
+::: {.notes}
+The payoff for the whole session. One sentence: you didn't get a better answer by
+writing a better prompt, you got one by designing who was allowed to know what.
+:::
+
+## Your turn {background-color="#ffffff"}
+
+::: {style="font-size:0.62em; color:var(--brand-dark); margin-bottom:0.4em"}
+Point the pipeline at a real strategy or plan:
+:::
+
+::: {.incremental style="font-size:0.6em; margin-top:0.5em"}
+- Add a context file, re-run `/researcher` only — watch a gap close.
+- "Summarise the critical findings for the board in one page."
+- "Draft a response memo addressing the top 3 concerns."
+- "Show me every finding rated LOW, and what evidence would raise it."
+:::
+
+::: {.notes}
+The last prompt is the best one to leave them with — asking what would raise a
+rating turns the review into a to-do list. Ten minutes on their own document is
+where this sticks.
+:::
+
+## Questions {background-color="var(--slide-dark-bg)"}
+
+::: {.center-all}
+::: {.callout-number}
+?
+:::
+::: {style="font-size:0.55em; color:rgba(255,255,255,0.92); margin-top:0.4em"}
+Ask anything — about what you just saw, or your own work.
+:::
+:::

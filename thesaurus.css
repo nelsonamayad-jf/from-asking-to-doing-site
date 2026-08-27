@@ -1,0 +1,139 @@
+/* Glossary navigation, category accents, and term entries. */
+
+:root {
+  --th-ink: #202A28;
+  --th-muted: #65716D;
+  --th-line: #D7E3DF;
+  --th-surface: #F5F8F6;
+  --th-green: #004D47;
+  --th-navy: #27384F;
+  --th-teal: #3A8F84;
+  --th-teal-text: #276F67;
+  --th-gold: #D9A72E;
+  --th-gold-text: #6F5A16;
+  --th-coral: #B86A55;
+  --th-coral-text: #7C4A3D;
+  --th-red: #A83A32;
+}
+
+.quick-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.2rem 0 1.8rem;
+}
+
+.quick-jump a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.42rem 0.82rem;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none !important;
+}
+
+.quick-jump a:hover {
+  border-color: currentColor;
+  text-decoration: none !important;
+}
+
+.quick-jump a.qj-foundations {
+  background: #EEF3F7;
+  color: var(--th-navy);
+}
+
+.quick-jump a.qj-model {
+  background: #E7F1EE;
+  color: var(--th-teal-text);
+}
+
+.quick-jump a.qj-limits {
+  background: #FFF6E3;
+  color: var(--th-gold-text);
+}
+
+.quick-jump a.qj-delegating {
+  background: #E7F1EE;
+  color: var(--th-green);
+}
+
+.quick-jump a.qj-safety {
+  background: #F8EDEA;
+  color: var(--th-red);
+}
+
+.quick-jump a.qj-outward {
+  background: #F8EEE9;
+  color: var(--th-coral-text);
+}
+
+.thesaurus-category {
+  margin-bottom: 1.7rem;
+}
+
+.thesaurus-category h2 {
+  border-bottom: 3px solid var(--cat-accent, var(--th-line));
+  padding-bottom: 0.28rem;
+}
+
+.cat-foundations {
+  --cat-accent: var(--th-navy);
+}
+
+.cat-model {
+  --cat-accent: var(--th-teal);
+}
+
+.cat-limits {
+  --cat-accent: var(--th-gold);
+}
+
+.cat-delegating {
+  --cat-accent: var(--th-green);
+}
+
+.cat-safety {
+  --cat-accent: var(--th-red);
+}
+
+.cat-outward {
+  --cat-accent: var(--th-coral);
+}
+
+.term-entry {
+  background: #ffffff;
+  border: 1px solid var(--th-line);
+  border-left: 5px solid var(--cat-accent, var(--th-teal));
+  border-radius: 8px;
+  padding: 0.95rem 1.1rem;
+  margin: 0.9rem 0;
+}
+
+.term-entry h3 {
+  margin-top: 0;
+  margin-bottom: 0.45rem;
+}
+
+.term-entry p:last-child {
+  margin-bottom: 0;
+  font-size: 0.92rem;
+}
+
+.back-to-top {
+  display: inline-block;
+  margin-top: 0.3rem;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.back-to-top:hover {
+  text-decoration: underline;
+}
+
+body.quarto-dark .term-entry {
+  background: #161F1D;
+  border-color: rgba(215, 227, 223, 0.18);
+}

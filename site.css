@@ -1,0 +1,174 @@
+/* Shared site aesthetics for Quarto HTML pages. Deck-specific visuals live in motivation.css. */
+
+:root {
+  --jf-green: #004D47;
+  --jf-navy: #27384F;
+  --jf-teal: #3A8F84;
+  --jf-aqua: #B6DDD6;
+  --jf-gold: #D9A72E;
+  --jf-coral: #B86A55;
+  --jf-red: #A83A32;
+  --jf-ink: #202A28;
+  --jf-charcoal: #2D3331;
+  --jf-slate: #65716D;
+  --jf-mist: #F5F8F6;
+  --jf-line: #D7E3DF;
+  --bs-body-font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --bs-body-color: var(--jf-ink);
+  --bs-link-color: var(--jf-green);
+  --bs-link-hover-color: var(--jf-navy);
+  --bs-border-radius: 8px;
+}
+
+body {
+  background: #ffffff;
+  color: var(--jf-ink);
+}
+
+h1,
+h2,
+h3,
+h4,
+.navbar-brand,
+.title {
+  font-family: "Roboto Condensed", "Segoe UI", Arial, sans-serif;
+  letter-spacing: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--jf-ink);
+}
+
+a {
+  text-underline-offset: 0.16em;
+  text-decoration-thickness: 0.08em;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.navbar {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: none;
+}
+
+.navbar .nav-link {
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  background: rgba(255, 255, 255, 0.12);
+  text-decoration: none;
+}
+
+#quarto-announcement {
+  border-bottom: 1px solid var(--jf-line);
+}
+
+#quarto-announcement.alert-info {
+  background: #EEF3F7;
+  color: var(--jf-navy);
+}
+
+#quarto-announcement a {
+  color: var(--jf-green);
+  font-weight: 700;
+}
+
+#title-block-header.quarto-title-block.default {
+  border-bottom: 1px solid var(--jf-line);
+  margin-bottom: 1.6rem;
+  padding-bottom: 1.1rem;
+}
+
+.quarto-title .subtitle {
+  color: var(--jf-slate);
+}
+
+.btn,
+.btn-primary,
+.btn-secondary,
+.quarto-navigation-tool,
+.aa-DetachedSearchButton {
+  border-radius: 8px;
+}
+
+.callout {
+  border-radius: 8px;
+  border-color: var(--jf-line);
+}
+
+.callout.callout-style-default .callout-title {
+  background: var(--jf-mist);
+  color: var(--jf-ink);
+  font-family: "Roboto Condensed", "Segoe UI", Arial, sans-serif;
+  letter-spacing: 0;
+}
+
+main.content p,
+main.content li {
+  line-height: 1.58;
+}
+
+code {
+  color: var(--jf-green);
+  background: #EAF4F1;
+  border-radius: 5px;
+  padding: 0.08em 0.28em;
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+}
+
+.page-footer {
+  color: var(--jf-slate);
+  border-top-color: var(--jf-line);
+}
+
+body.quarto-dark {
+  --bs-body-bg: #121817;
+  --bs-body-color: #E9EEEC;
+  --bs-link-color: #B6DDD6;
+  --bs-link-hover-color: #D1EEE8;
+  background: #121817;
+  color: #E9EEEC;
+}
+
+body.quarto-dark h1,
+body.quarto-dark h2,
+body.quarto-dark h3,
+body.quarto-dark h4,
+body.quarto-dark .title {
+  color: #F5F8F6;
+}
+
+body.quarto-dark .quarto-title .subtitle,
+body.quarto-dark .page-footer,
+body.quarto-dark .page-meta {
+  color: #B9C8C3;
+}
+
+body.quarto-dark #title-block-header.quarto-title-block.default,
+body.quarto-dark .callout,
+body.quarto-dark .page-footer {
+  border-color: rgba(215, 227, 223, 0.18);
+}
+
+body.quarto-dark .callout.callout-style-default .callout-title,
+body.quarto-dark code {
+  background: #1E2926;
+  color: #D1EEE8;
+}
+
+body.quarto-dark #quarto-announcement.alert-info {
+  background: #1D2934;
+  color: #DCE8F6;
+  border-bottom-color: rgba(215, 227, 223, 0.16);
+}

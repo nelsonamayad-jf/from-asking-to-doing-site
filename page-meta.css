@@ -1,0 +1,26 @@
+/* page-meta.css — byline/date text + author profile cards, shared by about.qmd and index.qmd */
+
+.page-meta {
+  font-size: 0.85em;
+  color: #65716D;
+  margin-bottom: 1.5em;
+}
+
+.hero-meta {
+  font-size: 0.8em;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 1em;
+}
+
+.author-card {
+  border: 1px solid #D7E3DF;
+  border-radius: 8px;
+  padding: 1.2em 1.5em;
+  margin-bottom: 1.2em;
+  background: #F5F8F6;
+}
+
+.author-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.2em;
+}
