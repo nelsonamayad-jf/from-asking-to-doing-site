@@ -14,7 +14,7 @@ The validated runnable sessions live separately in
 
 ## One-time GitHub setup
 
-1. Create or open `Jacobs-Foundation/from-asking-to-doing-site`.
+1. Create or open `nelsonamayad-jf/from-asking-to-doing-site`.
 2. Push this repository so `main` exists.
 3. In `Settings -> Pages`, set `Source` to `GitHub Actions`.
 4. Ensure GitHub Actions is enabled for the repository.
@@ -36,6 +36,6 @@ No PAT or cross-repo secret is required.
 
 The Quarto project is configured for:
 
-`https://jacobs-foundation.github.io/from-asking-to-doing-site/`
+`https://nelsonamayad-jf.github.io/from-asking-to-doing-site/`
 
 If the repository name changes, update `_quarto.yml` `website.site-url`.
