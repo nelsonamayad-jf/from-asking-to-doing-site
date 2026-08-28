@@ -1,0 +1,21 @@
+---
+title: "Session 2 · Mixing it up"
+subtitle: "Multi-Input Summary Report"
+css: ../embed.css
+---
+
+::: {.deck-embed}
+<iframe src="session-2-summarize.html" title="Session 2 · Mixing it up" allow="fullscreen" allowfullscreen></iframe>
+:::
+
+::: {.deck-embed-actions}
+[Open in fullscreen ↗](session-2-summarize.html){target="_blank" rel="noopener"}
+
+{{< downloadthis ../downloads/session-2-skills-and-agents.zip dname="session-2-skills-and-agents" label="Download replication materials" icon="download" type="primary" >}}
+:::
+
+**Requires Python.** This demo reads and writes Word, PDF, Excel, and PowerPoint
+files — formats Claude Code doesn't parse natively — so it installs and calls
+Python libraries (`python-docx`, `python-pptx`, `openpyxl`) behind the scenes.
+Make sure Python and `pip` are available on the machine before running the
+`/collect` → `/synthesize` → `/report` pipeline.

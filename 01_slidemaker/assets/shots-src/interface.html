@@ -1,0 +1,35 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="app.css">
+<style>
+  /* interface.html — focused mockup of the Claude Code input box ("the whole
+     interface is one box"). Rendered to PNG via headless Chrome, embedded in
+     session 1, slide "The Claude Code screen". Controls left→right match the
+     deck's annotation row: accept-edits · + · mic · model · effort · working. */
+  html, body { width: 1040px; height: 300px; background: #e9e6dd; }
+  .stage { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 28px; }
+  .stage .inputbox { width: 100%; padding: 18px 20px; border-radius: 16px; box-shadow: 0 14px 40px rgba(0,0,0,0.12); }
+  .stage .field { font-size: 17px; line-height: 1.5; }
+  .stage .controls { margin-top: 16px; gap: 9px; }
+  .ctl { display: flex; align-items: center; gap: 6px; font-size: 12.5px; color: #57544b; background: #f3efe4; border: 1px solid #ece4d6; border-radius: 8px; padding: 5px 10px; }
+  .ctl .ic { font-size: 13px; color: #7a776e; }
+  .ctl.mode { color: #b4541f; background: #fbeadf; border-color: #f0d8c7; font-weight: 600; }
+  .ctl.icon { padding: 5px 9px; }
+  .ctl.work { color: #2f8a4e; background: #eef7f0; border-color: #cfe7d6; font-weight: 600; }
+  .ctl.work .spin { display: inline-block; }
+  .stage .send { width: 34px; height: 34px; border-radius: 9px; font-size: 16px; }
+</style></head>
+<body>
+<div class="stage">
+  <div class="inputbox">
+    <div class="field">Turn this funding proposal into a clean deck on our template.<span class="cur"></span></div>
+    <div class="controls">
+      <span class="ctl mode"><span class="ic">⏵⏵</span> accept edits</span>
+      <span class="ctl icon">+</span>
+      <span class="ctl icon">🎤</span>
+      <span class="ctl"><span class="ic">✳</span> Claude Opus 4.8</span>
+      <span class="ctl">High</span>
+      <span class="ctl work"><span class="spin">◴</span> Working</span>
+      <span class="send">↑</span>
+    </div>
+  </div>
+</div>
+</body></html>

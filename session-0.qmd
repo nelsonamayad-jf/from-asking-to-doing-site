@@ -1,0 +1,13 @@
+---
+title: "Session 0 · Setup"
+subtitle: "Install the tools before Session 1"
+css: embed.css
+---
+
+::: {.deck-embed}
+<iframe src="session-0-setup.html" title="Session 0 · Setup" allow="fullscreen" allowfullscreen></iframe>
+:::
+
+::: {.deck-embed-actions}
+[Open in fullscreen ↗](session-0-setup.html){target="_blank" rel="noopener"}
+:::

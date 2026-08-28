@@ -1,0 +1,184 @@
+/* shot.css — shared styling for Claude Code "screenshot" mockups.
+   Rendered to PNG via headless Chrome, then embedded in the session deck. */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 920px;
+  height: 600px;
+  background: #11161c;            /* deck-friendly dark backdrop */
+  font-family: 'JetBrains Mono', 'Consolas', monospace;
+}
+
+.win {
+  position: absolute;
+  inset: 22px;
+  background: #1b1f24;
+  border-radius: 12px;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.45);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* title bar — Windows-style: app icon + title on the left, min/max/close on the right */
+.bar {
+  height: 38px;
+  background: #23282e;
+  display: flex;
+  align-items: stretch;
+  padding: 0 0 0 14px;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+.bar .appicon {
+  align-self: center;
+  width: 14px; height: 14px; border-radius: 3px; background: #d97757;
+  display: flex; align-items: center; justify-content: center; font-size: 9px; color: #fff; font-weight: 700;
+}
+.bar .title {
+  align-self: center;
+  margin-left: 2px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #8b95a1;
+  font-weight: 500;
+}
+.bar .tag {
+  align-self: center;
+  margin-left: auto;
+  margin-right: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  color: #d97757;            /* Claude accent */
+  border: 1px solid #5a3a2e;
+  border-radius: 999px;
+  padding: 2px 10px;
+}
+.bar .wincontrols { display: flex; align-items: stretch; flex: 0 0 auto; }
+.bar .winbtn {
+  width: 40px; display: flex; align-items: center; justify-content: center;
+  font-family: 'Segoe UI', Arial, sans-serif; font-size: 10px; color: #8b95a1;
+}
+.bar .winbtn.close { font-size: 12px; }
+
+/* terminal body */
+.body {
+  flex: 1 1 auto;
+  padding: 18px 22px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #c9d1d9;
+  overflow: hidden;
+}
+
+/* common terminal pieces */
+.assistant { color: #e6edf3; }
+.assistant .b { color: #d97757; font-weight: 700; }   /* ⏺ marker */
+.tool { color: #8b95a1; }
+.tool .name { color: #75C4B5; font-weight: 700; }      /* tool name (brand teal) */
+.branch { color: #6b7682; padding-left: 20px; }
+.branch .ok { color: #3fb950; }
+.muted { color: #6b7682; }
+.dim   { color: #8b95a1; }
+.kw    { color: #d97757; }
+.str   { color: #a5d6ff; }
+.hl    { color: #75C4B5; font-weight: 700; }
+.warn  { color: #febc2e; }
+.spacer { height: 12px; }
+
+/* user prompt box at the bottom */
+.prompt {
+  margin: 10px 22px 18px;
+  border: 1px solid #3a414a;
+  border-radius: 9px;
+  padding: 10px 14px;
+  font-size: 15px;
+  color: #e6edf3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+.prompt .car { color: #d97757; font-weight: 700; }
+.prompt .cursor {
+  display: inline-block;
+  width: 9px; height: 18px;
+  background: #d97757;
+  margin-left: 2px;
+  vertical-align: middle;
+}
+
+/* slash-command autocomplete menu */
+.menu {
+  margin-top: 6px;
+  background: #12161b;
+  border: 1px solid #2c333b;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.menu .row {
+  display: flex;
+  gap: 14px;
+  padding: 7px 14px;
+  font-size: 14px;
+}
+.menu .row.sel { background: #2a2018; border-left: 3px solid #d97757; }
+.menu .cmd { color: #75C4B5; font-weight: 700; min-width: 215px; }
+.menu .row.sel .cmd { color: #f0a583; }
+.menu .desc { color: #8b95a1; font-family: 'Inter', sans-serif; font-size: 13px; }
+
+/* permission dialog */
+.perm {
+  margin-top: 14px;
+  border: 1px solid #d97757;
+  border-radius: 10px;
+  background: #1f1813;
+  padding: 14px 18px;
+}
+.perm .ph {
+  color: #f0a583;
+  font-weight: 700;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 8px;
+}
+.perm .cmdline {
+  background: #12161b;
+  border-radius: 6px;
+  padding: 7px 12px;
+  color: #e6edf3;
+  margin-bottom: 12px;
+}
+.perm .opt { font-size: 14px; padding: 3px 0; color: #c9d1d9; }
+.perm .opt.sel { color: #75C4B5; font-weight: 700; }
+.perm .opt .n { color: #8b95a1; }
+
+/* code/config pane */
+.pane {
+  background: #12161b;
+  border: 1px solid #2c333b;
+  border-radius: 8px;
+  padding: 12px 0;
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+.pane .ln { display: flex; }
+.pane .ln .no { width: 40px; text-align: right; padding-right: 14px; color: #4b5560; user-select: none; }
+.pane .ln .tx { color: #c9d1d9; white-space: pre; }
+.pane .cmt { color: #6b7682; }
+.pane .key { color: #75C4B5; }
+.pane .val { color: #a5d6ff; }
+.pane .head { color: #d97757; font-weight: 700; }
+
+.filebar {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #c9d1d9;
+  background: #20262d;
+  padding: 6px 14px;
+  border-radius: 6px 6px 0 0;
+  display: inline-block;
+}

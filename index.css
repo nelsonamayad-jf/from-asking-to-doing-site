@@ -1,0 +1,344 @@
+/* Homepage hero and session cards. Shared typography/color defaults live in site.css. */
+
+#title-block-header {
+  display: none;
+}
+
+:root {
+  --home-ink: #202A28;
+  --home-muted: #65716D;
+  --home-line: #D7E3DF;
+  --home-green: #004D47;
+  --home-navy: #27384F;
+  --home-teal: #3A8F84;
+  --home-aqua: #B6DDD6;
+  --home-gold: #D9A72E;
+  --home-coral: #B86A55;
+  --home-mist: #F5F8F6;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 31rem);
+  align-items: center;
+  gap: clamp(1.4rem, 4vw, 3.2rem);
+  background:
+    linear-gradient(90deg, rgba(0, 77, 71, 0.96), rgba(39, 56, 79, 0.9)),
+    url("images/claude-code.gif") center / cover;
+  color: #ffffff;
+  padding: 3.2rem clamp(1.25rem, 4vw, 3.2rem);
+  margin: 0 0 2rem;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--home-gold), var(--home-aqua), var(--home-coral));
+}
+
+.hero-copy,
+.hero-visual {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+
+.hero h1 {
+  color: #ffffff;
+  font-size: 3.65rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 0.98;
+  max-width: 9em;
+  margin: 0 0 0.45em;
+}
+
+.hero .hero-subtitle {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1.1rem;
+  line-height: 1.55;
+  max-width: 38rem;
+  margin: 0 0 1.5rem;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  background: var(--home-gold);
+  color: var(--home-ink) !important;
+  font-weight: 700;
+  padding: 0.62em 1.05em;
+  border-radius: 8px;
+  text-decoration: none !important;
+}
+
+.hero-cta:hover {
+  background: #E3B957;
+  color: var(--home-ink) !important;
+  text-decoration: none;
+}
+
+.hero-visual {
+  justify-self: end;
+  width: min(100%, 31rem);
+}
+
+.hero-visual p {
+  margin: 0;
+  line-height: 0;
+}
+
+.hero-gif {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 498 / 315;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: 8px;
+  box-shadow: 0 18px 42px rgba(10, 20, 18, 0.32);
+}
+
+.session-carousel {
+  position: relative;
+  margin: 1.4rem 0 2rem;
+}
+
+.session-grid {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  gap: 1rem;
+  margin: 0;
+  padding: 0.2rem 0.3rem 0.6rem;
+  scrollbar-width: none;
+}
+
+.session-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.session-card {
+  flex: 0 0 280px;
+  scroll-snap-align: start;
+  border: 1px solid var(--home-line);
+  border-top: 4px solid var(--session-accent, var(--home-green));
+  border-radius: 8px;
+  padding: 1.2rem;
+  background: #ffffff;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.sc-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 2.3rem;
+  height: 2.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--home-line);
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--home-green);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(32, 42, 40, 0.14);
+  transition: opacity 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.sc-arrow:hover {
+  box-shadow: 0 8px 20px rgba(32, 42, 40, 0.2);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.sc-arrow:disabled {
+  opacity: 0.32;
+  box-shadow: none;
+  cursor: default;
+  pointer-events: none;
+}
+
+.sc-prev {
+  left: -0.9rem;
+}
+
+.sc-next {
+  right: -0.9rem;
+}
+
+.session-card:hover {
+  border-color: rgba(0, 77, 71, 0.28);
+  box-shadow: 0 10px 24px rgba(32, 42, 40, 0.08);
+  transform: translateY(-2px);
+}
+
+.session-card:nth-child(2) {
+  --session-accent: var(--home-gold);
+}
+
+.session-card:nth-child(3) {
+  --session-accent: var(--home-teal);
+}
+
+.session-card:nth-child(4) {
+  --session-accent: var(--home-navy);
+}
+
+.session-icon {
+  width: 38px;
+  height: 38px;
+  color: var(--session-accent, var(--home-green));
+  margin-bottom: 0.65rem;
+}
+
+.session-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.session-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.24em 0.62em;
+  border-radius: 6px;
+  margin-bottom: 0.7rem;
+}
+
+.badge-intro {
+  background: var(--home-mist);
+  color: var(--home-ink);
+}
+
+.badge-setup {
+  background: #FBF1DC;
+  color: #6F5A16;
+}
+
+.badge-basic {
+  background: #E7F1EE;
+  color: var(--home-green);
+}
+
+.badge-intermediate {
+  background: #EEF3F7;
+  color: var(--home-navy);
+}
+
+.badge-advanced {
+  background: #FFF6E3;
+  color: #6F5A16;
+}
+
+.session-card h3 {
+  margin: 0.1rem 0 0.45rem;
+  font-size: 1.18rem;
+}
+
+.session-card h3 a {
+  color: var(--home-ink);
+  text-decoration: none;
+}
+
+.session-card h3 a:hover {
+  color: var(--home-green);
+}
+
+.session-card p {
+  color: var(--home-muted);
+  font-size: 0.96rem;
+  margin-bottom: 0.9rem;
+}
+
+.session-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.86rem;
+  color: var(--home-muted);
+  border-top: 1px solid var(--home-line);
+  padding-top: 0.75rem;
+}
+
+.session-meta a {
+  color: var(--home-green);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.session-meta a:hover {
+  color: var(--home-navy);
+  text-decoration: underline;
+}
+
+body.quarto-dark .session-card {
+  background: #161F1D;
+  border-color: rgba(215, 227, 223, 0.18);
+}
+
+body.quarto-dark .session-card h3 a,
+body.quarto-dark .session-card p {
+  color: #E9EEEC;
+}
+
+body.quarto-dark .session-meta {
+  color: #B9C8C3;
+  border-top-color: rgba(215, 227, 223, 0.18);
+}
+
+body.quarto-dark .sc-arrow {
+  background: #161F1D;
+  border-color: rgba(215, 227, 223, 0.18);
+  color: var(--home-aqua);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 700px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 1.35rem;
+    padding: 2.4rem 1.2rem;
+  }
+
+  .hero h1 {
+    font-size: 2.1rem;
+    max-width: 7.6em;
+  }
+
+  .hero-visual {
+    justify-self: stretch;
+    width: min(100%, 31rem);
+  }
+
+  .session-card {
+    flex-basis: 82vw;
+  }
+
+  .sc-arrow {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.1rem;
+  }
+
+  .sc-prev {
+    left: -0.4rem;
+  }
+
+  .sc-next {
+    right: -0.4rem;
+  }
+}

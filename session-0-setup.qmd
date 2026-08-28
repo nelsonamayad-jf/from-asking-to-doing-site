@@ -1,0 +1,401 @@
+---
+pagetitle: "Session 0 · Setup"
+format:
+  revealjs:
+    theme: simple
+    slide-number: c/t
+    transition: fade
+    background-transition: fade
+    width: 1280
+    height: 720
+    margin: 0.08
+    footer: "Claude Code Training · Session 0 · Jacobs Foundation"
+    css: motivation.css
+---
+
+## {background-color="var(--slide-dark-bg)"}
+
+::: {.center-all}
+
+::: {.eyebrow}
+Session 0: Setup · complete before Session 1
+:::
+
+### Get your computer ready — before we meet {style="color:#FDFEFE"}
+
+::: {.subtle-light}
+Fifteen minutes, once, on your own time. Install three things, log in, and
+Session 1 starts building instead of troubleshooting.
+:::
+
+:::
+
+## What we'll cover {background-color="#ffffff"}
+
+:::: {.split-grid}
+
+::: {.sg-col}
+::: {.sg-head}
+Part 1 · Install three things
+:::
+::: {.sg-body}
+• A terminal — you already have one<br>
+• Git — the ledger from Session 1<br>
+• Claude Code — the agent itself<br>
+• Log in, once
+:::
+:::
+
+::: {.sg-col .accent}
+::: {.sg-head}
+Part 2 · Make sure it's ready
+:::
+::: {.sg-body}
+• Verify everything, end to end<br>
+• No Claude Pro? Two alternatives<br>
+• Where today's files come from<br>
+• If something doesn't work
+:::
+:::
+
+::::
+
+::: {.notes}
+Same 30-second map as every other session. Part 1 is the install checklist;
+Part 2 is making sure it actually works before anyone arrives. There is no
+live demo today — say that up front so nobody's waiting for one.
+:::
+
+# Part 1 — Install three things {background-color="#ffffff"}
+
+## Three things, in order {background-color="#ffffff"}
+
+::: {style="font-size:0.62em; color:#5a5e66; margin-bottom:0.4em"}
+Two of these you probably already have, or install in a couple of clicks.
+The third is the one worth doing carefully.
+:::
+
+::::: {.mode-grid}
+
+:::: {.mode-card .chatbot}
+::: {.mode-icon}
+🖥️
+:::
+::: {.mode-title}
+A terminal
+:::
+::: {.mode-desc}
+macOS: Terminal.app. Windows: PowerShell. Both come with your computer —
+nothing to install.
+:::
+::: {.mode-badge}
+Already installed
+:::
+::::
+
+:::: {.mode-card .skills}
+::: {.mode-icon}
+📒
+:::
+::: {.mode-title}
+Git
+:::
+::: {.mode-desc}
+The ledger of tracked changes from Session 1. Install it now so Claude can
+safely edit real files from day one.
+:::
+::: {.mode-badge}
+5 minutes
+:::
+::::
+
+:::: {.mode-card .agents}
+::: {.mode-icon}
+🤖
+:::
+::: {.mode-title}
+Claude Code
+:::
+::: {.mode-desc}
+The agent itself. Runs inside your terminal, not a separate app. Needs a
+paid Claude plan.
+:::
+::: {.mode-badge}
+10 minutes
+:::
+::::
+
+:::::
+
+::: {.callout-box .tip}
+[Already have Git?]{.cb-label}
+Type `git --version` in a terminal. A version number means you're done with
+that one — skip ahead to Claude Code.
+:::
+
+::: {.notes}
+Keep this brisk — the point is just "three things, here's the order." Most
+people already have a terminal and often already have Git. Claude Code is
+the one nobody has yet and the one worth walking through carefully.
+:::
+
+## Install Git {background-color="#ffffff"}
+
+::: {style="font-size:0.62em; color:#5a5e66; margin-bottom:0.4em"}
+Most Macs already have it. Windows almost never does.
+:::
+
+:::: {.split-grid}
+
+::: {.sg-col}
+::: {.sg-head}
+macOS
+:::
+::: {.sg-body}
+Type `git --version` in Terminal. If it's missing, macOS offers to install
+the "command line developer tools" for you — click **Install** and wait a
+minute.
+:::
+:::
+
+::: {.sg-col .accent}
+::: {.sg-head}
+Windows
+:::
+::: {.sg-body}
+Download the installer from
+[git-scm.com/downloads/win](https://git-scm.com/downloads/win){target="_blank" rel="noopener"}.
+Run it and accept every default — the defaults are fine.
+:::
+:::
+
+::::
+
+::: {.callout-box .tip}
+[Verify]{.cb-label}
+Open a **new** terminal window and type `git --version` again. You should
+see something like `git version 2.43.0` — the exact number doesn't matter.
+:::
+
+## Installing Claude Code {background-color="#ffffff"}
+
+::: {style="font-size:0.6em; color:#5a5e66; margin-bottom:0.3em"}
+Five steps, once. Work through them before the workshop so you arrive ready
+to build.
+:::
+
+::: {.steps}
+
+::: {.step}
+::: {.step-num}
+1
+:::
+::: {.step-body}
+**Open a terminal.** macOS: press ⌘+Space, type "Terminal". Windows: open
+the Start menu, type "PowerShell".
+:::
+:::
+
+::: {.step}
+::: {.step-num}
+2
+:::
+::: {.step-body}
+**Run the installer for your OS.**
+macOS/Linux: `curl -fsSL https://claude.ai/install.sh | bash`
+Windows: `irm https://claude.ai/install.ps1 | iex`
+:::
+:::
+
+::: {.step}
+::: {.step-num}
+3
+:::
+::: {.step-body}
+**Close that terminal and open a fresh one.** The installer taught your
+computer where `claude` lives — only a newly opened terminal knows about it.
+:::
+:::
+
+::: {.step}
+::: {.step-num}
+4
+:::
+::: {.step-body}
+**Verify.** Type `claude --version`. Expect something like `2.1.x (Claude
+Code)` — your number will differ.
+:::
+:::
+
+::: {.step}
+::: {.step-num}
+5
+:::
+::: {.step-body}
+**Log in.** Type `claude`. A browser window opens — sign in with the Claude
+account tied to the plan you paid for. You only do this once.
+:::
+:::
+
+:::
+
+::: {.callout-box .warn}
+[If step 4 says "command not found"]{.cb-label}
+The fresh terminal from step 3 is what fixes it, nine times out of ten.
+Still stuck? Close the terminal app entirely — not just the window — and
+reopen it.
+:::
+
+::: {.notes}
+This is the slide people actually need to read at home, not skim in the
+room. Walk through it once at normal pace so the steps are on the record,
+then move to verification.
+:::
+
+# Part 2 — Make sure it's ready {background-color="#ffffff"}
+
+## Verify, end to end {background-color="#ffffff"}
+
+::: {style="font-size:0.62em; color:#5a5e66; margin-bottom:0.3em"}
+Three commands, three checkmarks. If all three run clean, you're done —
+close the laptop and see you at Session 1.
+:::
+
+::: {.chat}
+<span class="you">git --version</span>
+<span class="cc">git version 2.43.0</span>
+<span class="you">claude --version</span>
+<span class="cc">2.1.4 (Claude Code)</span>
+<span class="you">claude</span>
+<span class="muted">Opens a browser → sign in → back in the terminal, ready.</span>
+<span class="cc">You're ready for Session 1.</span>
+:::
+
+## No Claude Pro? Two alternatives {background-color="#ffffff"}
+
+::: {style="font-size:0.62em; color:#5a5e66; margin-bottom:0.4em"}
+Sessions are taught in Claude Code, so menus and commands won't line up
+exactly — but the ideas transfer directly.
+:::
+
+::::: {.mode-grid}
+
+:::: {.mode-card .chatbot}
+::: {.mode-icon}
+♊
+:::
+::: {.mode-title}
+Gemini CLI
+:::
+::: {.mode-desc}
+Google's coding agent for the terminal. Free with an ordinary Google
+account — the closest free stand-in for Claude Code.
+:::
+::: {.mode-badge}
+Free
+:::
+::::
+
+:::: {.mode-card .skills}
+::: {.mode-icon}
+🌀
+:::
+::: {.mode-title}
+Codex
+:::
+::: {.mode-desc}
+OpenAI's coding agent for the terminal. A good fit if you already pay for
+ChatGPT and would rather stay in that account.
+:::
+::: {.mode-badge}
+Needs ChatGPT Plus
+:::
+::::
+
+:::::
+
+::: {.callout-box .tip}
+[Curious which is "best"?]{.cb-label}
+Wrong question for today. They overlap more than the marketing suggests, and
+the best one is whichever you actually open. We use Claude Code here; nothing
+stops you trying the others afterwards.
+:::
+
+## Where today's files come from {background-color="#ffffff"}
+
+::: {style="font-size:0.68em; color:#5a5e66; margin-bottom:0.5em"}
+Nothing to clone or download before the workshop.
+:::
+
+::: {.callout-box .tip}
+[Nothing to fetch yet]{.cb-label}
+Each session's folder is a small `.zip` linked from the [training
+site](index.qmd) — grab today's when we get there, or ask your trainer for
+it directly. Bringing a laptop with Git and Claude Code installed is the
+only homework.
+:::
+
+## If something doesn't work {background-color="#ffffff"}
+
+::: {.callout-box .warn}
+[Common snags]{.cb-label}
+`command not found` after installing → the fresh terminal from step 3 is
+almost always the fix. macOS asks to install "command line developer
+tools" the first time you run `git` → click **Install**, wait a minute, try
+again. Windows blocks the installer line → right-click PowerShell, choose
+**Run as administrator**, try again. Browser doesn't open on login → copy
+the URL Claude prints and paste it into any browser by hand.
+:::
+
+::: {.callout-box .tip}
+[Still stuck?]{.cb-label}
+Come a few minutes early to Session 1 and we'll sort it out together —
+that's what the extra time is for.
+:::
+
+## What you just saw {background-color="var(--slide-dark-bg)"}
+
+::: {.center-all style="color:#FDFEFE"}
+
+::: {.eyebrow}
+Key concept
+:::
+
+### Fifteen minutes of setup, once — so every session after this one is spent building, not installing.
+
+::: {.subtle-light}
+A terminal, Git, and Claude Code, logged in. That's the whole list.
+:::
+
+:::
+
+## Before Session 1 {background-color="#ffffff"}
+
+::: {style="font-size:0.66em; color:var(--brand-dark); margin-bottom:0.5em"}
+Check each of these off on your own machine:
+:::
+
+::: {.incremental style="font-size:0.72em"}
+- `git --version` prints a version number
+- `claude --version` prints a version number
+- `claude` opens a browser and signs you in
+- You know where to find today's session folder when it's shared
+:::
+
+::: {.notes}
+No live demo in this session, so there's no "your turn" build moment —
+the participant homework is entirely the checklist above. If anyone hits a
+snag they can't clear before the workshop, tell them to come early rather
+than skip it.
+:::
+
+## Questions {background-color="var(--slide-dark-bg)"}
+
+::: {.center-all}
+::: {.callout-number}
+?
+:::
+::: {style="font-size:0.55em; color:rgba(255,255,255,0.92); margin-top:0.4em"}
+Ask anything — about installing, or about what's coming in Session 1.
+:::
+:::

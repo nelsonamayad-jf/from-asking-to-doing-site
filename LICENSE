@@ -1,0 +1,29 @@
+Licensing for `from-asking-to-doing-site`
+
+This repository contains both workshop content and website code.
+
+Unless noted otherwise:
+
+- Written content, decks, downloadable workshop bundles, screenshots, and other
+  teaching materials are licensed under **CC BY 4.0**.
+  See `LICENSE-CONTENT`.
+- Website code and configuration are licensed under the **MIT License**.
+  See `LICENSE-CODE`.
+
+For this repository, "website code and configuration" includes files such as:
+
+- `.github/workflows/**`
+- `*.css`
+- `*.yml`
+- `*.yaml`
+- `*.lua`
+
+Exceptions:
+
+- Jacobs Foundation logos and brand assets are not covered by the open licenses
+  above. This includes `images/jf_logo.png` and
+  `01_slidemaker/assets/extracted/jf-logo-*.png`.
+- The illustration photographs under `01_slidemaker/assets/scope-*.jpg` are
+  available under CC0 from Wikimedia Commons.
+- `_extensions/shafayetShafee/downloadthis/` carries its own upstream MIT
+  notices and remains under that upstream license.

@@ -1,0 +1,11 @@
+---
+title: "Skill collection"
+subtitle: "A catalog of reusable Claude Code skills"
+---
+
+::: {.callout-note}
+## Coming soon
+
+Write a skill once, run it forever. This page will collect the reusable ones
+as the sessions produce them.
+:::

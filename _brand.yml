@@ -1,0 +1,45 @@
+meta:
+  name: From Asking to Doing with Claude Code
+
+logo:
+  small: images/jf_logo.png
+
+color:
+  palette:
+    green: "#004D47"
+    navy: "#27384F"
+    teal: "#3A8F84"
+    aqua: "#B6DDD6"
+    gold: "#D9A72E"
+    coral: "#B86A55"
+    red: "#A83A32"
+    ink: "#202A28"
+    charcoal: "#2D3331"
+    slate: "#65716D"
+    mist: "#F5F8F6"
+    line: "#D7E3DF"
+    white: "#FFFFFF"
+  foreground: ink
+  background: white
+  primary: green
+  secondary: navy
+  tertiary: teal
+  success: green
+  info: navy
+  warning: gold
+  danger: red
+  light: mist
+  dark: charcoal
+
+typography:
+  fonts:
+  - family: Roboto Condensed
+    source: google
+  base: "Segoe UI"
+  headings:
+    family: Roboto Condensed
+    weight: 700
+  monospace: Consolas
+  link:
+    color: primary
+    decoration: none

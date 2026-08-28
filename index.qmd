@@ -1,0 +1,187 @@
+---
+title: "From asking to doing"
+subtitle: "Nelson's idiosincratic series on using Claude Code for Jacobs Foundation staff"
+description: "Developed by Nelson Amaya (Jacobs Foundation) on how to use Claude Code to work more efficiently within the organization"
+author:
+- name: Nelson Amaya
+  role: Global Knowledge Manager
+  email: nelson.amaya@jacobsfoundation.org
+- name: Claude Sonnet
+  affiliation: Anthropic, PBC
+  role: Coding Assistant
+date: "2026-07-08"
+date-modified: last-modified
+date-format: long
+toc: false
+css:
+  - index.css
+  - page-meta.css
+---
+
+::: {.hero}
+::: {.hero-copy}
+# From Asking to Doing
+
+::: {.hero-subtitle}
+You know how to prompt LLMs. Time to make them *do* things.
+:::
+
+[Need motivation? Check this out →](intro.qmd){.hero-cta}
+
+::: {.hero-meta}
+By Nelson Amaya & Claude Sonnet · Published {{< meta date >}} · Last updated {{< meta date-modified >}}
+:::
+:::
+
+::: {.hero-visual}
+```{=html}
+<img class="hero-gif" src="images/i-know-kung-fu-neo.gif" alt="Neo saying &quot;I know kung fu&quot; in The Matrix">
+```
+:::
+:::
+
+## Sessions
+
+::: {.session-carousel}
+
+```{=html}
+<button class="sc-arrow sc-prev" type="button" aria-label="Scroll to previous session" id="session-prev"><span aria-hidden="true">‹</span></button>
+```
+
+::: {.session-grid #session-track}
+
+::: {.session-card}
+::: {.session-icon}
+```{=html}
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 15l6-6"/><path d="M10 9h5v5"/></svg>
+```
+:::
+[All staff]{.session-badge .badge-intro}
+
+### [From Asking to Doing](intro.qmd)
+
+What Claude Code is, why it matters, and why "I can't code" is no longer an excuse.
+
+::: {.session-meta}
+No download — intro session
+:::
+:::
+
+::: {.session-card}
+::: {.session-icon}
+```{=html}
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>
+```
+:::
+[Setup]{.session-badge .badge-setup}
+
+### [Session 0 · Setup](session-0.qmd)
+
+Install a terminal, Git, and Claude Code, then log in. Fifteen minutes, once, before Session 1.
+
+::: {.session-meta}
+No download — setup checklist
+:::
+:::
+
+::: {.session-card}
+::: {.session-icon}
+```{=html}
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 18l4-4"/><path d="M21 18l-6-6"/><polygon points="10,8 15,11 10,14" fill="currentColor" stroke="none"/></svg>
+```
+:::
+[Introduction]{.session-badge .badge-basic}
+
+### [Session 1 · Slidemaking](01_slidemaker/session-1.qmd)
+
+One skill, one input, one output. A proposal goes in; a deck on our template comes out.
+
+::: {.session-meta}
+Live: 8 July 2026
+
+[↓ Download](downloads/session-1-introduction.zip)
+:::
+:::
+
+::: {.session-card}
+::: {.session-icon}
+```{=html}
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="4" cy="12" r="2.5"/><circle cx="12" cy="12" r="2.5"/><circle cx="20" cy="12" r="2.5"/><path d="M6.5 12h3"/><path d="M14.5 12h3"/></svg>
+```
+:::
+[Skills and Agents]{.session-badge .badge-intermediate}
+
+### [Session 2 · Mixing it up](02_summarizer/session-2.qmd)
+
+Ten files, four formats, one report. Three small skills chain into a pipeline; agents do the heavy lifting.
+
+::: {.session-meta}
+Live: 9 July 2026
+
+[↓ Download](downloads/session-2-skills-and-agents.zip)
+:::
+:::
+
+::: {.session-card}
+::: {.session-icon}
+```{=html}
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="5" r="2.5"/><circle cx="18" cy="5" r="2.5"/><path d="M6 7.5v2a2.5 2.5 0 0 0 2.5 2.5h7A2.5 2.5 0 0 0 18 9.5v-2"/><path d="M12 12v2.5"/><path d="M8.5 18.5l2.5 2.5 4.5-5"/></svg>
+```
+:::
+[Workflow]{.session-badge .badge-advanced}
+
+### [Session 3 · Extended Team](03_multitudes/session-3.qmd)
+
+Two agents, one strategy document. A researcher gathers evidence; a reviewer critiques it — never having read the original.
+
+::: {.session-meta}
+[↓ Download](downloads/session-3-workflow.zip)
+:::
+:::
+
+:::
+
+```{=html}
+<button class="sc-arrow sc-next" type="button" aria-label="Scroll to next session" id="session-next"><span aria-hidden="true">›</span></button>
+```
+
+:::
+
+```{=html}
+<script>
+(function () {
+  var track = document.getElementById('session-track');
+  var prev = document.getElementById('session-prev');
+  var next = document.getElementById('session-next');
+  if (!track || !prev || !next) return;
+
+  function step() {
+    var card = track.querySelector('.session-card');
+    if (!card) return track.clientWidth;
+    var gap = parseFloat(getComputedStyle(track).gap) || 0;
+    return card.getBoundingClientRect().width + gap;
+  }
+
+  function updateArrows() {
+    var maxScroll = track.scrollWidth - track.clientWidth;
+    prev.disabled = track.scrollLeft <= 1;
+    next.disabled = track.scrollLeft >= maxScroll - 1;
+    // Nothing to scroll at all: hide both rather than show two disabled buttons.
+    var hasOverflow = maxScroll > 1;
+    prev.style.display = hasOverflow ? '' : 'none';
+    next.style.display = hasOverflow ? '' : 'none';
+  }
+
+  prev.addEventListener('click', function () {
+    track.scrollBy({ left: -step(), behavior: 'smooth' });
+  });
+  next.addEventListener('click', function () {
+    track.scrollBy({ left: step(), behavior: 'smooth' });
+  });
+
+  track.addEventListener('scroll', updateArrows);
+  window.addEventListener('resize', updateArrows);
+  updateArrows();
+})();
+</script>
+```
