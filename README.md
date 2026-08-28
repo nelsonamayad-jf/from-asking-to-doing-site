@@ -2,8 +2,8 @@
 
 This repository contains the Quarto source for the public workshop website.
 
-It is published from the personal repository
-`nelsonamayad-jf/from-asking-to-doing-site` and stays separate from the
+It is published from the organization repository
+`Jacobs-Foundation/from-asking-to-doing-site` and stays separate from the
 validated session source repo `Jacobs-Foundation/From-asking-to-doing`.
 
 ## What Lives Here

@@ -35,7 +35,7 @@ website:
   # The navbar shows only the logo (navbar: title: false below).
   title: "From Asking to Doing"
   description: "A hands-on Claude Code training for Jacobs Foundation staff."
-  site-url: "https://nelsonamayad-jf.github.io/from-asking-to-doing-site/"
+  site-url: "https://jacobs-foundation.github.io/from-asking-to-doing-site/"
   favicon: "images/jf_logo.png"
   # Default thumbnail + metadata for link previews (Slack, Teams, LinkedIn, X)
   image: "images/jf_logo.png"
