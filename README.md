@@ -32,3 +32,10 @@ One-time GitHub setup:
 1. Push this repository to GitHub.
 2. In `Settings -> Pages`, set `Source` to `GitHub Actions`.
 3. Push to `main` to trigger the first deployment.
+
+## License
+
+Workshop content in this repo is licensed under CC BY 4.0. Website code and
+configuration are licensed under MIT. See `LICENSE`, `LICENSE-CONTENT`, and
+`LICENSE-CODE` for the exact split and exclusions for Jacobs Foundation brand
+assets.

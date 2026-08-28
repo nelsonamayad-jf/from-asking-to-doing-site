@@ -1,39 +1,29 @@
-Creative Commons Attribution 4.0 International (CC BY 4.0)
+Licensing for `from-asking-to-doing-site`
 
-Copyright (c) 2026 Jacobs Foundation
+This repository contains both workshop content and website code.
 
-This work — the website copy, workshop decks, curated downloadable bundles,
-and related materials in this repository — is licensed under the Creative
-Commons Attribution 4.0 International License.
+Unless noted otherwise:
 
-You are free to:
+- Written content, decks, downloadable workshop bundles, screenshots, and other
+  teaching materials are licensed under **CC BY 4.0**.
+  See `LICENSE-CONTENT`.
+- Website code and configuration are licensed under the **MIT License**.
+  See `LICENSE-CODE`.
 
-  Share  — copy and redistribute the material in any medium or format
-  Adapt  — remix, transform, and build upon the material for any purpose,
-           even commercially
+For this repository, "website code and configuration" includes files such as:
 
-Under the following terms:
+- `.github/workflows/**`
+- `*.css`
+- `*.yml`
+- `*.yaml`
+- `*.lua`
 
-  Attribution — You must give appropriate credit, provide a link to the
-  license, and indicate if changes were made. You may do so in any
-  reasonable manner, but not in any way that suggests the licensor
-  endorses you or your use.
+Exceptions:
 
-  No additional restrictions — You may not apply legal terms or
-  technological measures that legally restrict others from doing anything
-  the license permits.
-
-The full license text is available at:
-https://creativecommons.org/licenses/by/4.0/legalcode
-
----
-
-Note on third-party material:
-
-  * Jacobs Foundation logos and brand assets in this repository are Jacobs
-    Foundation property and are not covered by the CC BY grant above.
-  * The illustration photographs under 01_slidemaker/assets/scope-*.jpg are
-    from Wikimedia Commons under CC0.
-  * The Quarto extension bundled under
-    _extensions/shafayetShafee/downloadthis/ is redistributed under its own
-    license.
+- Jacobs Foundation logos and brand assets are not covered by the open licenses
+  above. This includes `images/jf_logo.png` and
+  `01_slidemaker/assets/extracted/jf-logo-*.png`.
+- The illustration photographs under `01_slidemaker/assets/scope-*.jpg` are
+  available under CC0 from Wikimedia Commons.
+- `_extensions/shafayetShafee/downloadthis/` carries its own upstream MIT
+  notices and remains under that upstream license.
