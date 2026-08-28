@@ -197,34 +197,6 @@ Land the contrast: one big prompt collapses three failure modes into one opaque 
 Same assistant. Two different modes of working.
 :::
 
-:::: {.split-grid}
-
-::: {.sg-col}
-::: {style="border:1px solid #d7dbe2; border-radius:18px; overflow:hidden; background:#ffffff; box-shadow:0 10px 24px rgba(25,33,48,0.08)"}
-![](../images/session2-skill-recipe-book.jpg){fig-alt="Open recipe book in a kitchen" style="display:block; width:100%; height:175px; object-fit:cover; margin:0"}
-
-::: {style="padding:0.55em 0.8em 0.7em 0.8em; text-align:left"}
-[Skill = recipe book]{style="font-size:0.78em; font-weight:800; color:var(--brand-dark)"}
-
-[The saved instructions you keep coming back to.]{style="font-size:0.58em; color:#5a5e66"}
-:::
-:::
-:::
-
-::: {.sg-col .accent}
-::: {style="border:1px solid #d7dbe2; border-radius:18px; overflow:hidden; background:#ffffff; box-shadow:0 10px 24px rgba(25,33,48,0.08)"}
-![](../images/session2-agent-cooks.gif){fig-alt="Ratatouille cooks working in a kitchen" style="display:block; width:100%; height:175px; object-fit:cover; margin:0"}
-
-::: {style="padding:0.55em 0.8em 0.7em 0.8em; text-align:left"}
-[Agents = cooks cooking]{style="font-size:0.78em; font-weight:800; color:var(--brand-dark)"}
-
-[Each gets one tray, does one job, returns one result.]{style="font-size:0.58em; color:#5a5e66"}
-:::
-:::
-:::
-
-::::
-
 <table style="width:100%; font-size:0.49em; border-collapse:collapse; margin-top:0.45em">
 <thead>
   <tr style="background:var(--brand-dark); color:#ffffff">
@@ -267,6 +239,46 @@ Land one sentence: a skill is the recipe, an agent is the worker. The "point of 
 row is the most compelling — agents don't have self-bias because they weren't in the
 room when you wrote it. That matters for review steps. One pass here, then show it
 live in the /synthesize demo.
+:::
+
+## One picture to remember {background-color="#ffffff"}
+
+::: {style="font-size:0.68em; color:#5a5e66; margin-bottom:0.5em"}
+The table explains it. This picture makes it stick.
+:::
+
+:::: {.split-grid}
+
+::: {.sg-col}
+::: {style="border:1px solid #d7dbe2; border-radius:18px; overflow:hidden; background:#ffffff; box-shadow:0 10px 24px rgba(25,33,48,0.08)"}
+![](../images/session2-skill-recipe-book.jpg){fig-alt="Open recipe book in a kitchen" style="display:block; width:100%; height:260px; object-fit:cover; margin:0"}
+
+::: {style="padding:0.55em 0.8em 0.7em 0.8em; text-align:left"}
+[Skill = recipe book]{style="font-size:0.82em; font-weight:800; color:var(--brand-dark)"}
+
+[The reusable instructions.]{style="font-size:0.6em; color:#5a5e66"}
+:::
+:::
+:::
+
+::: {.sg-col .accent}
+::: {style="border:1px solid #d7dbe2; border-radius:18px; overflow:hidden; background:#ffffff; box-shadow:0 10px 24px rgba(25,33,48,0.08)"}
+![](../images/session2-agent-cooks.jpg){fig-alt="Busy kitchen with many cooks working at once" style="display:block; width:100%; height:260px; object-fit:cover; margin:0"}
+
+::: {style="padding:0.55em 0.8em 0.7em 0.8em; text-align:left"}
+[Agents = cooks cooking]{style="font-size:0.82em; font-weight:800; color:var(--brand-dark)"}
+
+[The workers doing the job in parallel.]{style="font-size:0.6em; color:#5a5e66"}
+:::
+:::
+:::
+
+::::
+
+::: {.notes}
+After the table, stop simplifying and just point. Left: the cookbook is the method you
+reuse. Right: the cooks are the workers doing the actual job. The point is not culinary
+precision; it is that one defines the process and the others execute it.
 :::
 
 # Part 2 — Run the pipeline {background-color="#ffffff"}
