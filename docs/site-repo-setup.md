@@ -32,10 +32,11 @@ The validated runnable sessions live separately in
 
 No PAT or cross-repo secret is required.
 
-## Current URL assumption
+## Current Live URL
 
-The Quarto project is configured for:
+The site is currently deployed at:
 
 `https://jacobs-foundation.github.io/from-asking-to-doing-site/`
 
-If the repository name changes, update `_quarto.yml` `website.site-url`.
+This should match `_quarto.yml` under `website.site-url`. If the repository
+name or publishing target changes, update that setting as well.
