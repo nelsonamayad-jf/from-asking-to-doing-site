@@ -4,12 +4,12 @@ This repository contains the Quarto source for the public website for the
 Jacobs Foundation "From Asking to Doing" training.
 
 The site is deployed from the GitHub repository
-`Jacobs-Foundation/from-asking-to-doing-site` and published at:
+`nelsonamayad-jf/from-asking-to-doing-site` and published at:
 
-- <https://jacobs-foundation.github.io/from-asking-to-doing-site/>
+- <https://nelsonamayad-jf.github.io/from-asking-to-doing-site/>
 
 This repository is intentionally separate from the validated runnable session
-source repo `Jacobs-Foundation/From-asking-to-doing`. Maintainers keep it cloned
+source repo `nelsonamayad-jf/from-asking-to-doing`. Maintainers keep it cloned
 inside that repo's folder as `from-asking-to-doing-site/`, where it is
 gitignored, so sessions and site sit side by side while each keeps its own
 history and remote.

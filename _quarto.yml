@@ -35,7 +35,7 @@ website:
   # The navbar shows only the logo (navbar: title: false below).
   title: "From Asking to Doing"
   description: "A hands-on Claude Code training for Jacobs Foundation staff."
-  site-url: "https://jacobs-foundation.github.io/from-asking-to-doing-site/"
+  site-url: "https://nelsonamayad-jf.github.io/from-asking-to-doing-site/"
   favicon: "images/jf_logo.png"
   # Default thumbnail + metadata for link previews (Slack, Teams, LinkedIn, X)
   image: "images/jf_logo.png"
@@ -99,7 +99,7 @@ website:
         icon: info-circle
         href: about.qmd
       - icon: github
-        href: https://github.com/Jacobs-Foundation/From-asking-to-doing
+        href: https://github.com/nelsonamayad-jf/from-asking-to-doing
         aria-label: "Session source on GitHub"
 
   page-footer:
@@ -107,7 +107,7 @@ website:
     border: true
     left: "Developed by Nelson Amaya (Jacobs Foundation)"
     center: "Claude Code Training · Jacobs Foundation · 2026"
-    right: "[Sessions on GitHub](https://github.com/Jacobs-Foundation/From-asking-to-doing) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)"
+    right: "[Sessions on GitHub](https://github.com/nelsonamayad-jf/from-asking-to-doing) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)"
 
 # HTML default (index.qmd, about.qmd). Presentation files override this with revealjs in their own YAML.
 format:

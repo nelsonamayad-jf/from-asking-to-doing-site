@@ -11,7 +11,7 @@ Focus here on website concerns only:
 - GitHub Pages publishing setup
 
 Do not treat this repo as the runnable workshop package. The validated session
-source is the separate repository `Jacobs-Foundation/From-asking-to-doing`.
+source is the separate repository `nelsonamayad-jf/from-asking-to-doing`.
 
 ## Where This Repo Sits
 

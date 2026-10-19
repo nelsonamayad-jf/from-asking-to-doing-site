@@ -204,8 +204,8 @@ Look things up as you go
 
 ::: {.source-note}
 The sessions are open source. The runnable folders live on GitHub at
-[Jacobs-Foundation/From-asking-to-doing](https://github.com/Jacobs-Foundation/From-asking-to-doing);
+[nelsonamayad-jf/from-asking-to-doing](https://github.com/nelsonamayad-jf/from-asking-to-doing);
 this website's source is
-[Jacobs-Foundation/from-asking-to-doing-site](https://github.com/Jacobs-Foundation/from-asking-to-doing-site).
+[nelsonamayad-jf/from-asking-to-doing-site](https://github.com/nelsonamayad-jf/from-asking-to-doing-site).
 Content is CC BY 4.0.
 :::

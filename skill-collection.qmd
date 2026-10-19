@@ -11,7 +11,7 @@ A skill is a saved set of instructions Claude runs when you type `/` and its
 name (see the [Thesaurus](thesaurus.qmd#foundations)). Each one below lives in
 the `.claude/skills/` folder of its session, is plain English, and can be
 copied into any project of yours. Download a session to get the files, or read
-them on [GitHub](https://github.com/Jacobs-Foundation/From-asking-to-doing).
+them on [GitHub](https://github.com/nelsonamayad-jf/from-asking-to-doing).
 
 Two conventions run through all of them:
 

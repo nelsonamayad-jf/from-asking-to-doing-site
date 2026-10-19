@@ -21,10 +21,10 @@ about:
       href: mailto:nelson.amaya@jacobsfoundation.org
     - icon: github
       text: "Sessions"
-      href: https://github.com/Jacobs-Foundation/From-asking-to-doing
+      href: https://github.com/nelsonamayad-jf/from-asking-to-doing
     - icon: globe
       text: "Site source"
-      href: https://github.com/Jacobs-Foundation/from-asking-to-doing-site
+      href: https://github.com/nelsonamayad-jf/from-asking-to-doing-site
 css:
   - page-meta.css
 ---
@@ -62,9 +62,9 @@ runnable skills under `.claude/skills/`, and the sample inputs. Run the slash
 command on the sample, then on your own files.
 
 The folders are maintained in the open at
-[Jacobs-Foundation/From-asking-to-doing](https://github.com/Jacobs-Foundation/From-asking-to-doing).
+[nelsonamayad-jf/from-asking-to-doing](https://github.com/nelsonamayad-jf/from-asking-to-doing).
 Only validated sessions are published there; the website's own source is
-[Jacobs-Foundation/from-asking-to-doing-site](https://github.com/Jacobs-Foundation/from-asking-to-doing-site).
+[nelsonamayad-jf/from-asking-to-doing-site](https://github.com/nelsonamayad-jf/from-asking-to-doing-site).
 
 ## 📄 License
 
