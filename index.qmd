@@ -203,9 +203,8 @@ Look things up as you go
 :::
 
 ::: {.source-note}
-The sessions are open source. The runnable folders live on GitHub at
-[nelsonamayad-jf/from-asking-to-doing](https://github.com/nelsonamayad-jf/from-asking-to-doing);
-this website's source is
+Every runnable session folder is in the download on its session page. This
+website's source is
 [nelsonamayad-jf/from-asking-to-doing-site](https://github.com/nelsonamayad-jf/from-asking-to-doing-site).
 Content is CC BY 4.0.
 :::

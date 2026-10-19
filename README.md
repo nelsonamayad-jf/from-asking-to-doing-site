@@ -9,7 +9,7 @@ The site is deployed from the GitHub repository
 - <https://nelsonamayad-jf.github.io/from-asking-to-doing-site/>
 
 This repository is intentionally separate from the validated runnable session
-source repo `nelsonamayad-jf/from-asking-to-doing`. Maintainers keep it cloned
+source repo `nelsonamayad-jf/from-asking-to-doing` (private). Maintainers keep it cloned
 inside that repo's folder as `from-asking-to-doing-site/`, where it is
 gitignored, so sessions and site sit side by side while each keeps its own
 history and remote.

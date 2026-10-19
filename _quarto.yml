@@ -98,16 +98,13 @@ website:
       - text: "About"
         icon: info-circle
         href: about.qmd
-      - icon: github
-        href: https://github.com/nelsonamayad-jf/from-asking-to-doing
-        aria-label: "Session source on GitHub"
 
   page-footer:
     background: "light"
     border: true
     left: "Developed by Nelson Amaya (Jacobs Foundation)"
     center: "Claude Code Training · Jacobs Foundation · 2026"
-    right: "[Sessions on GitHub](https://github.com/nelsonamayad-jf/from-asking-to-doing) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)"
+    right: "[Site source](https://github.com/nelsonamayad-jf/from-asking-to-doing-site) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)"
 
 # HTML default (index.qmd, about.qmd). Presentation files override this with revealjs in their own YAML.
 format:
