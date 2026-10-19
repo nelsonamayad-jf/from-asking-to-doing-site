@@ -13,3 +13,63 @@ css: ../embed.css
 
 <a class="btn btn-primary deck-download" href="../downloads/session-1-introduction.zip" download="session-1-introduction.zip"><i class="bi bi-download"></i> Download replication materials</a>
 :::
+
+::: {.session-facts}
+::: {.fact}
+[Theme]{.fact-label} [Introduction: the screen, `CLAUDE.md`, one skill]{.fact-value}
+:::
+::: {.fact}
+[Input]{.fact-label} [A funding proposal (`.md`, `.txt` or `.docx`)]{.fact-value}
+:::
+::: {.fact}
+[Output]{.fact-label} [A `.pptx` deck on the JF template, with speaker notes]{.fact-value}
+:::
+::: {.fact}
+[Command]{.fact-label} [`/proposal-to-slides`]{.fact-value}
+:::
+:::
+
+::: {.two-col}
+::: {}
+### What the session covers
+
+**Part 1 · The basics.** The Claude Code screen; picking a model and an effort
+level; why a long conversation gets narrower, not dumber, and Git as the safety
+net; `CLAUDE.md` as the place your defaults live; what a skill and a slash
+command are; the Sandbox and the Allow / Ask / Deny permissions.
+
+**Part 2 · The live demo.** A proposal in Word becomes a deck on our template.
+One command, walked through step by step, including the review gate where you
+confirm the slide plan before anything is built, and the iteration that follows
+("add a timeline slide", "shorten the methodology to three bullets").
+:::
+
+::: {}
+### How it works
+
+The folder has one skill, `/proposal-to-slides`. It reads the brand defaults in
+`CLAUDE.md` (template file, colours, fonts, bullets per slide), renders the
+template to images to copy its look, proposes a slide plan and waits for your
+go-ahead, then builds the `.pptx` and checks it page by page.
+
+The pedagogical point is the gate. The skill is not allowed to produce a deck
+you have not seen the outline of.
+:::
+:::
+
+### Replicate it
+
+::: {.steps}
+1. Download the zip above and unzip it. Open a terminal in the `01_slidemaker` folder.
+2. Make sure the tools the skill calls are installed: **Node.js** (the deck is built with `pptxgenjs`), **LibreOffice** and **Poppler** (to render and check the result) and **Pandoc** (to read `.docx` input). None of these need Python.
+3. Start Claude Code and run the skill on the sample proposal:
+   ```text
+   claude
+   /proposal-to-slides input/research-proposal.md
+   ```
+4. Confirm the slide plan when asked. The deck lands in `output/`.
+5. Point it at one of yours: `/proposal-to-slides path/to/your-proposal.docx`.
+:::
+
+The same folder works in Codex: open it, and `AGENTS.md` tells the agent to
+read `CLAUDE.md` and the skill, then do the same thing.

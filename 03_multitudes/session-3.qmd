@@ -13,3 +13,65 @@ css: ../embed.css
 
 {{< downloadthis ../downloads/session-3-workflow.zip dname="session-3-workflow" label="Download replication materials" icon="download" type="primary" >}}
 :::
+
+::: {.session-facts}
+::: {.fact}
+[Theme]{.fact-label} [Workflow: two agents with separate jobs, and a trail]{.fact-value}
+:::
+::: {.fact}
+[Input]{.fact-label} [A strategy document, the previous strategy, and an org-context note]{.fact-value}
+:::
+::: {.fact}
+[Output]{.fact-label} [Evidence briefing, ranked findings, a `.docx` report, an audit log]{.fact-value}
+:::
+::: {.fact}
+[Commands]{.fact-label} [`/researcher` → `/reviewer`, or `/strategy-review`]{.fact-value}
+:::
+:::
+
+::: {.two-col}
+::: {}
+### What the session covers
+
+**Part 1 · The idea.** What an agent really is; two agents with two jobs, a
+researcher and a reviewer; why keeping them apart removes bias; the three rules
+the session lives by (separate, trace, admit doubt); and why the process has to
+run in this order.
+
+**Part 2 · The live run.** `/researcher` reads everything and writes an
+evidence briefing with no opinions in it. At the human checkpoint you correct
+the *evidence*, not the conclusions. `/reviewer` then critiques the briefing
+through five lenses, without ever opening the original strategy. A LOW
+confidence rating is traced back to its source passage; the evidence is
+changed and one step re-run.
+:::
+
+::: {}
+### How it works
+
+Session 2 used agents to go faster. This one uses them to be more trustworthy.
+The reviewer works only from `output/research-briefing.md`, so it cannot
+rationalise evidence to fit a conclusion it has already formed. Every finding
+cites a file and a passage; a claim that cannot be traced is removed, not
+softened. `output/audit-log.md` records every action and source, which is the
+part that lets you stand behind the report.
+:::
+:::
+
+### Replicate it
+
+::: {.steps}
+1. Download the zip above and unzip it. Open a terminal in the `03_multitudes` folder.
+2. Make sure **Python** and `pip` are available; the final report is written with `python-docx`.
+3. Start Claude Code and run the two agents in order:
+   ```text
+   claude
+   /researcher
+   /reviewer
+   ```
+4. Read the briefing at the checkpoint and fix anything the researcher got wrong before running `/reviewer`. The report and audit log land in `output/`.
+5. Put your own strategy, its predecessor and a context note in `sample-input/` (or any folder) and run `/strategy-review` for the full pipeline.
+:::
+
+The same folder works in Codex via `AGENTS.md`, which keeps the reviewer blind
+to the original document in the same way.

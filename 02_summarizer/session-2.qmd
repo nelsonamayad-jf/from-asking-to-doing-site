@@ -14,8 +14,65 @@ css: ../embed.css
 {{< downloadthis ../downloads/session-2-skills-and-agents.zip dname="session-2-skills-and-agents" label="Download replication materials" icon="download" type="primary" >}}
 :::
 
-**Requires Python.** This demo reads and writes Word, PDF, Excel, and PowerPoint
-files — formats Claude Code doesn't parse natively — so it installs and calls
-Python libraries (`python-docx`, `python-pptx`, `openpyxl`) behind the scenes.
-Make sure Python and `pip` are available on the machine before running the
-`/collect` → `/synthesize` → `/report` pipeline.
+::: {.session-facts}
+::: {.fact}
+[Theme]{.fact-label} [Skills and agents: three skills chained into a pipeline]{.fact-value}
+:::
+::: {.fact}
+[Input]{.fact-label} [A folder of 16 mixed files: notes, CSV, PDF, Word, PowerPoint]{.fact-value}
+:::
+::: {.fact}
+[Output]{.fact-label} [A manifest, one summary per file, and a `.docx` report]{.fact-value}
+:::
+::: {.fact}
+[Commands]{.fact-label} [`/collect` → `/synthesize` → `/report`, or `/summarizer`]{.fact-value}
+:::
+:::
+
+::: {.two-col}
+::: {}
+### What the session covers
+
+**Part 1 · The idea.** A quick recap of `CLAUDE.md` and skills, then the one
+new idea: skills can hand files to each other. Each step writes a file the next
+step reads, so you can check or re-run any step on its own. Inside a step,
+**agents** do the work in parallel, one per file type.
+
+**Part 2 · The live run.** `/collect` classifies the folder. `/synthesize`
+fans out agents and writes one summary per input. `/report` prints the
+proposed report structure and waits for you before writing the Word file. Then
+a file is added to the folder and only one step is re-run.
+:::
+
+::: {}
+### How it works
+
+Three small skills, not one big one. `/collect` produces `output/manifest.md`;
+`/synthesize` produces `output/summaries/`; `/report` assembles them into
+`output/summary-report.docx` using the defaults in `CLAUDE.md` (page limit,
+numbering, language). `/summarizer` runs all three in order and is the "wow"
+version; the step-by-step version is the one to learn from.
+
+The review gate is before `/report` writes anything. Automation without a
+pause is how errors get into official documents.
+:::
+:::
+
+### Replicate it
+
+::: {.steps}
+1. Download the zip above and unzip it. Open a terminal in the `02_summarizer` folder.
+2. Make sure **Python** and `pip` are available. The pipeline reads and writes Word, PDF, Excel and PowerPoint files, which Claude Code does not parse natively, so the skills install and call `python-docx`, `python-pptx` and `openpyxl` behind the scenes.
+3. Start Claude Code and run the steps one at a time:
+   ```text
+   claude
+   /collect
+   /synthesize
+   /report
+   ```
+4. Confirm the report structure when `/report` asks. The outputs land in `output/`.
+5. Run it on a folder of your own: `/summarizer path/to/your/files`.
+:::
+
+The same folder works in Codex via `AGENTS.md`, which points the agent at the
+readable recipes in `skills/`.

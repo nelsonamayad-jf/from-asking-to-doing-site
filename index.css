@@ -1,4 +1,5 @@
-/* Homepage hero and session cards. Shared typography/color defaults live in site.css. */
+/* Homepage hero, "how it works" steps, session cards and takeaways.
+   Shared typography/color defaults live in site.css. */
 
 #title-block-header {
   display: none;
@@ -17,6 +18,8 @@
   --home-mist: #F5F8F6;
 }
 
+/* ---------- Hero ---------- */
+
 .hero {
   position: relative;
   overflow: hidden;
@@ -29,7 +32,8 @@
     url("images/claude-code.gif") center / cover;
   color: #ffffff;
   padding: 3.2rem clamp(1.25rem, 4vw, 3.2rem);
-  margin: 0 0 2rem;
+  margin: 0 0 2.4rem;
+  border-radius: 10px;
 }
 
 .hero::after {
@@ -65,21 +69,35 @@
   margin: 0 0 1.5rem;
 }
 
-.hero-cta {
+.hero-cta,
+.hero-cta-secondary {
   display: inline-flex;
   align-items: center;
-  background: var(--home-gold);
-  color: var(--home-ink) !important;
   font-weight: 700;
   padding: 0.62em 1.05em;
   border-radius: 8px;
   text-decoration: none !important;
+  margin: 0 0.6rem 0.6rem 0;
+}
+
+.hero-cta {
+  background: var(--home-gold);
+  color: var(--home-ink) !important;
 }
 
 .hero-cta:hover {
   background: #E3B957;
   color: var(--home-ink) !important;
-  text-decoration: none;
+}
+
+.hero-cta-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  color: #ffffff !important;
+}
+
+.hero-cta-secondary:hover {
+  background: rgba(255, 255, 255, 0.18);
 }
 
 .hero-visual {
@@ -104,77 +122,80 @@
   box-shadow: 0 18px 42px rgba(10, 20, 18, 0.32);
 }
 
-.session-carousel {
-  position: relative;
-  margin: 1.4rem 0 2rem;
+/* ---------- Section headings ---------- */
+
+main.content > h2,
+main.content > .level2 > h2 {
+  margin-top: 2.6rem;
+  margin-bottom: 1rem;
 }
+
+/* ---------- How it works ---------- */
+
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.2rem 0 0.6rem;
+}
+
+.how-step {
+  position: relative;
+  padding: 1.2rem 1.25rem 1.1rem 1.25rem;
+  background: var(--home-mist);
+  border: 1px solid var(--home-line);
+  border-radius: 8px;
+}
+
+.how-num {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--home-green);
+  color: #ffffff;
+  font-family: "Roboto Condensed", "Segoe UI", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 0.7rem;
+}
+
+.how-num p {
+  margin: 0;
+}
+
+.how-step h3 {
+  font-size: 1.12rem;
+  margin: 0 0 0.4rem;
+}
+
+.how-step p {
+  color: var(--home-muted);
+  font-size: 0.95rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ---------- Session cards ---------- */
 
 .session-grid {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
-  margin: 0;
-  padding: 0.2rem 0.3rem 0.6rem;
-  scrollbar-width: none;
-}
-
-.session-grid::-webkit-scrollbar {
-  display: none;
+  margin: 1.2rem 0 0.6rem;
 }
 
 .session-card {
-  flex: 0 0 280px;
-  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
   border: 1px solid var(--home-line);
   border-top: 4px solid var(--session-accent, var(--home-green));
   border-radius: 8px;
   padding: 1.2rem;
   background: #ffffff;
   transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
-}
-
-.sc-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
-  width: 2.3rem;
-  height: 2.3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid var(--home-line);
-  border-radius: 50%;
-  background: #ffffff;
-  color: var(--home-green);
-  font-size: 1.3rem;
-  line-height: 1;
-  cursor: pointer;
-  box-shadow: 0 6px 16px rgba(32, 42, 40, 0.14);
-  transition: opacity 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
-}
-
-.sc-arrow:hover {
-  box-shadow: 0 8px 20px rgba(32, 42, 40, 0.2);
-  transform: translateY(-50%) scale(1.05);
-}
-
-.sc-arrow:disabled {
-  opacity: 0.32;
-  box-shadow: none;
-  cursor: default;
-  pointer-events: none;
-}
-
-.sc-prev {
-  left: -0.9rem;
-}
-
-.sc-next {
-  right: -0.9rem;
 }
 
 .session-card:hover {
@@ -195,11 +216,24 @@
   --session-accent: var(--home-navy);
 }
 
+.session-card:nth-child(5) {
+  --session-accent: var(--home-coral);
+}
+
+.session-card-ref {
+  --session-accent: var(--home-line);
+  background: var(--home-mist);
+}
+
 .session-icon {
   width: 38px;
   height: 38px;
   color: var(--session-accent, var(--home-green));
   margin-bottom: 0.65rem;
+}
+
+.session-card-ref .session-icon {
+  color: var(--home-muted);
 }
 
 .session-icon svg {
@@ -209,6 +243,7 @@
 
 .session-badge {
   display: inline-block;
+  align-self: flex-start;
   font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -221,6 +256,11 @@
 .badge-intro {
   background: var(--home-mist);
   color: var(--home-ink);
+}
+
+.session-card-ref .badge-intro {
+  background: #ffffff;
+  border: 1px solid var(--home-line);
 }
 
 .badge-setup {
@@ -239,8 +279,8 @@
 }
 
 .badge-advanced {
-  background: #FFF6E3;
-  color: #6F5A16;
+  background: #F8EEE9;
+  color: #7C4A3D;
 }
 
 .session-card h3 {
@@ -267,11 +307,31 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 0.6rem;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.6rem;
   font-size: 0.86rem;
   color: var(--home-muted);
   border-top: 1px solid var(--home-line);
   padding-top: 0.75rem;
+  margin-top: auto;
+}
+
+.session-meta p {
+  margin: 0;
+  font-size: inherit;
+  color: inherit;
+}
+
+.session-meta code {
+  font-size: 0.82rem;
+}
+
+/* A long command chain must wrap inside its card, never widen the page grid. */
+.session-meta,
+.session-card,
+.how-step {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .session-meta a {
@@ -285,26 +345,99 @@
   text-decoration: underline;
 }
 
-body.quarto-dark .session-card {
+/* ---------- Takeaways + source note ---------- */
+
+.takeaways ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem 1.4rem;
+}
+
+.takeaways li {
+  position: relative;
+  padding-left: 1.5rem;
+  line-height: 1.5;
+}
+
+.takeaways li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: var(--home-gold);
+}
+
+.source-note {
+  margin: 2.4rem 0 1rem;
+  padding: 0.9rem 1.1rem;
+  border-left: 4px solid var(--home-aqua);
+  background: var(--home-mist);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.92rem;
+  color: var(--home-muted);
+}
+
+.source-note p {
+  margin: 0;
+}
+
+/* ---------- Dark mode ---------- */
+
+body.quarto-dark .session-card,
+body.quarto-dark .how-step,
+body.quarto-dark .source-note {
   background: #161F1D;
+  border-color: rgba(215, 227, 223, 0.18);
+}
+
+body.quarto-dark .session-card-ref {
+  background: #1A2422;
+}
+
+body.quarto-dark .session-card-ref .badge-intro {
+  background: #161F1D;
+  color: #E9EEEC;
   border-color: rgba(215, 227, 223, 0.18);
 }
 
 body.quarto-dark .session-card h3 a,
-body.quarto-dark .session-card p {
+body.quarto-dark .session-card p,
+body.quarto-dark .how-step h3 {
   color: #E9EEEC;
 }
 
-body.quarto-dark .session-meta {
+body.quarto-dark .how-step p,
+body.quarto-dark .session-meta,
+body.quarto-dark .source-note {
   color: #B9C8C3;
+}
+
+body.quarto-dark .session-meta {
   border-top-color: rgba(215, 227, 223, 0.18);
 }
 
-body.quarto-dark .sc-arrow {
-  background: #161F1D;
-  border-color: rgba(215, 227, 223, 0.18);
+body.quarto-dark .session-meta a {
   color: var(--home-aqua);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+body.quarto-dark .how-num {
+  background: var(--home-aqua);
+  color: #121817;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .how-grid,
+  .session-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 700px) {
@@ -323,22 +456,12 @@ body.quarto-dark .sc-arrow {
     justify-self: stretch;
     width: min(100%, 31rem);
   }
+}
 
-  .session-card {
-    flex-basis: 82vw;
-  }
-
-  .sc-arrow {
-    width: 2rem;
-    height: 2rem;
-    font-size: 1.1rem;
-  }
-
-  .sc-prev {
-    left: -0.4rem;
-  }
-
-  .sc-next {
-    right: -0.4rem;
+@media (max-width: 560px) {
+  .how-grid,
+  .session-grid,
+  .takeaways ul {
+    grid-template-columns: minmax(0, 1fr);
   }
 }

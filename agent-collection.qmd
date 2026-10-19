@@ -1,11 +1,99 @@
 ---
 title: "Agent collection"
-subtitle: "A catalog of reusable Claude Code agents"
+subtitle: "The agents the sessions use, and the rules that make them trustworthy"
+toc: true
+toc-title: "Agents"
+toc-depth: 3
+page-layout: article
 ---
 
-::: {.callout-note}
-## Coming soon
+An agent is a Claude given its own task, its own tools and its own clean
+context, separate from your conversation (see the
+[Thesaurus](thesaurus.qmd#doing-delegating)). The sessions use agents for two
+different reasons, and it helps to keep them apart:
 
-Colleagues who never get tired and never take offense at feedback. This page
-will collect the specialized agents as the sessions produce them.
+- **To go faster.** Session 2 fans out one agent per file type inside
+  `/synthesize`, so sixteen files are summarised in parallel instead of one
+  after another.
+- **To be more trustworthy.** Session 3 gives two agents different jobs and
+  different inputs, so the one that judges cannot be swayed by the one that
+  gathered.
+
+## Session 2 · Parallel workers {#session-2}
+
+::: {.catalog-entry .agent}
+### Synthesis agents
+
+::: {.catalog-meta}
+[Session 2](02_summarizer/session-2.qmd) · spawned by `/synthesize` · one per file type in the manifest · output: one summary per input in `output/summaries/`
 :::
+
+Not named agents you call directly: `/synthesize` reads the manifest, groups
+the inputs by type (notes, spreadsheets, PDFs, slides, Word files) and hands
+each group to an agent with the same summary template. Because each agent
+starts with an empty context, a long field report does not crowd out a short
+CSV, and your own conversation stays clean for the review step.
+:::
+
+## Session 3 · Separated roles {#session-3}
+
+::: {.catalog-entry .agent}
+### Researcher
+
+::: {.catalog-meta}
+[Session 3](03_multitudes/session-3.qmd) · `/researcher` · reads everything in `sample-input/` · writes `output/research-briefing.md`
+:::
+
+**Job:** gather evidence, form no opinion. The researcher reads the strategy,
+the prior strategy and the context note, classifies any extra files it finds,
+and writes a briefing: claims, supporting and conflicting evidence, gaps. Where
+evidence is weak or absent it says so rather than filling the gap with
+inference.
+
+**Why it is separate:** the human checkpoint comes right after it. You correct
+the *evidence* before anything is judged, which is a much easier thing to check
+than a conclusion.
+:::
+
+::: {.catalog-entry .agent}
+### Reviewer
+
+::: {.catalog-meta}
+[Session 3](03_multitudes/session-3.qmd) · `/reviewer` · reads only `output/research-briefing.md` · writes `output/review-findings.md`
+:::
+
+**Job:** critique the briefing through five lenses and rank the findings with
+confidence ratings. It is never shown the original strategy document.
+
+**Why it is blind:** a reviewer who has read the strategy tends to rationalise
+the evidence toward whatever impression the document made. Working only from
+the briefing, it can only argue from what the researcher found, and every
+finding has to point back to a file and a passage. Anything it cannot trace is
+removed, not softened.
+:::
+
+::: {.catalog-entry .orchestrator}
+### Orchestrator
+
+::: {.catalog-meta}
+[Session 3](03_multitudes/session-3.qmd) · `/strategy-review` · runs researcher → checkpoint → reviewer → report · writes `output/strategy-review-report.docx` and `output/audit-log.md`
+:::
+
+The conductor, not a third opinion. It runs the two agents in the required
+order, enforces the pause between them, formats the findings into a report and
+keeps the audit log, which is the trust story: what was read, what was cited,
+what was decided.
+:::
+
+## The three rules
+
+Session 3 states them for its own agents; they hold for any agent you build.
+
+1. **Separate the roles.** Whoever gathers does not judge, and whoever judges
+   does not see what the gatherer saw raw.
+2. **Every claim needs a trail.** A finding without a source is deleted, not
+   summarised.
+3. **Uncertainty is explicit.** Weak, conflicting or missing evidence is
+   reported as such.
+
+The official reference is [Subagents in the Claude Code docs](https://code.claude.com/docs/en/sub-agents).

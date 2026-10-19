@@ -19,6 +19,12 @@ about:
     - icon: envelope
       text: "Email"
       href: mailto:nelson.amaya@jacobsfoundation.org
+    - icon: github
+      text: "Sessions"
+      href: https://github.com/Jacobs-Foundation/From-asking-to-doing
+    - icon: globe
+      text: "Site source"
+      href: https://github.com/Jacobs-Foundation/from-asking-to-doing-site
 css:
   - page-meta.css
 ---
@@ -41,3 +47,27 @@ I built [R4DEV](https://r4dev.netlify.app/) to teach R to my constantly rotating
 - **[Session 1 · Slidemaking](01_slidemaker/session-1.qmd)**: Introduction to Claude Code and skills.
 - **[Session 2 · Mixing it up](02_summarizer/session-2.qmd)**: Introduction to workflows.
 - **[Session 3 · Extended Team](03_multitudes/session-3.qmd)**: Multi-agent review workflow.
+
+Between sessions, the **[Thesaurus](thesaurus.qmd)** defines the terms, the
+**[Skills](skill-collection.qmd)** and **[Agents](agent-collection.qmd)**
+collections catalog what was built, and **[Tips](tips.qmd)** collects what the
+decks keep repeating.
+
+## 📦 Replicating a session
+
+Every session is a folder you can download from its page and open directly in
+Claude Code or Codex. Inside you will find `README.md` (the human quickstart),
+`CLAUDE.md` (the defaults Claude reads), `AGENTS.md` (the same for Codex), the
+runnable skills under `.claude/skills/`, and the sample inputs. Run the slash
+command on the sample, then on your own files.
+
+The folders are maintained in the open at
+[Jacobs-Foundation/From-asking-to-doing](https://github.com/Jacobs-Foundation/From-asking-to-doing).
+Only validated sessions are published there; the website's own source is
+[Jacobs-Foundation/from-asking-to-doing-site](https://github.com/Jacobs-Foundation/from-asking-to-doing-site).
+
+## 📄 License
+
+Workshop content is [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+The website code is MIT. Jacobs Foundation brand assets (logo, template) are
+excluded from both and remain the Foundation's.

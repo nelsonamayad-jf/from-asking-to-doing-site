@@ -9,7 +9,10 @@ The site is deployed from the GitHub repository
 - <https://jacobs-foundation.github.io/from-asking-to-doing-site/>
 
 This repository is intentionally separate from the validated runnable session
-source repo `Jacobs-Foundation/From-asking-to-doing`.
+source repo `Jacobs-Foundation/From-asking-to-doing`. Maintainers keep it cloned
+inside that repo's folder as `from-asking-to-doing-site/`, where it is
+gitignored, so sessions and site sit side by side while each keeps its own
+history and remote.
 
 ## Purpose
 
@@ -35,7 +38,8 @@ Do not use this repository for:
   top-level website pages
 - `01_slidemaker/`, `02_summarizer/`, `03_multitudes/`: session wrapper pages,
   revealjs decks, and related assets
-- `downloads/`: curated downloadable bundles that are meant to be public
+- `downloads/`: curated downloadable bundles that are meant to be public,
+  each one a zip of a session folder from the session source repo
 - `docs/`: repository and deployment notes
 - `_website/`: rendered output directory created by Quarto; do not commit it
 

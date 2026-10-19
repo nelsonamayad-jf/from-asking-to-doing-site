@@ -1,11 +1,177 @@
 ---
 title: "Skill collection"
-subtitle: "A catalog of reusable Claude Code skills"
+subtitle: "Every slash command the sessions built, and what it does"
+toc: true
+toc-title: "Skills"
+toc-depth: 3
+page-layout: article
 ---
 
-::: {.callout-note}
-## Coming soon
+A skill is a saved set of instructions Claude runs when you type `/` and its
+name (see the [Thesaurus](thesaurus.qmd#foundations)). Each one below lives in
+the `.claude/skills/` folder of its session, is plain English, and can be
+copied into any project of yours. Download a session to get the files, or read
+them on [GitHub](https://github.com/Jacobs-Foundation/From-asking-to-doing).
 
-Write a skill once, run it forever. This page will collect the reusable ones
-as the sessions produce them.
+Two conventions run through all of them:
+
+- **Defaults live in `CLAUDE.md`, not in the skill.** Colours, fonts, page
+  limits, output folders: change them in the session's `CLAUDE.md` and every
+  skill picks them up.
+- **Nothing final is written without a pause.** Each session has a review gate
+  where the skill shows you its plan and waits.
+
+## Session 1 · Slidemaking {#session-1}
+
+::: {.catalog-entry}
+### `/proposal-to-slides`
+
+::: {.catalog-meta}
+[Session 1](01_slidemaker/session-1.qmd) · input: a proposal (`.md`, `.txt`, `.docx`) · output: `output/*.pptx` · needs Node.js, LibreOffice, Poppler, Pandoc
 :::
+
+Reads a proposal document and turns it into an on-brand deck. It takes the
+template path, colours, fonts and slide rules from `CLAUDE.md`, renders the
+`.potx` template to images to copy its look, proposes a slide plan and waits for
+confirmation, then builds the file with `pptxgenjs` and checks every page. A
+supporting reference, `skills/pptx/SKILL.md`, holds the mechanics of building
+and QA-ing a `.pptx`; it is not a command you run.
+
+```text
+/proposal-to-slides input/research-proposal.md
+```
+:::
+
+## Session 2 · Mixing it up {#session-2}
+
+Three skills that hand files to each other, plus one that runs them all.
+
+::: {.catalog-entry}
+### `/collect`
+
+::: {.catalog-meta}
+[Session 2](02_summarizer/session-2.qmd) · input: a folder (default `sample-inputs/`) · output: `output/manifest.md`
+:::
+
+Scans the input folder, classifies every file by type and likely content, and
+writes a manifest. This is the step to re-run when you add a file.
+
+```text
+/collect
+/collect path/to/your/folder
+```
+:::
+
+::: {.catalog-entry}
+### `/synthesize`
+
+::: {.catalog-meta}
+[Session 2](02_summarizer/session-2.qmd) · input: `output/manifest.md` and the files it lists · output: `output/summaries/`
+:::
+
+Reads each file in the manifest and writes a structured summary per input.
+Inside this step the work is delegated to agents, one per file type, running in
+parallel; that is where Session 2 introduces agents.
+
+```text
+/synthesize
+```
+:::
+
+::: {.catalog-entry}
+### `/report`
+
+::: {.catalog-meta}
+[Session 2](02_summarizer/session-2.qmd) · input: `output/summaries/` · output: `output/summary-report.docx` · needs Python (`python-docx`)
+:::
+
+Assembles the summaries into one Word report using the defaults in
+`CLAUDE.md` (ten pages at most, numbered headings, English). Before writing it
+prints the proposed structure and asks whether to add, remove or rename
+sections. That pause is the review gate.
+
+```text
+/report
+```
+:::
+
+::: {.catalog-entry .orchestrator}
+### `/summarizer`
+
+::: {.catalog-meta}
+[Session 2](02_summarizer/session-2.qmd) · runs `/collect` → `/synthesize` → `/report` · optional folder argument
+:::
+
+The orchestrator: all three steps in sequence, still stopping at the report
+gate. Good for the demo; the step-by-step version is better for learning,
+because you can inspect each intermediate file.
+
+```text
+/summarizer
+/summarizer path/to/your/folder
+```
+:::
+
+## Session 3 · Extended Team {#session-3}
+
+Two agent skills with deliberately separate inputs, plus the orchestrator that
+runs them in order.
+
+::: {.catalog-entry .agent}
+### `/researcher`
+
+::: {.catalog-meta}
+[Session 3](03_multitudes/session-3.qmd) · input: `sample-input/` (the strategy, the prior strategy, org context) · output: `output/research-briefing.md`
+:::
+
+Reads the strategy and every context file and builds an evidence briefing:
+what the document claims, what the other files say, where they agree and
+conflict. It forms no opinion. The briefing is where the human checkpoint sits:
+fix the evidence here before anything judges it.
+
+```text
+/researcher
+```
+:::
+
+::: {.catalog-entry .agent}
+### `/reviewer`
+
+::: {.catalog-meta}
+[Session 3](03_multitudes/session-3.qmd) · input: `output/research-briefing.md` only · output: `output/review-findings.md`
+:::
+
+Applies a five-lens critique framework to the briefing and produces ranked
+findings with confidence ratings. It never reads the original strategy, which
+is what stops it from rationalising evidence toward a conclusion. Every
+finding cites a source file and passage; untraceable claims are dropped.
+
+```text
+/reviewer
+```
+:::
+
+::: {.catalog-entry .orchestrator}
+### `/strategy-review`
+
+::: {.catalog-meta}
+[Session 3](03_multitudes/session-3.qmd) · runs `/researcher` → checkpoint → `/reviewer` → report · output: `output/strategy-review-report.docx`, `output/audit-log.md` · needs Python (`python-docx`)
+:::
+
+Runs both agents in order, stops at the checkpoint between them, and then
+formats the findings into a Word report for decision-makers. It also writes the
+audit log: every action taken, every source cited, every decision made.
+
+```text
+/strategy-review
+```
+:::
+
+## Making your own
+
+Copy the closest one. A skill is a `SKILL.md` file in `.claude/skills/<name>/`
+with a short front matter (`name`, `description`) and the procedure in plain
+English. Sessions 2 and 3 keep the procedure in a readable `skills/<name>.md`
+and have the `SKILL.md` point to it; Session 1 keeps the whole procedure in the
+`SKILL.md`. Either works. The official reference is
+[Skills in the Claude Code docs](https://code.claude.com/docs/en/skills).

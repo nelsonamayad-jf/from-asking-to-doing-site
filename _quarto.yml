@@ -52,18 +52,13 @@ website:
     type: overlay
     limit: 20
 
-  announcement:
-    icon: megaphone-fill
-    dismissable: true
-    content: "**New sessions are live!**"
-    type: warning
-    position: below-navbar
-
   navbar:
     title: false            # logo only — site title lives in website: title above
     background: primary
     foreground: "light"
     logo-alt: "Jacobs Foundation"
+    # Session labels match the session cards and page titles (the themes —
+    # Introduction, Skills and Agents, Workflow — are the badges on those cards).
     left:
       - text: ""
         icon: house
@@ -71,16 +66,16 @@ website:
       - text: "Motivation"
         icon: compass
         href: intro.qmd
-      - text: "Session 0: Setup"
+      - text: "Setup"
         icon: 0-circle
         href: session-0.qmd
-      - text: "Session 1: Introduction"
+      - text: "Slidemaking"
         icon: 1-circle
         href: 01_slidemaker/session-1.qmd
-      - text: "Session 2: Skills and Agents"
+      - text: "Mixing it up"
         icon: 2-circle
         href: 02_summarizer/session-2.qmd
-      - text: "Session 3: Workflow"
+      - text: "Extended Team"
         icon: 3-circle
         href: 03_multitudes/session-3.qmd
 
@@ -103,20 +98,26 @@ website:
       - text: "About"
         icon: info-circle
         href: about.qmd
+      - icon: github
+        href: https://github.com/Jacobs-Foundation/From-asking-to-doing
+        aria-label: "Session source on GitHub"
 
   page-footer:
     background: "light"
     border: true
     left: "Developed by Nelson Amaya (Jacobs Foundation)"
     center: "Claude Code Training · Jacobs Foundation · 2026"
-    right: "[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)"
+    right: "[Sessions on GitHub](https://github.com/Jacobs-Foundation/From-asking-to-doing) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)"
 
 # HTML default (index.qmd, about.qmd). Presentation files override this with revealjs in their own YAML.
 format:
   html:
+    # `brand` after the Bootswatch theme applies _brand.yml's palette and fonts
+    # to Bootstrap itself (navbar, buttons, links). Without it the navbar and
+    # every .btn-primary fall back to cosmo's blue.
     theme:
-      light: cosmo
-      dark: darkly
+      light: [cosmo, brand]
+      dark: [darkly, brand]
     css: site.css
     respect-user-color-scheme: true
     toc: false

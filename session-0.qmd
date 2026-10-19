@@ -11,3 +11,35 @@ css: embed.css
 ::: {.deck-embed-actions}
 [Open in fullscreen ↗](session-0-setup.html){target="_blank" rel="noopener"}
 :::
+
+::: {.session-facts}
+::: {.fact}
+[Time]{.fact-label} [About fifteen minutes, once]{.fact-value}
+:::
+::: {.fact}
+[Install]{.fact-label} [A terminal, Git, and Claude Code]{.fact-value}
+:::
+::: {.fact}
+[Then]{.fact-label} [Log in and verify end to end]{.fact-value}
+:::
+::: {.fact}
+[No demo]{.fact-label} [This one is a checklist, not a session]{.fact-value}
+:::
+:::
+
+### What the deck walks through
+
+**Part 1 · Install three things.** You already have a terminal. Git is the
+ledger that lets you undo what an agent did, which is why it comes before the
+agent. Then Claude Code itself, and a one-time login.
+
+**Part 2 · Make sure it is ready.** A short end-to-end check so Session 1
+starts building instead of troubleshooting; two alternatives if you do not have
+a Claude Pro subscription; where the session files come from; and what to do if
+something does not work.
+
+### After this
+
+Session 1 assumes the checklist is done. Its own folder adds a few more tools
+(Node.js, LibreOffice, Poppler, Pandoc), and sessions 2 and 3 need Python; each
+session page lists what it needs under *Replicate it*.

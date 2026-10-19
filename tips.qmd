@@ -1,11 +1,104 @@
 ---
 title: "Tips"
-subtitle: "Practical advice for working with Claude Code"
+subtitle: "What the sessions keep coming back to"
+toc: true
+toc-title: "On this page"
+toc-depth: 3
+page-layout: article
 ---
 
-::: {.callout-note}
-## Coming soon
+Short, and in the order they tend to matter. Each one is something the decks
+say at least once; this page is where to find them again without scrubbing
+through the slides. Terms are defined in the [Thesaurus](thesaurus.qmd).
 
-A running collection of the tricks I wish someone had told me on day one.
-Check back after the sessions.
+## Before you start
+
+::: {.tip}
+### Put your defaults in `CLAUDE.md`, not in the prompt
+Anything you would otherwise re-explain every time (our template, the output
+folder, "ten pages at most", "English") goes in the project's `CLAUDE.md`.
+Claude reads it at the start of every session. All three session folders work
+this way: the skills contain the procedure, `CLAUDE.md` contains the taste.
+:::
+
+::: {.tip}
+### Install Git before the agent
+Git is the ledger. When an agent edits twelve files and you dislike the result,
+one command puts them back. That is why Session 0 installs Git before Claude
+Code, and why Session 1 spends a slide on it even though nobody is coding.
+:::
+
+::: {.tip}
+### One folder per task
+Each session is a self-contained folder: inputs, `CLAUDE.md`, skills, outputs.
+Open the folder, not your whole drive. Claude only needs to see what the task
+needs, and you only need to review what changed in one place.
+:::
+
+## While you work
+
+::: {.tip}
+### Start a new session for a new task
+A long conversation does not make Claude dumber; it makes it narrower, because
+older content crowds the context window. When you switch tasks, start fresh or
+run `/clear`. If you need heavy reading done, delegate it to an agent so it
+never enters your main conversation.
+:::
+
+::: {.tip}
+### Pick the model and the effort for the job
+Sonnet is the everyday default. Opus for the open-ended or high-stakes piece
+you would double-check anyway. Haiku for quick, well-defined edits. Effort is
+a separate dial (`/effort`): low for a rename, high for a review. Change
+either mid-session; nothing is locked in.
+:::
+
+::: {.tip}
+### Read the permission prompt, then decide
+Allow, Ask, Deny is not a formality. Read-only actions need no approval;
+anything that changes a file or runs a command asks first unless you have
+allowed it. Saying no costs nothing. The Sandbox is the backstop, not the
+first line.
+:::
+
+::: {.tip}
+### Run the steps one at a time before you run the pipeline
+`/summarizer` and `/strategy-review` are the demo versions. `/collect`,
+`/synthesize`, `/report` are the learning versions, because each one leaves a
+file you can open. When something looks wrong in the final report, the
+intermediate file tells you which step to fix and re-run.
+:::
+
+## Before you trust the output
+
+::: {.tip}
+### Keep the review gate
+Every session stops once before writing the final file: the slide plan, the
+report structure, the evidence briefing. When you adapt a skill, keep that
+pause. Automation without a pause is how errors reach official documents, and
+removing the gate saves about thirty seconds.
+:::
+
+::: {.tip}
+### Correct the evidence, not the conclusion
+Session 3's checkpoint sits after the researcher, not after the reviewer. It is
+far easier to check "is this quote really in the document?" than "is this
+judgment fair?". Fix the inputs, re-run the step, and let the conclusions
+follow.
+:::
+
+::: {.tip}
+### If it cannot cite a source, it is not a finding
+The reviewer drops any claim it cannot trace to a file and a passage. Apply the
+same rule to anything an agent writes for you that will be read by someone
+else: ask where it came from, and if the answer is "nowhere in the inputs",
+take it out.
+:::
+
+::: {.tip}
+### Read the audit log once
+`output/audit-log.md` in Session 3 lists every file read, every source cited
+and every decision made. You will not read it every time, but reading it once
+shows what an agent actually did, as opposed to what it said it did. That is
+the difference between trusting a tool and trusting a result.
 :::

@@ -11,3 +11,19 @@ css: embed.css
 ::: {.deck-embed-actions}
 [Open in fullscreen ↗](motivation.html){target="_blank" rel="noopener"}
 :::
+
+### What this deck argues
+
+It starts from a sentence someone said in the room: *"I just want to grasp
+basic concepts and not feel intimidated by code, but learn how to speak the
+language a little so that I can actually use these tools to build something."*
+That is the right starting point. Nobody becomes a programmer in a workshop,
+but everyone can learn to direct a capable assistant.
+
+The deck then covers what changed in two and a half years, how to catch up,
+and what each of the three sessions builds: a [slidemaker](01_slidemaker/session-1.qmd),
+a [document pipeline](02_summarizer/session-2.qmd), and a
+[two-agent review](03_multitudes/session-3.qmd). The skill that transfers
+between them is the same one: saying clearly what you want, in writing, once.
+
+Ready to start? Do the [setup](session-0.qmd) first.

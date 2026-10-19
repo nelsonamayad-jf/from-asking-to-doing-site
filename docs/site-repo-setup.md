@@ -4,7 +4,9 @@ This repository is both the website source repo and the GitHub Pages deploy
 repo for the public workshop site.
 
 The validated runnable sessions live separately in
-`Jacobs-Foundation/From-asking-to-doing`.
+`Jacobs-Foundation/From-asking-to-doing`. Locally, this repo is cloned inside
+that one as `from-asking-to-doing-site/` and gitignored there; the two still
+have separate histories, remotes and deploys.
 
 ## Why this model
 

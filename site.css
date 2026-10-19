@@ -132,6 +132,192 @@ pre code {
   border-top-color: var(--jf-line);
 }
 
+/* ---------- Session pages: facts strip, replicate steps, skill lists ---------- */
+
+.session-facts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin: 0 0 1.6rem;
+}
+
+.fact {
+  padding: 0.8rem 1rem;
+  background: var(--jf-mist);
+  border: 1px solid var(--jf-line);
+  border-radius: 8px;
+}
+
+.fact p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.fact-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--jf-slate);
+  margin-bottom: 0.15rem;
+}
+
+.fact-value {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem 2rem;
+  margin-bottom: 1rem;
+}
+
+.two-col h3 {
+  margin-top: 0.4rem;
+}
+
+.steps {
+  counter-reset: step;
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 1.4rem;
+}
+
+.steps > li {
+  counter-increment: step;
+  position: relative;
+  padding: 0 0 1rem 2.6rem;
+  margin: 0;
+}
+
+.steps > li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0.05rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--jf-green);
+  color: #fff;
+  font-family: "Roboto Condensed", "Segoe UI", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.steps > li > p {
+  margin-bottom: 0.4rem;
+}
+
+.steps pre {
+  margin: 0.4rem 0 0.2rem;
+}
+
+/* Skill/agent catalog entries */
+.catalog-entry {
+  border: 1px solid var(--jf-line);
+  border-left: 4px solid var(--jf-green);
+  border-radius: 8px;
+  padding: 1rem 1.2rem 0.6rem;
+  margin: 0 0 1rem;
+  background: #fff;
+}
+
+.catalog-entry h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1.15rem;
+}
+
+.catalog-entry h3 code {
+  font-size: 1.05rem;
+}
+
+.catalog-meta {
+  font-size: 0.85rem;
+  color: var(--jf-slate);
+  margin-bottom: 0.6rem;
+}
+
+.catalog-meta p {
+  margin: 0;
+}
+
+.catalog-entry.agent {
+  border-left-color: var(--jf-navy);
+}
+
+.catalog-entry.orchestrator {
+  border-left-color: var(--jf-gold);
+}
+
+/* Tips */
+.tip {
+  border: 1px solid var(--jf-line);
+  border-radius: 8px;
+  padding: 1rem 1.2rem 0.4rem;
+  margin: 0 0 1rem;
+}
+
+.tip h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.12rem;
+}
+
+body.quarto-dark .fact,
+body.quarto-dark .catalog-entry,
+body.quarto-dark .tip {
+  background: #161F1D;
+  border-color: rgba(215, 227, 223, 0.18);
+}
+
+body.quarto-dark .catalog-entry {
+  border-left-color: var(--jf-aqua);
+}
+
+body.quarto-dark .catalog-entry.agent {
+  border-left-color: #8FA6C4;
+}
+
+body.quarto-dark .catalog-entry.orchestrator {
+  border-left-color: var(--jf-gold);
+}
+
+body.quarto-dark .fact-label,
+body.quarto-dark .catalog-meta {
+  color: #B9C8C3;
+}
+
+body.quarto-dark .steps > li::before {
+  background: var(--jf-aqua);
+  color: #121817;
+}
+
+@media (max-width: 900px) {
+  .session-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .two-col {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.fact,
+.two-col > div,
+.catalog-entry,
+.tip {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
 body.quarto-dark {
   --bs-body-bg: #121817;
   --bs-body-color: #E9EEEC;
