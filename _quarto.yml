@@ -54,8 +54,8 @@ website:
 
   navbar:
     title: false            # logo only — site title lives in website: title above
-    background: primary
-    foreground: "light"
+    # Navbar and footer colours are set per mode in theme-light.scss and
+    # theme-dark.scss; a background here would apply to both modes.
     logo-alt: "Jacobs Foundation"
     # Session labels match the session cards and page titles (the themes —
     # Introduction, Skills and Agents, Workflow — are the badges on those cards).
@@ -100,7 +100,6 @@ website:
         href: about.qmd
 
   page-footer:
-    background: "light"
     border: true
     left: "Developed by Nelson Amaya (Jacobs Foundation)"
     center: "Claude Code Training · Jacobs Foundation · 2026"
@@ -109,12 +108,12 @@ website:
 # HTML default (index.qmd, about.qmd). Presentation files override this with revealjs in their own YAML.
 format:
   html:
-    # `brand` after the Bootswatch theme applies _brand.yml's palette and fonts
-    # to Bootstrap itself (navbar, buttons, links). Without it the navbar and
-    # every .btn-primary fall back to cosmo's blue.
+    # Each mode is Bootswatch base -> brand -> site tokens. `brand` resolves to
+    # the light or dark values in _brand.yml for its list; the theme-*.scss
+    # files add the navbar/footer colours and the --jf-* tokens the CSS uses.
     theme:
-      light: [cosmo, brand]
-      dark: [darkly, brand]
+      light: [cosmo, brand, theme-light.scss]
+      dark: [darkly, brand, theme-dark.scss]
     css: site.css
     respect-user-color-scheme: true
     toc: false

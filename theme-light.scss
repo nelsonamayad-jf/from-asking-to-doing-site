@@ -1,0 +1,58 @@
+/*-- scss:defaults --*/
+
+// Light mode. Layered after cosmo and the brand (see _quarto.yml); the brand
+// supplies body colours, primary and links. Pair with theme-dark.scss: every
+// token below must exist in both files.
+
+$navbar-bg: #004D47;
+$navbar-fg: #F5F8F6;
+$navbar-hl: #FFFFFF;
+$footer-bg: #F5F8F6;
+
+/*-- scss:rules --*/
+
+// Colour tokens for the site's own components (site.css, index.css,
+// thesaurus.css, embed.css, page-meta.css). Those files use only these
+// variables, so they follow the light/dark toggle without mode-specific rules.
+:root {
+  --jf-bg: #{$body-bg};
+  --jf-text: #{$body-color};
+  --jf-heading: #{$body-color};
+  --jf-muted: #65716D;
+  --jf-surface: #FFFFFF;
+  --jf-surface-muted: #F5F8F6;
+  --jf-border: #D7E3DF;
+  --jf-border-strong: rgba(0, 77, 71, 0.28);
+  --jf-link: #004D47;
+  --jf-link-hover: #27384F;
+  --jf-code-bg: #EAF4F1;
+  --jf-code-text: #004D47;
+  --jf-shadow: 0 10px 24px rgba(32, 42, 40, 0.08);
+  --jf-shadow-deck: 0 12px 28px rgba(32, 42, 40, 0.08);
+
+  // Filled accent (step numbers) and the text that sits on it
+  --jf-accent: #004D47;
+  --jf-on-accent: #FFFFFF;
+
+  // Strokes: card top borders, category rules, entry side bars
+  --jf-stroke-green: #004D47;
+  --jf-stroke-teal: #3A8F84;
+  --jf-stroke-navy: #27384F;
+  --jf-stroke-gold: #D9A72E;
+  --jf-stroke-coral: #B86A55;
+  --jf-stroke-red: #A83A32;
+
+  // Tints: badge and chip backgrounds with their text colour
+  --jf-tint-green-bg: #E7F1EE;
+  --jf-tint-green-fg: #004D47;
+  --jf-tint-teal-bg: #E7F1EE;
+  --jf-tint-teal-fg: #276F67;
+  --jf-tint-navy-bg: #EEF3F7;
+  --jf-tint-navy-fg: #27384F;
+  --jf-tint-gold-bg: #FBF1DC;
+  --jf-tint-gold-fg: #6F5A16;
+  --jf-tint-coral-bg: #F8EEE9;
+  --jf-tint-coral-fg: #7C4A3D;
+  --jf-tint-red-bg: #F8EDEA;
+  --jf-tint-red-fg: #A83A32;
+}

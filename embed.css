@@ -6,10 +6,11 @@
   width: 100%;
   padding-top: 56.25%; /* 16:9 */
   margin: 1.1rem 0 0.7rem;
+  /* Dark in both modes: it is the letterbox behind the deck while it loads. */
   background: #121817;
-  border: 1px solid #D7E3DF;
+  border: 1px solid var(--jf-border);
   border-radius: 8px;
-  box-shadow: 0 12px 28px rgba(32, 42, 40, 0.08);
+  box-shadow: var(--jf-shadow-deck);
   overflow: hidden;
 }
 

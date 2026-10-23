@@ -4,8 +4,14 @@ meta:
 logo:
   small: images/jf_logo.png
 
+# Theme colours take a { light, dark } pair wherever the two modes differ.
+# Quarto compiles the light values into the light Bootstrap theme and the dark
+# values into the dark one, so links, buttons and the page itself follow the
+# toggle. Component colours (cards, badges, tints) are tokens in
+# theme-light.scss / theme-dark.scss, not here.
 color:
   palette:
+    # Brand, as used in light mode
     green: "#004D47"
     navy: "#27384F"
     teal: "#3A8F84"
@@ -19,15 +25,43 @@ color:
     mist: "#F5F8F6"
     line: "#D7E3DF"
     white: "#FFFFFF"
-  foreground: ink
-  background: white
-  primary: green
-  secondary: navy
-  tertiary: teal
-  success: green
-  info: navy
+    # Dark-mode counterparts: same hues, lifted to read on a near-black page
+    night: "#121817"
+    fog: "#E9EEEC"
+    pine: "#1F6F65"
+    sea: "#8FD3C7"
+    jade: "#3FA394"
+    sky: "#7F9BC2"
+    seafoam: "#7FCABE"
+    rose: "#D9675E"
+  foreground:
+    light: ink
+    dark: fog
+  background:
+    light: white
+    dark: night
+  primary:
+    light: green
+    dark: pine
+  link:
+    light: green
+    dark: sea
+  secondary:
+    light: navy
+    dark: sky
+  tertiary:
+    light: teal
+    dark: seafoam
+  success:
+    light: green
+    dark: jade
+  info:
+    light: navy
+    dark: sky
   warning: gold
-  danger: red
+  danger:
+    light: red
+    dark: rose
   light: mist
   dark: charcoal
 
@@ -40,6 +74,6 @@ typography:
     family: Roboto Condensed
     weight: 700
   monospace: Consolas
+  # Link colour comes from color.link above, so it can differ per mode.
   link:
-    color: primary
     decoration: none

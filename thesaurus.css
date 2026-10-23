@@ -1,20 +1,5 @@
-/* Glossary navigation, category accents, and term entries. */
-
-:root {
-  --th-ink: #202A28;
-  --th-muted: #65716D;
-  --th-line: #D7E3DF;
-  --th-surface: #F5F8F6;
-  --th-green: #004D47;
-  --th-navy: #27384F;
-  --th-teal: #3A8F84;
-  --th-teal-text: #276F67;
-  --th-gold: #D9A72E;
-  --th-gold-text: #6F5A16;
-  --th-coral: #B86A55;
-  --th-coral-text: #7C4A3D;
-  --th-red: #A83A32;
-}
+/* Glossary navigation, category accents, and term entries.
+   Colours come from the --jf-* tokens in theme-light.scss / theme-dark.scss. */
 
 .quick-jump {
   display: flex;
@@ -41,33 +26,33 @@
 }
 
 .quick-jump a.qj-foundations {
-  background: #EEF3F7;
-  color: var(--th-navy);
+  background: var(--jf-tint-navy-bg);
+  color: var(--jf-tint-navy-fg);
 }
 
 .quick-jump a.qj-model {
-  background: #E7F1EE;
-  color: var(--th-teal-text);
+  background: var(--jf-tint-teal-bg);
+  color: var(--jf-tint-teal-fg);
 }
 
 .quick-jump a.qj-limits {
-  background: #FFF6E3;
-  color: var(--th-gold-text);
+  background: var(--jf-tint-gold-bg);
+  color: var(--jf-tint-gold-fg);
 }
 
 .quick-jump a.qj-delegating {
-  background: #E7F1EE;
-  color: var(--th-green);
+  background: var(--jf-tint-green-bg);
+  color: var(--jf-tint-green-fg);
 }
 
 .quick-jump a.qj-safety {
-  background: #F8EDEA;
-  color: var(--th-red);
+  background: var(--jf-tint-red-bg);
+  color: var(--jf-tint-red-fg);
 }
 
 .quick-jump a.qj-outward {
-  background: #F8EEE9;
-  color: var(--th-coral-text);
+  background: var(--jf-tint-coral-bg);
+  color: var(--jf-tint-coral-fg);
 }
 
 .thesaurus-category {
@@ -75,38 +60,38 @@
 }
 
 .thesaurus-category h2 {
-  border-bottom: 3px solid var(--cat-accent, var(--th-line));
+  border-bottom: 3px solid var(--cat-accent, var(--jf-border));
   padding-bottom: 0.28rem;
 }
 
 .cat-foundations {
-  --cat-accent: var(--th-navy);
+  --cat-accent: var(--jf-stroke-navy);
 }
 
 .cat-model {
-  --cat-accent: var(--th-teal);
+  --cat-accent: var(--jf-stroke-teal);
 }
 
 .cat-limits {
-  --cat-accent: var(--th-gold);
+  --cat-accent: var(--jf-stroke-gold);
 }
 
 .cat-delegating {
-  --cat-accent: var(--th-green);
+  --cat-accent: var(--jf-stroke-green);
 }
 
 .cat-safety {
-  --cat-accent: var(--th-red);
+  --cat-accent: var(--jf-stroke-red);
 }
 
 .cat-outward {
-  --cat-accent: var(--th-coral);
+  --cat-accent: var(--jf-stroke-coral);
 }
 
 .term-entry {
-  background: #ffffff;
-  border: 1px solid var(--th-line);
-  border-left: 5px solid var(--cat-accent, var(--th-teal));
+  background: var(--jf-surface);
+  border: 1px solid var(--jf-border);
+  border-left: 5px solid var(--cat-accent, var(--jf-stroke-teal));
   border-radius: 8px;
   padding: 0.95rem 1.1rem;
   margin: 0.9rem 0;
@@ -131,9 +116,4 @@
 
 .back-to-top:hover {
   text-decoration: underline;
-}
-
-body.quarto-dark .term-entry {
-  background: #161F1D;
-  border-color: rgba(215, 227, 223, 0.18);
 }

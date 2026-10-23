@@ -1,24 +1,13 @@
 /* Homepage hero, "how it works" steps, session cards and takeaways.
-   Shared typography/color defaults live in site.css. */
+   Shared typography lives in site.css; colours come from the --jf-* tokens in
+   theme-light.scss / theme-dark.scss, except the hero, which is a dark band
+   in both modes. */
 
 #title-block-header {
   display: none;
 }
 
-:root {
-  --home-ink: #202A28;
-  --home-muted: #65716D;
-  --home-line: #D7E3DF;
-  --home-green: #004D47;
-  --home-navy: #27384F;
-  --home-teal: #3A8F84;
-  --home-aqua: #B6DDD6;
-  --home-gold: #D9A72E;
-  --home-coral: #B86A55;
-  --home-mist: #F5F8F6;
-}
-
-/* ---------- Hero ---------- */
+/* ---------- Hero (same in both modes) ---------- */
 
 .hero {
   position: relative;
@@ -33,6 +22,7 @@
   color: #ffffff;
   padding: 3.2rem clamp(1.25rem, 4vw, 3.2rem);
   margin: 0 0 2.4rem;
+  border: 1px solid var(--jf-border);
   border-radius: 10px;
 }
 
@@ -41,7 +31,7 @@
   position: absolute;
   inset: auto 0 0;
   height: 6px;
-  background: linear-gradient(90deg, var(--home-gold), var(--home-aqua), var(--home-coral));
+  background: linear-gradient(90deg, #D9A72E, #B6DDD6, #B86A55);
 }
 
 .hero-copy,
@@ -81,13 +71,13 @@
 }
 
 .hero-cta {
-  background: var(--home-gold);
-  color: var(--home-ink) !important;
+  background: #D9A72E;
+  color: #202A28 !important;
 }
 
 .hero-cta:hover {
   background: #E3B957;
-  color: var(--home-ink) !important;
+  color: #202A28 !important;
 }
 
 .hero-cta-secondary {
@@ -142,8 +132,8 @@ main.content > .level2 > h2 {
 .how-step {
   position: relative;
   padding: 1.2rem 1.25rem 1.1rem 1.25rem;
-  background: var(--home-mist);
-  border: 1px solid var(--home-line);
+  background: var(--jf-surface-muted);
+  border: 1px solid var(--jf-border);
   border-radius: 8px;
 }
 
@@ -154,16 +144,21 @@ main.content > .level2 > h2 {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: var(--home-green);
-  color: #ffffff;
+  background: var(--jf-accent);
+  color: var(--jf-on-accent);
   font-family: "Roboto Condensed", "Segoe UI", Arial, sans-serif;
   font-weight: 700;
   font-size: 1.05rem;
   margin-bottom: 0.7rem;
 }
 
-.how-num p {
+/* Pandoc wraps the digit in a <p>; the .how-step p rule below would otherwise
+   recolour it to muted text on the accent fill. */
+.how-step .how-num p {
   margin: 0;
+  color: inherit;
+  font-size: inherit;
+  line-height: 1;
 }
 
 .how-step h3 {
@@ -172,7 +167,7 @@ main.content > .level2 > h2 {
 }
 
 .how-step p {
-  color: var(--home-muted);
+  color: var(--jf-muted);
   font-size: 0.95rem;
   margin: 0;
   line-height: 1.5;
@@ -190,50 +185,51 @@ main.content > .level2 > h2 {
 .session-card {
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--home-line);
-  border-top: 4px solid var(--session-accent, var(--home-green));
+  border: 1px solid var(--jf-border);
+  border-top: 4px solid var(--session-accent, var(--jf-stroke-green));
   border-radius: 8px;
   padding: 1.2rem;
-  background: #ffffff;
+  background: var(--jf-surface);
   transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
 }
 
 .session-card:hover {
-  border-color: rgba(0, 77, 71, 0.28);
-  box-shadow: 0 10px 24px rgba(32, 42, 40, 0.08);
+  border-color: var(--jf-border-strong);
+  border-top-color: var(--session-accent, var(--jf-stroke-green));
+  box-shadow: var(--jf-shadow);
   transform: translateY(-2px);
 }
 
 .session-card:nth-child(2) {
-  --session-accent: var(--home-gold);
+  --session-accent: var(--jf-stroke-gold);
 }
 
 .session-card:nth-child(3) {
-  --session-accent: var(--home-teal);
+  --session-accent: var(--jf-stroke-teal);
 }
 
 .session-card:nth-child(4) {
-  --session-accent: var(--home-navy);
+  --session-accent: var(--jf-stroke-navy);
 }
 
 .session-card:nth-child(5) {
-  --session-accent: var(--home-coral);
+  --session-accent: var(--jf-stroke-coral);
 }
 
 .session-card-ref {
-  --session-accent: var(--home-line);
-  background: var(--home-mist);
+  --session-accent: var(--jf-border);
+  background: var(--jf-surface-muted);
 }
 
 .session-icon {
   width: 38px;
   height: 38px;
-  color: var(--session-accent, var(--home-green));
+  color: var(--session-accent, var(--jf-stroke-green));
   margin-bottom: 0.65rem;
 }
 
 .session-card-ref .session-icon {
-  color: var(--home-muted);
+  color: var(--jf-muted);
 }
 
 .session-icon svg {
@@ -254,33 +250,33 @@ main.content > .level2 > h2 {
 }
 
 .badge-intro {
-  background: var(--home-mist);
-  color: var(--home-ink);
+  background: var(--jf-surface-muted);
+  color: var(--jf-text);
 }
 
 .session-card-ref .badge-intro {
-  background: #ffffff;
-  border: 1px solid var(--home-line);
+  background: var(--jf-surface);
+  border: 1px solid var(--jf-border);
 }
 
 .badge-setup {
-  background: #FBF1DC;
-  color: #6F5A16;
+  background: var(--jf-tint-gold-bg);
+  color: var(--jf-tint-gold-fg);
 }
 
 .badge-basic {
-  background: #E7F1EE;
-  color: var(--home-green);
+  background: var(--jf-tint-green-bg);
+  color: var(--jf-tint-green-fg);
 }
 
 .badge-intermediate {
-  background: #EEF3F7;
-  color: var(--home-navy);
+  background: var(--jf-tint-navy-bg);
+  color: var(--jf-tint-navy-fg);
 }
 
 .badge-advanced {
-  background: #F8EEE9;
-  color: #7C4A3D;
+  background: var(--jf-tint-coral-bg);
+  color: var(--jf-tint-coral-fg);
 }
 
 .session-card h3 {
@@ -289,16 +285,16 @@ main.content > .level2 > h2 {
 }
 
 .session-card h3 a {
-  color: var(--home-ink);
+  color: var(--jf-heading);
   text-decoration: none;
 }
 
 .session-card h3 a:hover {
-  color: var(--home-green);
+  color: var(--jf-link);
 }
 
 .session-card p {
-  color: var(--home-muted);
+  color: var(--jf-muted);
   font-size: 0.96rem;
   margin-bottom: 0.9rem;
 }
@@ -310,8 +306,8 @@ main.content > .level2 > h2 {
   flex-wrap: wrap;
   gap: 0.4rem 0.6rem;
   font-size: 0.86rem;
-  color: var(--home-muted);
-  border-top: 1px solid var(--home-line);
+  color: var(--jf-muted);
+  border-top: 1px solid var(--jf-border);
   padding-top: 0.75rem;
   margin-top: auto;
 }
@@ -326,23 +322,23 @@ main.content > .level2 > h2 {
   font-size: 0.82rem;
 }
 
+.session-meta a {
+  color: var(--jf-link);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.session-meta a:hover {
+  color: var(--jf-link-hover);
+  text-decoration: underline;
+}
+
 /* A long command chain must wrap inside its card, never widen the page grid. */
 .session-meta,
 .session-card,
 .how-step {
   min-width: 0;
   overflow-wrap: anywhere;
-}
-
-.session-meta a {
-  color: var(--home-green);
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.session-meta a:hover {
-  color: var(--home-navy);
-  text-decoration: underline;
 }
 
 /* ---------- Takeaways + source note ---------- */
@@ -370,65 +366,21 @@ main.content > .level2 > h2 {
   width: 0.7rem;
   height: 0.7rem;
   border-radius: 50%;
-  background: var(--home-gold);
+  background: var(--jf-stroke-gold);
 }
 
 .source-note {
   margin: 2.4rem 0 1rem;
   padding: 0.9rem 1.1rem;
-  border-left: 4px solid var(--home-aqua);
-  background: var(--home-mist);
+  border-left: 4px solid var(--jf-stroke-teal);
+  background: var(--jf-surface-muted);
   border-radius: 0 8px 8px 0;
   font-size: 0.92rem;
-  color: var(--home-muted);
+  color: var(--jf-muted);
 }
 
 .source-note p {
   margin: 0;
-}
-
-/* ---------- Dark mode ---------- */
-
-body.quarto-dark .session-card,
-body.quarto-dark .how-step,
-body.quarto-dark .source-note {
-  background: #161F1D;
-  border-color: rgba(215, 227, 223, 0.18);
-}
-
-body.quarto-dark .session-card-ref {
-  background: #1A2422;
-}
-
-body.quarto-dark .session-card-ref .badge-intro {
-  background: #161F1D;
-  color: #E9EEEC;
-  border-color: rgba(215, 227, 223, 0.18);
-}
-
-body.quarto-dark .session-card h3 a,
-body.quarto-dark .session-card p,
-body.quarto-dark .how-step h3 {
-  color: #E9EEEC;
-}
-
-body.quarto-dark .how-step p,
-body.quarto-dark .session-meta,
-body.quarto-dark .source-note {
-  color: #B9C8C3;
-}
-
-body.quarto-dark .session-meta {
-  border-top-color: rgba(215, 227, 223, 0.18);
-}
-
-body.quarto-dark .session-meta a {
-  color: var(--home-aqua);
-}
-
-body.quarto-dark .how-num {
-  background: var(--home-aqua);
-  color: #121817;
 }
 
 /* ---------- Responsive ---------- */

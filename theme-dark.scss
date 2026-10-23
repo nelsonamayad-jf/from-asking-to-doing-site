@@ -1,0 +1,54 @@
+/*-- scss:defaults --*/
+
+// Dark mode. Layered after darkly and the brand (see _quarto.yml); the brand
+// supplies body colours, primary and links. Pair with theme-light.scss: every
+// token below must exist in both files. All text pairs meet WCAG AA (4.5:1).
+
+$navbar-bg: #0E3A36;
+$navbar-fg: #F5F8F6;
+$navbar-hl: #FFFFFF;
+$footer-bg: #0E1312;
+
+/*-- scss:rules --*/
+
+// Quarto layers this sheet on top of the light one, so every token defined in
+// theme-light.scss is overridden here.
+:root {
+  --jf-bg: #{$body-bg};
+  --jf-text: #{$body-color};
+  --jf-heading: #F5F8F6;
+  --jf-muted: #A9B8B3;
+  --jf-surface: #18211F;
+  --jf-surface-muted: #1D2826;
+  --jf-border: #2E3B38;
+  --jf-border-strong: rgba(143, 211, 199, 0.45);
+  --jf-link: #8FD3C7;
+  --jf-link-hover: #D1EEE8;
+  --jf-code-bg: #1E2B28;
+  --jf-code-text: #C9EBE4;
+  --jf-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+  --jf-shadow-deck: 0 12px 28px rgba(0, 0, 0, 0.4);
+
+  --jf-accent: #8FD3C7;
+  --jf-on-accent: #121817;
+
+  --jf-stroke-green: #3FA394;
+  --jf-stroke-teal: #7FCABE;
+  --jf-stroke-navy: #7F9BC2;
+  --jf-stroke-gold: #D9A72E;
+  --jf-stroke-coral: #D08A74;
+  --jf-stroke-red: #D9675E;
+
+  --jf-tint-green-bg: #173330;
+  --jf-tint-green-fg: #8FD3C7;
+  --jf-tint-teal-bg: #173330;
+  --jf-tint-teal-fg: #8FD3C7;
+  --jf-tint-navy-bg: #1D2836;
+  --jf-tint-navy-fg: #B9CCE6;
+  --jf-tint-gold-bg: #332A12;
+  --jf-tint-gold-fg: #E8C46A;
+  --jf-tint-coral-bg: #36231C;
+  --jf-tint-coral-fg: #E8AC97;
+  --jf-tint-red-bg: #3A1D1A;
+  --jf-tint-red-fg: #F0A39B;
+}
