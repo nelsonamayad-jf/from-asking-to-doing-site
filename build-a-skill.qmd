@@ -1,0 +1,196 @@
+---
+title: "Build your own skill"
+subtitle: "From a task you keep explaining to a command you type once"
+toc: true
+toc-title: "On this page"
+toc-depth: 3
+page-layout: article
+---
+
+The [Skill collection](skill-collection.qmd) lists what the sessions built.
+This page is how to build the next one yourself. It takes no code: a skill is
+a plain-English file, and Claude writes most of it for you. Terms are defined
+in the [Thesaurus](thesaurus.qmd).
+
+Each step ends with a line to tick. Ticks are saved in your browser only.
+
+## The lifecycle
+
+### 1. Notice the pattern
+
+A task deserves a skill when you recognise any of these:
+
+- you have typed roughly the same request more than twice;
+- you walk Claude through the same steps in the same order every time;
+- you keep supplying the same background ("our template", "ten pages at most").
+
+One-off tasks do not need one. Neither does anything you have not yet done by
+hand: you cannot write down a procedure you have not followed.
+
+::: {#skill-step-1 .checklist .selfcheck}
+- [ ] I have a task in mind that I have explained to Claude at least three times
+:::
+
+### 2. Do it by hand once more
+
+Run the task in an ordinary conversation, in the folder where the files live,
+and pay attention to yourself. What did you have to correct? What did Claude
+get wrong on the first try? What did you paste in? Those corrections are the
+skill; everything else Claude would have done anyway.
+
+::: {#skill-step-2 .checklist .selfcheck}
+- [ ] I have done the task once in conversation and I know what I corrected
+:::
+
+### 3. Have Claude write it
+
+Stay in the same conversation, so the corrections are still in context, and
+ask:
+
+```text
+Turn what we just did into a skill called /my-task in this project's
+.claude/skills/ folder. Write the procedure as numbered steps in plain English.
+Include every correction I made as an explicit instruction. Before it writes
+the final file, the skill must show me its plan and wait for my go-ahead.
+```
+
+What comes back is a folder with one file, `.claude/skills/my-task/SKILL.md`.
+Open it and read it; it should look like this:
+
+```markdown
+---
+name: my-task
+description: "One sentence: what it does and when to use it."
+---
+
+# /my-task
+
+## Trigger
+User runs: `/my-task [optional: file or folder]`
+If no input is given, ask which one to use.
+
+## Steps
+1. Read the defaults in `CLAUDE.md`.
+2. Read the input and ...
+3. Show the proposed plan and wait for confirmation.
+4. Write the result to `output/`.
+
+## If something goes wrong
+- No input found: say so and stop.
+- A file cannot be read: list it, continue with the rest.
+
+## Report back
+Print what was written and where.
+```
+
+The `name` must match the folder name. The `description` is what Claude reads
+to decide when the skill applies, so make it specific. Whatever you type after
+the command is available to the skill as `$ARGUMENTS`.
+
+::: {#skill-step-3 .checklist .selfcheck}
+- [ ] `.claude/skills/<name>/SKILL.md` exists and I have read it
+:::
+
+### 4. Test it in a fresh session
+
+The conversation that wrote the skill already knows what you want, so it is the
+wrong place to test it. Start a new session, type `/`, check the skill is
+listed, and run it on a real input. Judge the output yourself. Typical first
+results and their fixes:
+
+| What you see | What to add to the skill |
+|---|---|
+| Too long, too chatty | A length limit and an exact output format |
+| It guessed something you would have told it | The missing instruction, or a line in `CLAUDE.md` |
+| Wrong structure | A template of the output, headings included |
+| It fell over on an odd input | A line under "If something goes wrong" |
+
+Fix by asking, not by editing: tell Claude what went wrong and have it update
+the file.
+
+::: {#skill-step-4 .checklist .selfcheck}
+- [ ] The skill ran in a fresh session, on a real input, and I checked the output
+:::
+
+### 5. Stabilise
+
+Once it works twice, make it something you can leave alone for a month:
+
+- move anything you might tune (lengths, folders, formats, language) into a
+  defaults block in `CLAUDE.md`;
+- add a one-line note at the top saying what changed and when;
+- try it on a second, different input;
+- if a colleague should have it, give them the folder. That is the whole
+  installation.
+
+::: {#skill-step-5 .checklist .selfcheck}
+- [ ] Defaults live in `CLAUDE.md`, and the skill has run on two different inputs
+:::
+
+## Patterns to steal from the sessions {#patterns}
+
+Every one of these is in a session folder you can open and copy from.
+
+| Pattern | What it buys you | Where to look |
+|---|---|---|
+| **Review gate** | Nothing final is written before you have seen the plan | The slide-plan confirmation in `/proposal-to-slides`; the structure prompt in `/report` |
+| **Defaults in `CLAUDE.md`** | Change a page limit once, every skill follows | The defaults block at the top of each session's `CLAUDE.md` |
+| **Intermediate files** | When the result is wrong, you can see which step to fix | `output/manifest.md` and `output/summaries/` in Session 2 |
+| **Small skills plus an orchestrator** | Learn step by step, demo in one command | `/collect`, `/synthesize`, `/report` and `/summarizer` |
+| **Stub plus readable recipe** | The command stays short; the procedure stays readable | `.claude/skills/collect/SKILL.md` pointing to `skills/collect.md` |
+| **Optional argument with a default** | Works with no input, adapts when you give one | `/collect` versus `/collect path/to/folder` |
+| **Separated roles** | The judge cannot be swayed by the gatherer | `/reviewer` reads only the briefing in Session 3 |
+| **Cite or drop** | No claim without a source file and passage | The traceability rule in `/reviewer` |
+| **Audit log** | A record of what was done, not what was said | `output/audit-log.md` in Session 3 |
+| **Progress and summary blocks** | You can follow a long run without reading everything | The boxed headers and `✓` lines in every recipe |
+
+## When a skill disappoints {#when-a-skill-disappoints}
+
+Fix it straight away, in the folder where it went wrong, while the bad output
+is still there to point at.
+
+**Show the problem.**
+
+```text
+I just ran /my-task on input/q3-notes.md. I expected a one-page summary with
+three decisions. I got four pages and no decisions. Read the skill and the
+output, and tell me which instruction caused this. Do not change anything yet.
+```
+
+**Decide what to change.** There are two kinds of fault. A technical one (a
+file was not found, a tool is missing) needs the environment fixed. An
+instruction that is vague or out of date needs the skill reworded. Ask for the
+smallest change that would have prevented this run.
+
+**Have Claude make the change**, keeping the rest:
+
+```text
+Make the change we agreed on. Keep everything else in the skill as it is, and
+add a dated one-line note at the top saying what changed and why.
+```
+
+**Re-run on the input that exposed the problem**, in a fresh session. If you
+keep your folder in Git, the previous version of the skill is one command away
+if the fix made things worse.
+
+## Audit once in a while {#audit}
+
+Skills accumulate. A few times a year, open the project and ask:
+
+```text
+List every skill in .claude/skills/ with one line on what it does. Which ones
+overlap? Which refer to files or tools that no longer exist? Which have steps
+you would not need today? Give me a short prioritised list. Change nothing.
+```
+
+Then work through the top of the list. Retiring a skill you no longer use is
+progress too.
+
+::: {.credit-note}
+The lifecycle (notice, do by hand, write, test, stabilise) and the idea of a
+"patterns to steal" table follow Chris Blattman's
+[Create a skill](https://claudeblattman.com/build-your-own/building-skills/) and
+[Fix and update your skills](https://claudeblattman.com/workflows/maintain-skills/).
+The official reference is
+[Skills in the Claude Code docs](https://code.claude.com/docs/en/skills).
+:::

@@ -29,6 +29,9 @@ project:
     - agent-collection.qmd
     - tips.qmd
     - thesaurus.qmd
+    - next-steps.qmd
+    - build-a-skill.qmd
+    - concerns.qmd
 
 website:
   # Used for browser-tab titles, the search index, and og:site_name.
@@ -80,13 +83,25 @@ website:
         href: 03_multitudes/session-3.qmd
 
     right:
-      - text: "Collections"
-        icon: collection
+      # One menu for everything beyond the sessions, so the navbar does not
+      # grow: the after-the-sessions pages first, then the two collections.
+      - text: "Go further"
+        icon: signpost-2
         menu:
-          - text: "Skills"
+          - text: "Next steps"
+            icon: check2-square
+            href: next-steps.qmd
+          - text: "Build your own skill"
+            icon: hammer
+            href: build-a-skill.qmd
+          - text: "Fair concerns"
+            icon: question-circle
+            href: concerns.qmd
+          - text: "---"
+          - text: "Skill collection"
             icon: tools
             href: skill-collection.qmd
-          - text: "Agents"
+          - text: "Agent collection"
             icon: robot
             href: agent-collection.qmd
       - text: "Tips"
@@ -101,7 +116,7 @@ website:
 
   page-footer:
     border: true
-    left: "Developed by Nelson Amaya (Jacobs Foundation)"
+    left: "Developed by Nelson Amaya (Jacobs Foundation) · [Something unclear? Tell me](mailto:nelson.amaya@jacobsfoundation.org?subject=From%20Asking%20to%20Doing%3A%20feedback)"
     center: "Claude Code Training · Jacobs Foundation · 2026"
     right: "[Site source](https://github.com/nelsonamayad-jf/from-asking-to-doing-site) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)"
 
@@ -115,6 +130,8 @@ format:
       light: [cosmo, brand, theme-light.scss]
       dark: [darkly, brand, theme-dark.scss]
     css: site.css
+    # Tick-off checklists that persist in the browser (see the file's header).
+    include-after-body: checklist-include.html
     respect-user-color-scheme: true
     toc: false
     page-layout: full

@@ -168,7 +168,8 @@ audit log: every action taken, every source cited, every decision made.
 
 ## Making your own
 
-Copy the closest one. A skill is a `SKILL.md` file in `.claude/skills/<name>/`
+[Build your own skill](build-a-skill.qmd) is the full walkthrough. The short
+version: copy the closest one. A skill is a `SKILL.md` file in `.claude/skills/<name>/`
 with a short front matter (`name`, `description`) and the procedure in plain
 English. Sessions 2 and 3 keep the procedure in a readable `skills/<name>.md`
 and have the `SKILL.md` point to it; Session 1 keeps the whole procedure in the

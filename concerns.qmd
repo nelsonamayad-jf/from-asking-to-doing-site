@@ -1,0 +1,111 @@
+---
+title: "Fair concerns"
+subtitle: "The objections worth taking seriously, and what the sessions do about them"
+toc: true
+toc-title: "Concerns"
+toc-depth: 3
+page-layout: article
+---
+
+These are the practical worries that come up in the room, answered as plainly
+as the training can. The larger debates about AI, jobs and society are real and
+are not settled here.
+
+## "I can't code." {#cant-code}
+
+You do not need to. Every skill in the three sessions is a plain-English file:
+numbered steps, a default or two, a pause for review. If you can write a clear
+briefing note for a colleague, you can read a skill, change one, and
+[write your own](build-a-skill.qmd). The [Motivation](intro.qmd) deck makes the
+longer version of this argument.
+
+What you do need is the habit of opening files and looking at what was
+produced. That is a reviewing skill, not a programming one.
+
+## "I'll get polished nonsense." {#slop}
+
+You can. A well-formatted report that misses the point is still a bad report,
+and good formatting makes it harder to notice. The sessions answer this with
+structure, not with trust:
+
+- **A review gate before anything final.** The slide plan, the report
+  structure and the evidence briefing are each shown to you first.
+- **Intermediate files.** Session 2 leaves a manifest and a summary per input,
+  so a wrong sentence in the report can be traced to the step that produced it.
+- **Cite or drop.** Session 3's reviewer removes any finding it cannot tie to
+  a source file and a passage.
+
+None of this makes the output correct. It makes it checkable, and it puts the
+check where it is cheapest. How much to check is your call and depends on who
+will read the result: an internal first draft and a document that leaves the
+Foundation do not deserve the same scrutiny.
+
+## "Is it still my work?" {#authorship}
+
+It is if you can stand behind it. The gate exists for exactly this: you approve
+the outline before the deck is built, you correct the evidence before it is
+judged. If you could not explain a slide or defend a finding, it should not go
+out under your name, whoever drafted it.
+
+A useful split: let the agent do the assembling (reading sixteen files, laying
+out twelve slides, formatting a report) and keep the judgment (what matters,
+what to recommend, how to say the difficult part). Some writing is worth doing
+yourself start to finish, and deciding which is part of the job.
+
+## "Can I use it on confidential documents?" {#confidential}
+
+This page cannot answer that for you, and neither can the tool.
+
+What is technically true: Claude Code runs on your machine and works on the
+files in the folder you open, but whatever it reads in order to do the task is
+sent to the model provider to be processed. "It stays on my laptop" is not an
+accurate description.
+
+Whether a given document may be sent there is a Foundation question, not a
+technical one. Before using real material, find out which tools and account
+types are approved, for which kinds of information, and whether a partner or
+grantee agreement adds its own restrictions. A personal subscription does not
+change what you are allowed to share.
+
+Until you know, practise on the sample inputs. Every session ships with them
+for this reason.
+
+## "Is it worth learning if it will all change?" {#obsolete}
+
+The commands will change. What the sessions teach underneath them should hold
+up better:
+
+- one folder per task, with inputs and outputs you can see;
+- standing instructions in a file instead of in your head;
+- a pause before anything final is written;
+- separate roles when the stakes justify it.
+
+Skills are plain English, so rewriting one for a newer tool is an afternoon,
+not a project. Each session folder already runs in a second tool: `AGENTS.md`
+gives Codex the same contract `CLAUDE.md` gives Claude.
+
+The setup cost is real, though. The honest advice is to start with one task you
+do often, not to rebuild your whole way of working in a week.
+
+## "Will this save time, or give me more to supervise?" {#attention}
+
+Both are possible. Starting gets easier: a draft to react to is less daunting
+than a blank page. But an agent that can run five things at once makes it easy
+to start five things, and reviewing five outputs is work.
+
+The sessions lean toward fewer, checkable runs: step by step before the
+one-command pipeline, one gate you read properly instead of five you skim. The
+measure is not how much was generated. It is how much you finished and would
+sign.
+
+## Something missing?
+
+If your concern is not here, it probably should be.
+[Tell me](mailto:nelson.amaya@jacobsfoundation.org?subject=From%20Asking%20to%20Doing%3A%20a%20concern)
+and it will be added.
+
+::: {.credit-note}
+The format, and several of the questions, follow Chris Blattman's
+[AI Concerns](https://claudeblattman.com/ai-concerns/) page, which is candid in
+a way most guides are not.
+:::

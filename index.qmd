@@ -191,6 +191,59 @@ Look things up as you go
 
 :::
 
+## Where are you? {#where-are-you}
+
+Tick what you have already done and follow the link on the first line you
+have not. Ticks are saved in your browser, on this device only.
+
+::: {#home-path .checklist progress="true"}
+- [ ] Claude Code is installed, logged in and verified on my machine ([Session 0](session-0.qmd))
+- [ ] I ran `/proposal-to-slides` on the sample proposal and confirmed the slide plan ([Session 1](01_slidemaker/session-1.qmd))
+- [ ] I ran it again on a proposal of my own
+- [ ] I ran `/collect`, `/synthesize` and `/report` one at a time and opened each intermediate file ([Session 2](02_summarizer/session-2.qmd))
+- [ ] I pointed that pipeline at a folder of my own
+- [ ] I ran `/researcher`, corrected the briefing at the checkpoint, then ran `/reviewer` ([Session 3](03_multitudes/session-3.qmd))
+- [ ] I changed a default in a session's `CLAUDE.md` and watched the output change
+:::
+
+All ticked? [Next steps](next-steps.qmd) picks up from here.
+
+## What do you want to do? {#what-do-you-want}
+
+::: {.route-grid}
+
+::: {.route}
+[Turn a document into a deck]{.route-want}
+[[Session 1 · Slidemaking](01_slidemaker/session-1.qmd)]{.route-go}
+:::
+
+::: {.route}
+[Make sense of a folder of mixed files]{.route-want}
+[[Session 2 · Mixing it up](02_summarizer/session-2.qmd)]{.route-go}
+:::
+
+::: {.route}
+[Get a critical read of a strategy or plan]{.route-want}
+[[Session 3 · Extended Team](03_multitudes/session-3.qmd)]{.route-go}
+:::
+
+::: {.route}
+[Turn something I keep doing into a command]{.route-want}
+[[Build your own skill](build-a-skill.qmd)]{.route-go}
+:::
+
+::: {.route}
+[Decide whether I should be doing this at all]{.route-want}
+[[Fair concerns](concerns.qmd)]{.route-go}
+:::
+
+::: {.route}
+[Look something up, or find out why it went wrong]{.route-want}
+[[Thesaurus](thesaurus.qmd) · [Tips](tips.qmd)]{.route-go}
+:::
+
+:::
+
 ## What you leave with
 
 ::: {.takeaways}

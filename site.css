@@ -273,3 +273,158 @@ pre code {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* ---------- Tick-off checklists (state handled by checklist-include.html) ---------- */
+
+.checklist {
+  border: 1px solid var(--jf-border);
+  border-left: 4px solid var(--jf-stroke-teal);
+  border-radius: 8px;
+  padding: 0.9rem 1.2rem 0.8rem;
+  margin: 0.8rem 0 1.4rem;
+  background: var(--jf-surface);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.checklist ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.checklist li {
+  position: relative;
+  padding: 0.32rem 0 0.32rem 1.9rem;
+  margin: 0;
+}
+
+.checklist li > label {
+  display: inline;
+  cursor: pointer;
+}
+
+/* Quarto's own task-list rule pulls the box left with a negative margin. */
+.checklist ul.task-list li input[type="checkbox"] {
+  position: absolute;
+  left: 0;
+  top: 0.58rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  margin: 0 !important;
+  accent-color: var(--jf-accent);
+  cursor: pointer;
+}
+
+.checklist li.done {
+  color: var(--jf-muted);
+}
+
+.checklist-progress {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  margin-top: 0.7rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--jf-border);
+  font-size: 0.85rem;
+  color: var(--jf-muted);
+}
+
+.checklist-reset {
+  border: 1px solid var(--jf-border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--jf-muted);
+  font-size: 0.82rem;
+  padding: 0.15rem 0.6rem;
+}
+
+.checklist-reset:hover {
+  border-color: var(--jf-border-strong);
+  color: var(--jf-text);
+}
+
+/* A one-line "did it work?" check under a step */
+.checklist.selfcheck {
+  border-left-color: var(--jf-stroke-gold);
+  background: var(--jf-surface-muted);
+  padding: 0.35rem 1rem;
+  margin: 0.6rem 0 1.6rem;
+}
+
+/* ---------- "What do you want to do?" routing ---------- */
+
+.route-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin: 1.2rem 0 0.6rem;
+}
+
+.route {
+  border: 1px solid var(--jf-border);
+  border-radius: 8px;
+  padding: 0.9rem 1.1rem;
+  background: var(--jf-surface-muted);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.route p {
+  margin: 0;
+  line-height: 1.45;
+}
+
+.route-want {
+  display: block;
+  font-weight: 700;
+  color: var(--jf-heading);
+  margin-bottom: 0.25rem;
+}
+
+.route-go {
+  font-size: 0.93rem;
+  color: var(--jf-muted);
+}
+
+/* Stage label above a checklist on the next-steps page */
+.stage-label {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.24em 0.62em;
+  border-radius: 6px;
+  background: var(--jf-tint-teal-bg);
+  color: var(--jf-tint-teal-fg);
+}
+
+.credit-note {
+  margin: 2rem 0 1rem;
+  padding: 0.8rem 1.1rem;
+  border-left: 4px solid var(--jf-stroke-teal);
+  background: var(--jf-surface-muted);
+  border-radius: 0 8px 8px 0;
+  font-size: 0.92rem;
+  color: var(--jf-muted);
+}
+
+.credit-note p {
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .route-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .route-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

@@ -1,0 +1,80 @@
+<!-- Tick-off checklists that remember their state in this browser.
+     Included on every html page from _quarto.yml (include-after-body).
+
+     Markup, in any .qmd:
+
+       ::: {#some-id .checklist progress="true"}
+       - [ ] First thing
+       - [ ] Second thing
+       :::
+
+     The div id plus the item's text is the storage key, so reordering items
+     keeps their ticks and rewording an item clears only that one. Nothing
+     leaves the browser; if storage is unavailable the boxes still tick, they
+     just do not persist. -->
+<script>
+(function () {
+  var PREFIX = "fatd-check:";
+
+  function read(key) {
+    try { return window.localStorage.getItem(key) === "1"; } catch (e) { return false; }
+  }
+  function write(key, on) {
+    try {
+      if (on) { window.localStorage.setItem(key, "1"); }
+      else { window.localStorage.removeItem(key); }
+    } catch (e) { /* private window or blocked storage: tick without saving */ }
+  }
+  function slug(text) {
+    return text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 80);
+  }
+
+  document.querySelectorAll(".checklist[id]").forEach(function (list) {
+    var boxes = Array.prototype.slice.call(list.querySelectorAll('input[type="checkbox"]'));
+    if (!boxes.length) { return; }
+
+    var status = null;
+    if (list.getAttribute("data-progress") === "true") {
+      var bar = document.createElement("div");
+      bar.className = "checklist-progress";
+      status = document.createElement("span");
+      status.setAttribute("aria-live", "polite");
+      var reset = document.createElement("button");
+      reset.type = "button";
+      reset.className = "checklist-reset";
+      reset.textContent = "Clear ticks";
+      reset.addEventListener("click", function () {
+        boxes.forEach(function (box) {
+          box.checked = false;
+          write(box.dataset.key, false);
+          box.closest("li").classList.remove("done");
+        });
+        update();
+      });
+      bar.appendChild(status);
+      bar.appendChild(reset);
+      list.appendChild(bar);
+    }
+
+    function update() {
+      if (!status) { return; }
+      var done = boxes.filter(function (b) { return b.checked; }).length;
+      status.textContent = done + " of " + boxes.length + " ticked · saved in this browser only";
+    }
+
+    boxes.forEach(function (box) {
+      var item = box.closest("li");
+      box.disabled = false;
+      box.dataset.key = PREFIX + list.id + ":" + slug(item.textContent);
+      box.checked = read(box.dataset.key);
+      item.classList.toggle("done", box.checked);
+      box.addEventListener("change", function () {
+        write(box.dataset.key, box.checked);
+        item.classList.toggle("done", box.checked);
+        update();
+      });
+    });
+    update();
+  });
+})();
+</script>

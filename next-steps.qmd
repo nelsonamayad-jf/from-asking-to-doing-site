@@ -1,0 +1,112 @@
+---
+title: "Next steps"
+subtitle: "What to do once the three sessions run on your machine"
+toc: true
+toc-title: "Stages"
+toc-depth: 3
+page-layout: article
+---
+
+The sessions end with three folders that work. This page is the part after
+that: a checklist to keep track of what you have tried, in the order that tends
+to pay off. Stage 1 comes first. After it, the stages are independent, so pick
+the one that matches the work in front of you.
+
+Ticks are saved in your browser, on this device only. Nobody else sees them.
+
+## Make the sessions yours {#stage-1}
+
+[Stage 1 · do this first]{.stage-label}
+
+Running a session on the sample proves the setup. Running it on your own files
+is where you find out what you would change.
+
+::: {#next-stage-1 .checklist progress="true"}
+- [ ] Run [`/proposal-to-slides`](01_slidemaker/session-1.qmd) on a proposal of your own
+- [ ] Run [`/collect`, `/synthesize` and `/report`](02_summarizer/session-2.qmd) on a folder of your own, one step at a time
+- [ ] Run [`/researcher` and `/reviewer`](03_multitudes/session-3.qmd) on a strategy or plan of your own, and correct the briefing at the checkpoint
+- [ ] Change one default in a session's `CLAUDE.md` (a page limit, a colour, the language) and run it again
+- [ ] Open one recipe in a session's `skills/` folder and read it top to bottom
+- [ ] Read `output/audit-log.md` from Session 3 once, start to finish
+:::
+
+## Build your first skill {#stage-2}
+
+[Stage 2]{.stage-label}
+
+The sessions gave you skills someone else wrote. The habit worth having is
+noticing when one of your own tasks deserves one.
+[Build your own skill](build-a-skill.qmd) walks through each line below.
+
+::: {#next-stage-2 .checklist progress="true"}
+- [ ] Notice a task you have explained to Claude three times
+- [ ] Do it once more in plain conversation, and write down every correction you make
+- [ ] Ask Claude to turn that conversation into a skill in `.claude/skills/`
+- [ ] Open a fresh session and run the skill on a real input
+- [ ] Add a review gate before it writes the final file
+- [ ] Move anything you would tune later (lengths, folders, formats) into `CLAUDE.md`
+:::
+
+## Keep your skills working {#stage-3}
+
+[Stage 3]{.stage-label}
+
+A skill is a plain-English file, so it drifts: your needs change, the tools
+improve, and steps that were necessary become clutter. Fixing one is a
+conversation, not a rewrite. See
+[When a skill disappoints](build-a-skill.qmd#when-a-skill-disappoints).
+
+::: {#next-stage-3 .checklist progress="true"}
+- [ ] Fix a skill right after a run that disappointed, while the bad output is still in the folder
+- [ ] Ask Claude which steps in a skill it no longer needs, and remove them
+- [ ] Review all the skills in a project at once: which overlap, which are broken, which could be simpler
+:::
+
+## Get a second opinion {#stage-4}
+
+[Stage 4]{.stage-label}
+
+Session 3's point is that the one who judges should not be the one who
+gathered. You can borrow that for any draft, without building a pipeline.
+
+::: {#next-stage-4 .checklist progress="true"}
+- [ ] Ask for a review by an agent that sees only the draft, not the conversation that produced it
+- [ ] Ask what the most important question a sceptical reader would raise is, before you send something
+- [ ] Open a session folder in Codex (each one ships an `AGENTS.md`) and compare its output with Claude's
+:::
+
+A prompt for the first one:
+
+```text
+Start a new agent with a clean context. Give it only output/draft.md, not our
+conversation. Ask it to list the three weakest claims in the draft and, for
+each, what evidence would be needed to keep it. Show me its answer unedited.
+```
+
+## Pick up where you left off {#stage-5}
+
+[Stage 5]{.stage-label}
+
+A long conversation gets narrower (see [Tips](tips.qmd#while-you-work)), and a
+new one starts from zero. A short handoff file bridges the two.
+
+::: {#next-stage-5 .checklist progress="true"}
+- [ ] End a working session by asking Claude to write a handoff note
+- [ ] Start the next session by asking Claude to read it
+- [ ] Move anything in the note that will stay true for weeks into `CLAUDE.md`
+:::
+
+```text
+Write HANDOFF.md in this folder: what we were doing, what is finished, what is
+still open, which files matter, and the next step. Keep it under one page.
+```
+
+```text
+Read HANDOFF.md and tell me where we are before doing anything.
+```
+
+::: {.credit-note}
+The tick-off format and the staging are adapted from Chris Blattman's
+[claudeblattman.com](https://claudeblattman.com/), a guide to agents for people
+who do not code. Worth reading alongside this one.
+:::

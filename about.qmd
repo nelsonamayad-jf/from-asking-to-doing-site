@@ -50,6 +50,11 @@ Between sessions, the **[Thesaurus](thesaurus.qmd)** defines the terms, the
 collections catalog what was built, and **[Tips](tips.qmd)** collects what the
 decks keep repeating.
 
+After the sessions, **[Next steps](next-steps.qmd)** is a checklist for making
+them yours, **[Build your own skill](build-a-skill.qmd)** covers writing and
+maintaining one, and **[Fair concerns](concerns.qmd)** takes the usual
+objections seriously.
+
 ## 📦 Replicating a session
 
 Every session is a folder you can download from its page and open directly in
